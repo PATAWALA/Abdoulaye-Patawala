@@ -6,7 +6,7 @@ const siteConfig = {
   description:
     'Sites web premium, tunnels de vente et automatisation sur-mesure. Je transforme votre vision en résultats concrets. Basé à Cotonou, Bénin.',
   url: 'https://www.patawala.com',
-  ogImage: 'https://www.patawala.com/images/og-default.jpg',
+  ogImage: 'https://www.patawala.com/images/og-default.png',
   locale: 'fr_FR',
   twitterHandle: '@abdoulaye_dev',
   author: 'Abdoulaye Patawala',
