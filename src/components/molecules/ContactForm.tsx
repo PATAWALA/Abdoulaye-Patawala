@@ -13,7 +13,7 @@ const messageTypes = [
 const placeholders: Record<string, string> = {
   Projet: 'Décrivez votre projet, vos objectifs, vos besoins…',
   Témoignage: 'Racontez votre expérience avec moi, ce que vous avez pensé du résultat…',
-  Collaboration: 'Parlez-moi de vous et de l’idée de collaboration…',
+  Collaboration: 'Parlez-moi de vous et de l\'idée de collaboration…',
   Formation: 'Quelle compétence souhaitez-vous acquérir ? Dans quel cadre ?',
   Autre: 'Écrivez votre message…',
 };
@@ -57,9 +57,32 @@ const ContactForm: React.FC = () => {
     } else {
       setStatus('success');
       setFormData({ name: '', email: '', message: '', message_type: 'Projet', rating: 0 });
-      setTimeout(() => setStatus('idle'), 5000);
+      setTimeout(() => setStatus('idle'), 6000);
     }
   };
+
+  // Affichage du message de succès à la place du formulaire
+  if (status === 'success') {
+    return (
+      <div className="bg-dark-800 border border-green-500/20 rounded-2xl p-8 lg:p-12 text-center">
+        <div className="w-16 h-16 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-display text-white mb-2">Message envoyé avec succès</h3>
+        <p className="text-gray-400 text-sm mb-6 max-w-sm mx-auto leading-relaxed">
+          Merci pour votre message. Je le lis personnellement et je vous réponds sous 24h maximum.
+        </p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="text-gold-400 text-sm hover:text-gold-300 transition-colors font-medium"
+        >
+          Envoyer un autre message
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="bg-dark-800 border border-dark-700 rounded-2xl p-8 lg:p-10 space-y-6">
@@ -141,37 +164,44 @@ const ContactForm: React.FC = () => {
         />
       </div>
 
-      <button
-  type="submit"
-  disabled={status === 'loading' || status === 'success'}
-  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 disabled:cursor-not-allowed shadow-lg ${
-    status === 'success'
-      ? 'bg-green-500/20 text-green-400 border border-green-500/30 cursor-default'
-      : status === 'error'
-      ? 'bg-red-500/20 text-red-400 border border-red-500/30'
-      : 'bg-gold-500 text-dark-900 hover:bg-gold-400 shadow-gold-500/10 hover:shadow-gold-500/20'
-  }`}
->
-  {status === 'loading' && (
-    <span className="flex items-center justify-center gap-2">
-      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-      </svg>
-      Envoi en cours...
-    </span>
-  )}
-  {status === 'success' && (
-    <span className="flex items-center justify-center gap-2">
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-      </svg>
-      Message envoyé avec succès !
-    </span>
-  )}
-  {status === 'idle' && 'Envoyer le message'}
-  {status === 'error' && '⚠️ Une erreur est survenue. Réessayez.'}
-</button>
+      {/* Bouton submit */}
+      {status === 'error' ? (
+        <div className="space-y-4">
+          <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4 flex items-start gap-3">
+            <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p className="text-red-400 text-sm font-medium mb-1">Erreur d&apos;envoi</p>
+              <p className="text-gray-500 text-xs">Une erreur est survenue. Vérifiez votre connexion et réessayez.</p>
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="w-full py-4 rounded-xl font-semibold bg-gold-500 text-dark-900 hover:bg-gold-400 transition-all duration-300 shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20"
+          >
+            Réessayer
+          </button>
+        </div>
+      ) : (
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="w-full py-4 rounded-xl font-semibold bg-gold-500 text-dark-900 hover:bg-gold-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 flex items-center justify-center gap-2"
+        >
+          {status === 'loading' ? (
+            <>
+              <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              <span>Envoi en cours...</span>
+            </>
+          ) : (
+            <span>Envoyer le message</span>
+          )}
+        </button>
+      )}
 
       <p className="text-center text-gray-600 text-xs">
         Vos informations sont confidentielles. Réponse garantie sous 24h.
