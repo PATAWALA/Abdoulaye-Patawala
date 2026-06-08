@@ -68,10 +68,12 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-dark-900/85 backdrop-blur-2xl border-b border-dark-700/40 shadow-2xl shadow-black/20'
-          : 'bg-transparent'
-      }`}
+  scrolled
+    ? 'bg-dark-900/85 backdrop-blur-2xl border-b border-dark-700/40 shadow-2xl shadow-black/20'
+    : isHome
+    ? 'bg-transparent'
+    : 'bg-dark-900/85 backdrop-blur-2xl border-b border-dark-700/40 shadow-2xl shadow-black/20'
+}`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
         
