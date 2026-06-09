@@ -67,7 +67,7 @@ const BlogPreview: React.FC = () => {
   if (posts.length === 0) return null;
 
   return (
-    <section id="blog" className="bg-dark-800">
+    <section className="bg-dark-800">
       <div className="py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         
         {/* En-tête */}
