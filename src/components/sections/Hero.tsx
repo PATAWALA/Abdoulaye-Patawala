@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 bg-dark-800/90 backdrop-blur-sm border border-dark-600 rounded-xl px-4 py-2.5">
-            <p className="text-gold-400 text-xl font-bold">5+</p>
+            <p className="text-gold-400 text-xl font-bold">4+</p>
             <p className="text-gray-400 text-xs">ans d'expertise</p>
           </div>
         </div>
