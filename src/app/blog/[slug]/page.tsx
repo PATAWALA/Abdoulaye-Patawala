@@ -218,15 +218,15 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-3">Passer à l&apos;action</p>
             <h2 className="text-xl md:text-3xl font-display text-white mb-3">Prêt à donner vie à votre projet ?</h2>
             <p className="text-gray-400 text-sm md:text-base mb-8 max-w-sm mx-auto">Discutons de vos objectifs. Réponse sous 24h.</p>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
-            >
-              <span>Démarrer un projet</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <a
+  href="/#contact"
+  className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
+>
+  <span>Démarrer un projet</span>
+  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</a>
           </div>
         </div>
 
