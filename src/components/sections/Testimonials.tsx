@@ -33,6 +33,56 @@ const Testimonials: React.FC = () => {
     fetchTestimonials();
   }, []);
 
+  // Initialiser au témoignage du milieu
+  useEffect(() => {
+    if (testimonials.length > 0 && scrollRef.current && window.innerWidth < 768) {
+      const startIndex = Math.floor(testimonials.length / 2);
+      setActiveIndex(startIndex);
+      setTimeout(() => {
+        if (scrollRef.current) {
+          const container = scrollRef.current;
+          const card = container.children[startIndex] as HTMLElement;
+          if (card) {
+            const scrollLeft = card.offsetLeft - container.offsetWidth / 2 + card.offsetWidth / 2;
+            container.scrollTo({ left: scrollLeft, behavior: 'instant' as ScrollBehavior });
+          }
+        }
+      }, 100);
+    }
+  }, [testimonials.length]);
+
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index);
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const card = container.children[index] as HTMLElement;
+      if (card) {
+        const scrollLeft = card.offsetLeft - container.offsetWidth / 2 + card.offsetWidth / 2;
+        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Détecter l'index actif pendant le scroll manuel
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const scrollCenter = container.scrollLeft + container.offsetWidth / 2;
+      let closest = 0;
+      let closestDist = Infinity;
+      Array.from(container.children).forEach((child, i) => {
+        const card = child as HTMLElement;
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const dist = Math.abs(scrollCenter - cardCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      });
+      setActiveIndex(closest);
+    }
+  };
+
   if (loading) return <TestimonialsSkeleton />;
 
   return (
@@ -69,6 +119,7 @@ const Testimonials: React.FC = () => {
           </div>
         ) : (
           <>
+            {/* Desktop : grille */}
             <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {testimonials.map((t, i) => (
                 <div key={t.id} className="motion-safe:animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
@@ -77,36 +128,41 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
 
+            {/* Mobile : carrousel avec peek */}
             <div className="md:hidden">
-              <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4">
+              <div
+                ref={scrollRef}
+                onScroll={handleScroll}
+                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-[calc(50%-140px)]"
+              >
                 {testimonials.map((t, i) => (
-                  <div key={t.id} className="snap-center flex-shrink-0 w-[85vw] max-w-sm">
+                  <div
+                    key={t.id}
+                    className={`snap-center flex-shrink-0 w-[280px] transition-opacity duration-300 ${
+                      i === activeIndex ? 'opacity-100 scale-100' : 'opacity-40 scale-95'
+                    }`}
+                  >
                     <TestimonialCard quote={t.quote} author={t.author} role={t.role} />
                   </div>
                 ))}
               </div>
+
+              {/* Indicateurs */}
               <div className="flex items-center justify-center gap-2 mt-6">
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => {
-                      setActiveIndex(i);
-                      if (scrollRef.current) {
-                        const container = scrollRef.current;
-                        const card = container.children[i] as HTMLElement;
-                        if (card) {
-                          const scrollLeft = card.offsetLeft - container.offsetLeft - (container.offsetWidth - card.offsetWidth) / 2;
-                          container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-                        }
-                      }
-                    }}
-                    className={`rounded-full transition-all duration-500 ${i === activeIndex ? 'w-6 h-1.5 bg-gold-400' : 'w-1.5 h-1.5 bg-dark-600 hover:bg-dark-500'}`}
+                    onClick={() => handleDotClick(i)}
+                    className={`rounded-full transition-all duration-500 ${
+                      i === activeIndex ? 'w-6 h-1.5 bg-gold-400' : 'w-1.5 h-1.5 bg-dark-600 hover:bg-dark-500'
+                    }`}
                     aria-label={`Témoignage ${i + 1}`}
                   />
                 ))}
               </div>
             </div>
 
+            {/* Stats */}
             <div className="mt-16 lg:mt-20 flex flex-wrap items-center justify-center gap-8 lg:gap-12 motion-safe:animate-fade-in">
               <div className="text-center">
                 <p className="text-3xl lg:text-4xl font-display text-gold-400">{testimonials.length}+</p>
