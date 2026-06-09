@@ -100,14 +100,6 @@ const Hero: React.FC = () => {
             Rentabilisez votre activité avec un partenaire technique qui comprend votre business.
           </p>
 
-          {/* Badge accompagnement gratuit */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/5 border border-green-500/20 rounded-full">
-            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-sm text-green-400 font-medium">3 mois d'accompagnement offerts sur chaque projet</span>
-          </div>
-
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
             <div className="flex -space-x-3">
               <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-dark-900">
@@ -195,7 +187,6 @@ export const HeroSkeleton: React.FC = () => (
       <div className="space-y-8">
         <div className="h-16 w-3/4 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
         <div className="h-6 w-2/3 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
-        <div className="h-8 w-64 bg-dark-600 rounded-full animate-pulse" />
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
           <div className="flex -space-x-3">
             <div className="w-10 h-10 rounded-full bg-dark-600 animate-pulse" />

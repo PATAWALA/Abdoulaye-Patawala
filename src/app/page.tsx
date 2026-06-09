@@ -31,6 +31,16 @@ export default function Home() {
       <JsonLd data={breadcrumbSchema} />
       
       <Hero />
+
+      {/* Bannière accompagnement */}
+      <div className="bg-dark-800 border-y border-dark-700">
+        <div className="max-w-7xl mx-auto px-4 py-4 text-center">
+          <p className="text-sm text-gray-400">
+            <span className="text-green-400 font-medium">✓</span> 3 mois d&apos;accompagnement inclus sur chaque projet
+          </p>
+        </div>
+      </div>
+
       <Suspense fallback={<ServicesSkeleton />}>
         <Services />
       </Suspense>
