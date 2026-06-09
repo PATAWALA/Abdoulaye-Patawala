@@ -19,9 +19,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = generateBaseMetadata({
   icons: {
-    icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
-    apple: '/favicon/apple-touch-icon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
 });
@@ -30,10 +30,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className="dark scroll-smooth">
       <head>
+        {/* FAVICON */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        
         {/* VÉRIFICATION GOOGLE */}
         <meta name="google-site-verification" content="JsLn-cAbRgE_Dmw18OjOWigWtZU1X7cONrLGZrk2D64" />
         
-        {/* OPEN GRAPH - Injecté manuellement pour garantir l'affichage */}
+        {/* OPEN GRAPH */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:url" content={siteConfig.url} />
