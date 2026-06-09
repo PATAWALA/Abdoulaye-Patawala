@@ -15,7 +15,7 @@ const services = [
     benefits: [
       'Analyse de votre marché et vos besoins',
       'Plan d\'action clair et priorisé',
-      'Recommandations concrètes, sans blabla',
+      'Suivi personnalisé offert pendant 3 mois',
     ],
   },
   {
@@ -30,7 +30,7 @@ const services = [
     benefits: [
       'Expérience utilisateur fluide et élégante',
       'Optimisé pour Google et tous les écrans',
-      'Site facile à gérer au quotidien',
+      'Accompagnement inclus après la mise en ligne',
     ],
   },
   {
@@ -45,7 +45,7 @@ const services = [
     benefits: [
       'Pages de capture et tunnels sur Systeme.io',
       'Workflows automatisés (Make, n8n)',
-      'Votre business tourne même quand vous dormez',
+      'Optimisation continue pendant 3 mois',
     ],
   },
 ];
