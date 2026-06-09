@@ -252,7 +252,7 @@ export default async function CaseStudyPage({ params }: Props) {
             Chaque projet commence par une conversation. Parlons du vôtre.
           </p>
           <Link
-            href="/?scroll=contact"
+            href="/#contact"
             className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group text-base font-medium"
           >
             <span>Discutons de votre projet</span>
