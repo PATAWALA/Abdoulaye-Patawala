@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { createClientComponent } from '@/lib/supabase/client';
+import { useRouter } from 'next/navigation';
 
 const messageTypes = [
   { value: 'Projet', label: 'Demande de projet' },
@@ -19,6 +20,7 @@ const placeholders: Record<string, string> = {
 };
 
 const ContactForm: React.FC = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,33 +58,12 @@ const ContactForm: React.FC = () => {
       console.error(error);
     } else {
       setStatus('success');
-      setFormData({ name: '', email: '', message: '', message_type: 'Projet', rating: 0 });
-      setTimeout(() => setStatus('idle'), 6000);
+      // Redirection vers la page de remerciement après 1.5s
+      setTimeout(() => {
+        router.push('/merci');
+      }, 1500);
     }
   };
-
-  // Affichage du message de succès à la place du formulaire
-  if (status === 'success') {
-    return (
-      <div className="bg-dark-800 border border-green-500/20 rounded-2xl p-8 lg:p-12 text-center">
-        <div className="w-16 h-16 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center mx-auto mb-6">
-          <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-display text-white mb-2">Message envoyé avec succès</h3>
-        <p className="text-gray-400 text-sm mb-6 max-w-sm mx-auto leading-relaxed">
-          Merci pour votre message. Je le lis personnellement et je vous réponds sous 24h maximum.
-        </p>
-        <button
-          onClick={() => setStatus('idle')}
-          className="text-gold-400 text-sm hover:text-gold-300 transition-colors font-medium"
-        >
-          Envoyer un autre message
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="bg-dark-800 border border-dark-700 rounded-2xl p-8 lg:p-10 space-y-6">
@@ -164,7 +145,6 @@ const ContactForm: React.FC = () => {
         />
       </div>
 
-      {/* Bouton submit */}
       {status === 'error' ? (
         <div className="space-y-4">
           <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4 flex items-start gap-3">

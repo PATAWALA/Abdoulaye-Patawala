@@ -74,9 +74,14 @@ const Footer: React.FC = () => {
 
         {/* Bas */}
         <div className="mt-16 pt-8 border-t border-dark-700/30 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Abdoulaye Patawala. Tous droits réservés.
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-gray-600 text-xs">
+              © {new Date().getFullYear()} Abdoulaye Patawala. Tous droits réservés.
+            </p>
+            <Link href="/mentions-legales" className="text-gray-600 hover:text-gray-400 transition-colors text-xs">
+              Mentions légales
+            </Link>
+          </div>
           <p className="text-gray-700 text-xs">
             Construit avec passion — Propulsé par Next.js
           </p>
