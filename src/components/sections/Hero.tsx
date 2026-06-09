@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
+    <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative">
 
       {/* Mobile : Badge + Photo collés */}
       <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
@@ -124,29 +124,22 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* CTAs + Texte rassurant alignés à gauche en mode Desktop */}
           {/* CTAs + Texte rassurant */}
-<div className="flex flex-col items-center lg:items-start gap-3">
-  {/* Ce conteneur définit la largeur max basée sur les boutons en Desktop */}
-  <div className="flex flex-col items-center justify-center lg:justify-start gap-3 w-full max-w-[480px]">
-    
-    {/* Les Boutons */}
-    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
-      <Button variant="primary" onClick={scrollToContact}>
-        Discutons de votre projet
-      </Button>
-      <Button variant="secondary" onClick={scrollToPortfolio}>
-        Voir mes réalisations
-      </Button>
-    </div>
-    
-    {/* Le Texte : Reste centré sous les deux boutons grâce au max-w du parent */}
-    <p className="text-sm text-gray-600 text-center w-full">
-      Réponse sous 24h · Devis gratuit · Sans engagement
-    </p>
-    
-  </div>
-</div>
+          <div className="flex flex-col items-center lg:items-start gap-3">
+            <div className="flex flex-col items-center justify-center lg:justify-start gap-3 w-full max-w-[480px]">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
+                <Button variant="primary" onClick={scrollToContact}>
+                  Discutons de votre projet
+                </Button>
+                <Button variant="secondary" onClick={scrollToPortfolio}>
+                  Voir mes réalisations
+                </Button>
+              </div>
+              <p className="text-sm text-gray-600 text-center w-full">
+                Réponse sous 24h · Devis gratuit · Sans engagement
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Photo desktop */}
@@ -167,6 +160,13 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Flèche de scroll */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
+        <svg className="w-6 h-6 text-gold-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </div>
     </section>
   );
