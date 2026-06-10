@@ -66,9 +66,11 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
       setCircleVisible(true);
       setTimeout(() => setLinksVisible(true), 200);
     } else {
+      document.body.style.overflow = '';
       setLinksVisible(false);
       setTimeout(() => setCircleVisible(false), 300);
     }
@@ -121,7 +123,7 @@ const Navbar: React.FC = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-5 py-2 text-sm font-medium rounded-xl transition-all duration-300 ${
+                    className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                       isActive ? 'bg-gold-500/15 text-gold-400' : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
                     }`}
                   >
@@ -134,7 +136,7 @@ const Navbar: React.FC = () => {
                 <button
                   key={link.href}
                   onClick={() => navigateToSection(link.href)}
-                  className={`relative px-5 py-2 text-sm font-medium rounded-xl transition-all duration-300 ${
+                  className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                     isActive ? 'bg-gold-500/15 text-gold-400' : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
                   }`}
                 >
@@ -177,13 +179,14 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu — cercle doré plein écran */}
+      {/* Mobile menu — cercle doré plein écran, centré, non scrollable */}
       {circleVisible && (
         <div
           className={`fixed inset-0 z-40 transition-all duration-500 ${
             mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
+          {/* Cercle qui s'agrandit */}
           <div
             className={`absolute w-8 h-8 rounded-full bg-gold-400 transition-all duration-500 ease-out ${
               mobileOpen ? 'scale-[150]' : 'scale-0'
@@ -191,11 +194,12 @@ const Navbar: React.FC = () => {
             style={{ top: '28px', right: '20px', transformOrigin: 'center' }}
           />
 
+          {/* Contenu centré, jamais scrollable */}
           <div
-            className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
+            className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
               linksVisible ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
+            style={{ overflow: 'hidden' }}
           >
             <div className="space-y-2 w-full px-8 max-w-sm">
               {links.map((link, i) => {
