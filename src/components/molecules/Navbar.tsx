@@ -66,10 +66,12 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     if (mobileOpen) {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       setCircleVisible(true);
       setTimeout(() => setLinksVisible(true), 200);
     } else {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       setLinksVisible(false);
       setTimeout(() => setCircleVisible(false), 300);
@@ -185,21 +187,21 @@ const Navbar: React.FC = () => {
           className={`fixed inset-0 z-40 transition-all duration-500 ${
             mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
+          style={{ height: '100dvh' }}
         >
-          {/* Cercle qui s'agrandit */}
+          {/* Cercle qui s'agrandit depuis le burger */}
           <div
             className={`absolute w-8 h-8 rounded-full bg-gold-400 transition-all duration-500 ease-out ${
-              mobileOpen ? 'scale-[150]' : 'scale-0'
+              mobileOpen ? 'scale-[200]' : 'scale-0'
             }`}
             style={{ top: '28px', right: '20px', transformOrigin: 'center' }}
           />
 
-          {/* Contenu centré, jamais scrollable */}
+          {/* Contenu centré */}
           <div
             className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
               linksVisible ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ overflow: 'hidden' }}
           >
             <div className="space-y-2 w-full px-8 max-w-sm">
               {links.map((link, i) => {
