@@ -18,50 +18,36 @@ const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('#hero');
   const [circleVisible, setCircleVisible] = useState(false);
   const [linksVisible, setLinksVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === '/';
 
+  // Détection de la section active au scroll uniquement
   useEffect(() => {
     if (!isHome) {
       setActiveSection('');
       return;
     }
 
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
 
-    const sectionIds = links.filter(l => !l.isPage).map(l => l.href.replace('#', ''));
+      const sectionIds = links.filter(l => !l.isPage).map(l => l.href.replace('#', ''));
+      const scrollPos = window.scrollY + 150;
 
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter(e => e.isIntersecting).map(e => '#' + e.target.id);
-        if (visible.length > 0) setActiveSection(visible[0]);
-      },
-      { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
-    );
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el && observerRef.current) observerRef.current.observe(el);
-    });
-
-    const checkInitial = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 4;
       let current = '#hero';
       for (const id of sectionIds) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollPos) current = '#' + id;
+        if (el && el.offsetTop <= scrollPos) {
+          current = '#' + id;
+        }
       }
       setActiveSection(current);
     };
-    checkInitial();
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (observerRef.current) observerRef.current.disconnect();
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
 
   useEffect(() => {
@@ -120,14 +106,18 @@ const Navbar: React.FC = () => {
                 ? isBlogActive || (link.href === '/portfolio' && isPortfolioPage)
                 : activeSection === link.href;
 
+              const baseClass = `relative px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                isActive
+                  ? 'bg-gold-500 text-dark-900'
+                  : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
+              }`;
+
               if (link.isPage) {
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                      isActive ? 'bg-gold-500/15 text-gold-400' : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
-                    }`}
+                    className={`${baseClass} rounded-lg`}
                   >
                     {link.label}
                   </Link>
@@ -138,9 +128,7 @@ const Navbar: React.FC = () => {
                 <button
                   key={link.href}
                   onClick={() => navigateToSection(link.href)}
-                  className={`relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                    isActive ? 'bg-gold-500/15 text-gold-400' : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
-                  }`}
+                  className={`${baseClass} rounded-lg`}
                 >
                   {link.label}
                 </button>
@@ -153,10 +141,10 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:block flex-shrink-0">
           <button
             onClick={() => navigateToSection('#contact')}
-            className="relative px-5 py-2.5 bg-gold-500 text-dark-900 text-sm font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/20"
+            className="relative px-5 py-2.5 bg-gold-500 text-dark-900 text-sm font-semibold rounded-lg overflow-hidden group/cta transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/20"
           >
             <span className="relative z-10">Me contacter</span>
-            <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-xl" />
+            <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-lg" />
           </button>
         </div>
 
@@ -181,7 +169,7 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile menu — cercle doré plein écran, centré, non scrollable */}
+      {/* Mobile menu — cercle doré plein écran */}
       {circleVisible && (
         <div
           className={`fixed inset-0 z-40 transition-all duration-500 ${
@@ -189,7 +177,6 @@ const Navbar: React.FC = () => {
           }`}
           style={{ height: '100dvh' }}
         >
-          {/* Cercle qui s'agrandit depuis le burger */}
           <div
             className={`absolute w-8 h-8 rounded-full bg-gold-400 transition-all duration-500 ease-out ${
               mobileOpen ? 'scale-[200]' : 'scale-0'
@@ -197,7 +184,6 @@ const Navbar: React.FC = () => {
             style={{ top: '28px', right: '20px', transformOrigin: 'center' }}
           />
 
-          {/* Contenu centré */}
           <div
             className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
               linksVisible ? 'opacity-100' : 'opacity-0'
