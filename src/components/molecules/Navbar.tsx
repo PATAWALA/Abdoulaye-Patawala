@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
                 ? isBlogActive || (link.href === '/portfolio' && isPortfolioPage)
                 : activeSection === link.href;
 
-              const baseClass = `relative px-5 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+              const baseClass = `relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                 isActive
                   ? 'bg-gold-500/15 text-gold-400'
                   : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
@@ -136,10 +136,23 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:block flex-shrink-0">
           <button
             onClick={() => navigateToSection('#contact')}
-            className="relative px-5 py-2.5 bg-gold-500 text-dark-900 text-sm font-semibold rounded-lg overflow-hidden group/cta transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/20"
+            className="relative px-5 py-2.5 bg-gold-500 text-dark-900 text-sm font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/20 inline-flex items-center gap-2"
           >
             <span className="relative z-10">Me contacter</span>
-            <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-lg" />
+            <svg
+              className="relative z-10 w-4 h-4 group-hover/cta:translate-x-1 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              />
+            </svg>
+            <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-xl" />
           </button>
         </div>
 
@@ -221,9 +234,22 @@ const Navbar: React.FC = () => {
               >
                 <button
                   onClick={() => navigateToSection('#contact')}
-                  className="w-full py-4 bg-dark-900 text-gold-400 rounded-2xl font-semibold text-lg hover:bg-dark-800 transition-colors border border-gold-400/20"
+                  className="w-full py-4 bg-dark-900 text-gold-400 rounded-2xl font-semibold text-lg hover:bg-dark-800 transition-colors border border-gold-400/20 inline-flex items-center justify-center gap-2"
                 >
                   Me contacter
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
