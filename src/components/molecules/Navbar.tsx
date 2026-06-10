@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -22,7 +22,6 @@ const Navbar: React.FC = () => {
   const router = useRouter();
   const isHome = pathname === '/';
 
-  // Détection de la section active au scroll uniquement
   useEffect(() => {
     if (!isHome) {
       setActiveSection('');
@@ -106,19 +105,15 @@ const Navbar: React.FC = () => {
                 ? isBlogActive || (link.href === '/portfolio' && isPortfolioPage)
                 : activeSection === link.href;
 
-              const baseClass = `relative px-5 py-2 text-sm font-medium transition-all duration-300 ${
+              const baseClass = `relative px-5 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                 isActive
-                  ? 'bg-gold-500 text-dark-900'
+                  ? 'bg-gold-500/15 text-gold-400'
                   : 'text-gray-400 hover:text-white hover:bg-dark-700/50'
               }`;
 
               if (link.isPage) {
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`${baseClass} rounded-lg`}
-                  >
+                  <Link key={link.href} href={link.href} className={baseClass}>
                     {link.label}
                   </Link>
                 );
@@ -128,7 +123,7 @@ const Navbar: React.FC = () => {
                 <button
                   key={link.href}
                   onClick={() => navigateToSection(link.href)}
-                  className={`${baseClass} rounded-lg`}
+                  className={baseClass}
                 >
                   {link.label}
                 </button>
