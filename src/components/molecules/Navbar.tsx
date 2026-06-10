@@ -165,38 +165,38 @@ const Navbar: React.FC = () => {
         >
           <div className="flex flex-col gap-[5px]">
             <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-              mobileOpen ? 'bg-dark-900 rotate-45 translate-y-[7px]' : isHome && !scrolled ? 'bg-white' : 'bg-white'
+              mobileOpen ? 'bg-dark-900 rotate-45 translate-y-[7px]' : 'bg-white'
             }`} />
             <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-              mobileOpen ? 'bg-dark-900 opacity-0 scale-x-0' : isHome && !scrolled ? 'bg-white' : 'bg-white'
+              mobileOpen ? 'bg-dark-900 opacity-0 scale-x-0' : 'bg-white'
             }`} />
             <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-              mobileOpen ? 'bg-dark-900 -rotate-45 -translate-y-[7px]' : isHome && !scrolled ? 'bg-white' : 'bg-white'
+              mobileOpen ? 'bg-dark-900 -rotate-45 -translate-y-[7px]' : 'bg-white'
             }`} />
           </div>
         </button>
       </div>
 
-      {/* Mobile menu — cercle doré */}
+      {/* Mobile menu — cercle doré plein écran */}
       {circleVisible && (
-        <>
+        <div
+          className={`fixed inset-0 z-40 transition-all duration-500 ${
+            mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          {/* Cercle qui s'agrandit */}
           <div
-            className={`fixed inset-0 z-40 flex items-center justify-center transition-all duration-500 ${
-              mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            className={`absolute w-8 h-8 rounded-full bg-gold-400 transition-all duration-500 ease-out ${
+              mobileOpen ? 'scale-[150]' : 'scale-0'
             }`}
-          >
-            <div
-              className={`absolute w-8 h-8 rounded-full bg-gold-400 transition-all duration-500 ease-out ${
-                mobileOpen ? 'scale-[100]' : 'scale-0'
-              }`}
-              style={{ top: '28px', right: '20px', transformOrigin: 'center' }}
-            />
-          </div>
+            style={{ top: '28px', right: '20px', transformOrigin: 'center' }}
+          />
 
+          {/* Contenu centré verticalement */}
           <div
-            className={`fixed inset-0 z-40 flex flex-col items-center justify-center transition-all duration-500 ${
-              mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            } ${linksVisible ? 'delay-0' : 'delay-200'}`}
+            className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
+              linksVisible ? 'opacity-100' : 'opacity-0'
+            }`}
           >
             <div className="space-y-2 w-full px-8 max-w-sm">
               {links.map((link, i) => {
@@ -242,7 +242,7 @@ const Navbar: React.FC = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </nav>
   );
