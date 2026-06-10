@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop : Liens centrés */}
         <div className="hidden lg:flex items-center justify-center flex-1 px-8">
-          <div className="flex items-center gap-0 bg-dark-800/40 backdrop-blur-sm border border-dark-700/40 rounded-full px-1.5 py-1.5">
+          <div className="flex items-center gap-0 bg-dark-800/40 backdrop-blur-sm border border-dark-700/40 rounded-lg px-1.5 py-1.5">
             {links.map((link) => {
               const isActive = link.isPage
                 ? isBlogActive || (link.href === '/portfolio' && isPortfolioPage)
