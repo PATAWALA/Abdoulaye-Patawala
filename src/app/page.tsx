@@ -14,10 +14,10 @@ import Contact from '@/components/sections/Contact'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = generatePageMetadata(
-  'Abdoulaye Patawala | Développeur Fullstack & Architecte Digital à Cotonou',
-  'Développeur fullstack et architecte digital basé à Cotonou, Bénin. Je crée des applications web premium avec Next.js, TypeScript et des architectures cloud modernes.',
+  'Abdoulaye Patawala | Partenaire Technique, Automatisation IA & Web',
+  'Expert technique basé à Cotonou. Je propulse la croissance des startups, PME et infopreneurs grâce aux tunnels de vente, à l’automatisation IA (Make, n8n) et à des architectures sur-mesure (Next.js, Odoo).',
   '/'
-)
+);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Accueil', url: siteConfig.url }
