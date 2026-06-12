@@ -5,8 +5,8 @@ import { JsonLd, generateBreadcrumbSchema } from '@/lib/structured-data';
 import PortfolioClient from './PortfolioClient';
 
 export const metadata: Metadata = generatePageMetadata(
-  'Portfolio | Projets et Réalisations',
-  'Découvrez mes réalisations : sites web, tunnels de vente, automatisations et applications cloud.',
+  'Systèmes & Réalisations | Abdoulaye Patawala',
+  'Découvrez les études de cas et systèmes déployés pour mes partenaires : tunnels de vente, automatisations IA avancées (Make, n8n) et plateformes web sur-mesure.',
   '/portfolio'
 );
 

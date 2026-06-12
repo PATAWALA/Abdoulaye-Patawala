@@ -5,8 +5,8 @@ import { JsonLd, generateBreadcrumbSchema } from '@/lib/structured-data';
 import BlogList from './BlogList';
 
 export const metadata: Metadata = generatePageMetadata(
-  'Blog & Ressources | Conseils Digitaux',
-  'Conseils, retours d\'expérience, tutoriels et bonnes pratiques pour faire grandir votre business digital.',
+  'Retours d’Expérience & Stratégies | Abdoulaye Patawala',
+  'Coulisses de l’automatisation, stratégies de croissance et retours d’expérience concrets du terrain pour optimiser l’infrastructure de votre business.',
   '/blog'
 );
 
