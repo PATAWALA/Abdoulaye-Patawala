@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
                 <Image src="/images/client-2.webp" alt="Client" fill className="object-cover" sizes="40px" />
               </div>
               <div className="w-10 h-10 rounded-full bg-dark-700 border-2 border-dark-900 flex items-center justify-center text-xs text-gold-400 font-semibold">
-                +50
+                +27
               </div>
             </div>
             <div>
