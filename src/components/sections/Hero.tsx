@@ -175,7 +175,7 @@ const Hero: React.FC = () => {
 export default Hero;
 
 export const HeroSkeleton: React.FC = () => (
-  <section className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
+  <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative bg-dark-900 dark:bg-dark-900 light:bg-white">
     <div className="flex flex-col items-center gap-4 mb-10 lg:hidden">
       <div className="h-8 w-56 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded-full animate-pulse" />
       <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
