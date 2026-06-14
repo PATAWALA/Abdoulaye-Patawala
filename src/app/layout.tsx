@@ -3,7 +3,6 @@ import { generateWebSiteSchema, generatePersonSchema, JsonLd } from '@/lib/struc
 import { generateBaseMetadata, siteConfig } from '@/lib/metadata';
 import ClientLayout from './ClientLayout';
 import './globals.css';
-import { ThemeProvider } from 'next-themes';
 import type { Metadata } from 'next';
 
 const inter = Inter({
@@ -29,7 +28,7 @@ export const metadata: Metadata = generateBaseMetadata({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="fr" className="dark scroll-smooth">
       <head>
         {/* FAVICON */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
@@ -69,10 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-dark-900 text-white antialiased dark:bg-dark-900 dark:text-white light:bg-white light:text-dark-900`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} themes={['dark', 'light']}>
-          <ClientLayout>{children}</ClientLayout>
-        </ThemeProvider>
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-dark-900 text-white antialiased`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

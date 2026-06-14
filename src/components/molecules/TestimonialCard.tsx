@@ -7,7 +7,7 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, role }) => (
-  <div className="group bg-dark-700 border border-dark-600 rounded-2xl p-6 lg:p-8 h-full flex flex-col justify-between hover:border-gold-500/20 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-500 dark:bg-dark-700 dark:border-dark-600 light:bg-white light:border-gray-200 light:hover:border-gold-500/30 light:hover:shadow-lg light:hover:shadow-gold-500/10">
+  <div className="group bg-dark-700 border border-dark-600 rounded-2xl p-6 lg:p-8 h-full flex flex-col justify-between hover:border-gold-500/20 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-500">
     {/* Étoiles */}
     <div className="flex items-center gap-1 mb-6">
       {[1, 2, 3, 4, 5].map((star) => (
@@ -18,18 +18,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author, role }
     </div>
 
     {/* Citation */}
-    <blockquote className="text-gray-300 leading-relaxed mb-6 flex-1 dark:text-gray-300 light:text-gray-700">
+    <blockquote className="text-gray-300 leading-relaxed mb-6 flex-1">
       &ldquo;{quote}&rdquo;
     </blockquote>
 
     {/* Auteur */}
-    <div className="flex items-center gap-3 pt-4 border-t border-dark-600 dark:border-dark-600 light:border-gray-200">
-      <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-semibold text-sm flex-shrink-0 dark:bg-gold-500/10 light:bg-gold-500/20">
+    <div className="flex items-center gap-3 pt-4 border-t border-dark-600">
+      <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-semibold text-sm flex-shrink-0">
         {author.charAt(0)}
       </div>
       <div>
-        <p className="text-white font-semibold text-sm dark:text-white light:text-dark-900">{author}</p>
-        <p className="text-gray-500 text-xs dark:text-gray-500 light:text-gray-600">{role}</p>
+        <p className="text-white font-semibold text-sm">{author}</p>
+        <p className="text-gray-500 text-xs">{role}</p>
       </div>
     </div>
   </div>

@@ -58,6 +58,7 @@ const ContactForm: React.FC = () => {
       console.error(error);
     } else {
       setStatus('success');
+      // Redirection vers la page de remerciement après 1.5s
       setTimeout(() => {
         router.push('/merci');
       }, 1500);
@@ -65,9 +66,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-dark-800 border border-dark-700 rounded-2xl p-8 lg:p-10 space-y-6 dark:bg-dark-800 dark:border-dark-700 light:bg-white light:border-gray-200 light:shadow-sm">
+    <form onSubmit={handleSubmit} className="bg-dark-800 border border-dark-700 rounded-2xl p-8 lg:p-10 space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm text-gray-400 mb-2 dark:text-gray-400 light:text-gray-600">Votre nom</label>
+        <label htmlFor="name" className="block text-sm text-gray-400 mb-2">Votre nom</label>
         <input
           type="text"
           id="name"
@@ -76,12 +77,12 @@ const ContactForm: React.FC = () => {
           value={formData.name}
           onChange={handleChange}
           placeholder="Jean Dupont"
-          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors dark:bg-dark-900 dark:border-dark-600 dark:text-white dark:placeholder-gray-600 light:bg-gray-50 light:border-gray-300 light:text-dark-900 light:placeholder-gray-400"
+          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm text-gray-400 mb-2 dark:text-gray-400 light:text-gray-600">Votre email</label>
+        <label htmlFor="email" className="block text-sm text-gray-400 mb-2">Votre email</label>
         <input
           type="email"
           id="email"
@@ -90,18 +91,18 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="jean@entreprise.com"
-          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors dark:bg-dark-900 dark:border-dark-600 dark:text-white dark:placeholder-gray-600 light:bg-gray-50 light:border-gray-300 light:text-dark-900 light:placeholder-gray-400"
+          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="message_type" className="block text-sm text-gray-400 mb-2 dark:text-gray-400 light:text-gray-600">Type de message</label>
+        <label htmlFor="message_type" className="block text-sm text-gray-400 mb-2">Type de message</label>
         <select
           id="message_type"
           name="message_type"
           value={formData.message_type}
           onChange={handleChange}
-          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors dark:bg-dark-900 dark:border-dark-600 dark:text-white light:bg-gray-50 light:border-gray-300 light:text-dark-900"
+          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors"
         >
           {messageTypes.map(t => (
             <option key={t.value} value={t.value}>{t.label}</option>
@@ -111,7 +112,7 @@ const ContactForm: React.FC = () => {
 
       {formData.message_type === 'Témoignage' && (
         <div>
-          <label className="block text-sm text-gray-400 mb-2 dark:text-gray-400 light:text-gray-600">Votre note</label>
+          <label className="block text-sm text-gray-400 mb-2">Votre note</label>
           <div className="flex items-center gap-1 mb-2">
             {[1, 2, 3, 4, 5].map((star) => (
               <button
@@ -120,18 +121,18 @@ const ContactForm: React.FC = () => {
                 onClick={() => handleRating(star)}
                 className="text-2xl focus:outline-none transition-colors"
               >
-                <svg className={`w-6 h-6 ${star <= formData.rating ? 'text-gold-400' : 'text-gray-600 dark:text-gray-600 light:text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                <svg className={`w-6 h-6 ${star <= formData.rating ? 'text-gold-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </button>
             ))}
           </div>
-          <p className="text-gray-500 text-xs dark:text-gray-500 light:text-gray-600">Votre avis sera examiné avant d&apos;être publié sur le site. Merci pour votre retour !</p>
+          <p className="text-gray-500 text-xs">Votre avis sera examiné avant d&apos;être publié sur le site. Merci pour votre retour !</p>
         </div>
       )}
 
       <div>
-        <label htmlFor="message" className="block text-sm text-gray-400 mb-2 dark:text-gray-400 light:text-gray-600">Votre message</label>
+        <label htmlFor="message" className="block text-sm text-gray-400 mb-2">Votre message</label>
         <textarea
           id="message"
           name="message"
@@ -140,19 +141,19 @@ const ContactForm: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           placeholder={placeholders[formData.message_type] || 'Écrivez votre message…'}
-          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors resize-none dark:bg-dark-900 dark:border-dark-600 dark:text-white dark:placeholder-gray-600 light:bg-gray-50 light:border-gray-300 light:text-dark-900 light:placeholder-gray-400"
+          className="w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors resize-none"
         />
       </div>
 
       {status === 'error' ? (
         <div className="space-y-4">
-          <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4 flex items-start gap-3 dark:bg-red-500/5 dark:border-red-500/20 light:bg-red-50 light:border-red-200">
-            <svg className="w-5 h-5 text-red-400 dark:text-red-400 light:text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4 flex items-start gap-3">
+            <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <div>
-              <p className="text-red-400 text-sm font-medium mb-1 dark:text-red-400 light:text-red-700">Erreur d&apos;envoi</p>
-              <p className="text-gray-500 text-xs dark:text-gray-500 light:text-gray-600">Une erreur est survenue. Vérifiez votre connexion et réessayez.</p>
+              <p className="text-red-400 text-sm font-medium mb-1">Erreur d&apos;envoi</p>
+              <p className="text-gray-500 text-xs">Une erreur est survenue. Vérifiez votre connexion et réessayez.</p>
             </div>
           </div>
           <button
@@ -182,7 +183,7 @@ const ContactForm: React.FC = () => {
         </button>
       )}
 
-      <p className="text-center text-gray-600 text-xs dark:text-gray-600 light:text-gray-500">
+      <p className="text-center text-gray-600 text-xs">
         Vos informations sont confidentielles. Réponse garantie sous 24h.
       </p>
     </form>

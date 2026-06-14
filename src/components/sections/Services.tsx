@@ -55,16 +55,16 @@ const Services: React.FC = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="services" className="bg-dark-800 dark:bg-dark-800 light:bg-white">
+    <section id="services" className="bg-dark-800">
       <div className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         {/* En-tête */}
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Ce que je fais</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white dark:text-white light:text-dark-900 mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Des résultats, pas du blabla
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed dark:text-gray-400 light:text-gray-600">
-            Chaque projet est pensé pour répondre à un seul objectif : <span className="text-white dark:text-white light:text-dark-900">faire grandir votre business</span>.
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
+            Chaque projet est pensé pour répondre à un seul objectif : <span className="text-white">faire grandir votre business</span>.
           </p>
         </div>
 
@@ -73,25 +73,25 @@ const Services: React.FC = () => {
           {services.map((service, i) => (
             <div
               key={i}
-              className="group relative bg-dark-700 border border-dark-600 rounded-2xl p-8 lg:p-10 motion-safe:animate-fade-in hover:border-gold-500/20 transition-all duration-500 hover:shadow-xl hover:shadow-gold-500/5 dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200 light:hover:border-gold-500/30 light:hover:shadow-md"
+              className="group relative bg-dark-700 border border-dark-600 rounded-2xl p-8 lg:p-10 motion-safe:animate-fade-in hover:border-gold-500/20 transition-all duration-500 hover:shadow-xl hover:shadow-gold-500/5"
               style={{ animationDelay: `${i * 0.15}s` }}
             >
-              <p className="text-6xl font-display text-dark-600 group-hover:text-gold-500/10 transition-colors duration-500 absolute top-6 right-6 dark:text-dark-600 light:text-gray-200">
+              <p className="text-6xl font-display text-dark-600 group-hover:text-gold-500/10 transition-colors duration-500 absolute top-6 right-6">
                 {service.number}
               </p>
               <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-6 group-hover:bg-gold-500/20 transition-colors duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold text-white dark:text-white light:text-dark-900 mb-4">
+              <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8 leading-relaxed">
+              <p className="text-gray-400 mb-8 leading-relaxed">
                 {service.description}
               </p>
               <div className="w-8 h-px bg-gold-500/30 mb-6 group-hover:w-16 transition-all duration-500" />
               <ul className="space-y-3">
                 {service.benefits.map((benefit, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors dark:text-gray-400 dark:group-hover:text-gray-300 light:text-gray-600 light:group-hover:text-gray-700">
+                  <li key={j} className="flex items-start gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                     <svg className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -105,12 +105,12 @@ const Services: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center mt-16 lg:mt-20 motion-safe:animate-fade-in">
-          <p className="text-gray-400 text-lg mb-6 dark:text-gray-400 light:text-gray-600">
+          <p className="text-gray-400 text-lg mb-6">
             Chaque projet commence par une conversation.
           </p>
           <button
             onClick={scrollToContact}
-            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group dark:hover:text-gold-300 light:hover:text-gold-600"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
           >
             <span className="text-lg font-medium">Discutons de votre projet</span>
             <svg
@@ -131,32 +131,32 @@ const Services: React.FC = () => {
 export default Services;
 
 export const ServicesSkeleton: React.FC = () => (
-  <section className="bg-dark-800 dark:bg-dark-800 light:bg-white">
+  <section className="bg-dark-800">
     <div className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16 lg:mb-20">
-        <div className="h-4 w-32 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-4" />
-        <div className="h-10 w-3/4 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-6" />
-        <div className="h-6 w-1/2 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto" />
+        <div className="h-4 w-32 bg-dark-600 rounded animate-pulse mx-auto mb-4" />
+        <div className="h-10 w-3/4 bg-dark-600 rounded animate-pulse mx-auto mb-6" />
+        <div className="h-6 w-1/2 bg-dark-600 rounded animate-pulse mx-auto" />
       </div>
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-dark-700 border border-dark-600 rounded-2xl p-8 lg:p-10 space-y-4 dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200">
-            <div className="w-12 h-12 rounded-xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
-            <div className="h-7 w-3/4 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
-            <div className="h-4 w-full bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
-            <div className="h-4 w-5/6 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
-            <div className="w-8 h-px bg-dark-600 dark:bg-dark-600 light:bg-gray-300 animate-pulse" />
+          <div key={i} className="bg-dark-700 border border-dark-600 rounded-2xl p-8 lg:p-10 space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-dark-600 animate-pulse" />
+            <div className="h-7 w-3/4 bg-dark-600 rounded animate-pulse" />
+            <div className="h-4 w-full bg-dark-600 rounded animate-pulse" />
+            <div className="h-4 w-5/6 bg-dark-600 rounded animate-pulse" />
+            <div className="w-8 h-px bg-dark-600 animate-pulse" />
             <div className="space-y-3">
-              <div className="h-3 w-2/3 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
-              <div className="h-3 w-3/4 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
-              <div className="h-3 w-1/2 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
+              <div className="h-3 w-2/3 bg-dark-600 rounded animate-pulse" />
+              <div className="h-3 w-3/4 bg-dark-600 rounded animate-pulse" />
+              <div className="h-3 w-1/2 bg-dark-600 rounded animate-pulse" />
             </div>
           </div>
         ))}
       </div>
       <div className="text-center mt-16 lg:mt-20">
-        <div className="h-6 w-64 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-6" />
-        <div className="h-5 w-48 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto" />
+        <div className="h-6 w-64 bg-dark-600 rounded animate-pulse mx-auto mb-6" />
+        <div className="h-5 w-48 bg-dark-600 rounded animate-pulse mx-auto" />
       </div>
     </div>
   </section>

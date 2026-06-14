@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function MentionsLegalesPage() {
   return (
     <section className="pt-28 pb-20 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 className="text-3xl md:text-5xl font-display text-white dark:text-white light:text-dark-900 mb-8">Mentions légales</h1>
+      <h1 className="text-3xl md:text-5xl font-display text-white mb-8">Mentions légales</h1>
 
-      <div className="space-y-8 text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
+      <div className="space-y-8 text-gray-300 leading-relaxed">
         
         <div>
           <h2 className="text-xl font-display text-gold-400 mb-3">Éditeur du site</h2>

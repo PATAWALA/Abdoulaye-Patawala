@@ -67,16 +67,16 @@ const BlogPreview: React.FC = () => {
   if (posts.length === 0) return null;
 
   return (
-    <section id="blog" className="bg-dark-800 dark:bg-dark-800 light:bg-white light:border-t light:border-gray-200">
+    <section id="blog" className="bg-dark-800">
       <div className="py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         
         {/* En-tête */}
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Blog & Ressources</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white dark:text-white light:text-dark-900 mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Conseils & expertise
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed dark:text-gray-400 light:text-gray-600">
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
             Retours d&apos;expérience, tutoriels et bonnes pratiques pour accélérer votre transformation digitale.
           </p>
         </div>
@@ -106,12 +106,12 @@ const BlogPreview: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center motion-safe:animate-fade-in">
-          <p className="text-gray-500 text-sm mb-6 dark:text-gray-500 light:text-gray-600">
+          <p className="text-gray-500 text-sm mb-6">
             Des articles réguliers pour vous aider à mieux comprendre le digital.
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group dark:hover:text-gold-300 light:hover:text-gold-600"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
           >
             <span className="text-lg font-medium">Voir tous les articles</span>
             <svg

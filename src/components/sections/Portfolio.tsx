@@ -40,14 +40,14 @@ const Portfolio: React.FC = () => {
   if (projects.length === 0) return null;
 
   return (
-    <section id="portfolio" className="bg-dark-900 dark:bg-dark-900 light:bg-gray-50">
+    <section id="portfolio" className="bg-dark-900">
       <div className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Portfolio</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white dark:text-white light:text-dark-900 mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Ils m'ont fait confiance
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed dark:text-gray-400 light:text-gray-600">
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
             Des résultats concrets, pas des promesses.
           </p>
         </div>
@@ -66,9 +66,9 @@ const Portfolio: React.FC = () => {
                 <div className={isLeft ? '' : 'lg:order-2'}>
                   <Link
                     href={project.slug ? `/portfolio/${project.slug}` : '#'}
-                    className="block relative group overflow-hidden rounded-2xl border border-dark-700 shadow-2xl dark:border-dark-700 light:border-gray-200 light:shadow-lg"
+                    className="block relative group overflow-hidden rounded-2xl border border-dark-700 shadow-2xl"
                   >
-                    <div className="aspect-[4/3] relative bg-dark-800 dark:bg-dark-800 light:bg-gray-200">
+                    <div className="aspect-[4/3] relative bg-dark-800">
                       <Image
                         src={project.image_url}
                         alt={project.title}
@@ -86,9 +86,9 @@ const Portfolio: React.FC = () => {
                 <div className={isLeft ? '' : 'lg:order-1'}>
                   <div className="space-y-5">
                     <p className="text-gold-400 text-sm tracking-widest uppercase">{project.category}</p>
-                    <h3 className="text-2xl lg:text-3xl font-display text-white dark:text-white light:text-dark-900">{project.title}</h3>
+                    <h3 className="text-2xl lg:text-3xl font-display text-white">{project.title}</h3>
                     {project.description && (
-                      <p className="text-gray-400 leading-relaxed dark:text-gray-400 light:text-gray-600">{project.description}</p>
+                      <p className="text-gray-400 leading-relaxed">{project.description}</p>
                     )}
                     {project.result && (
                       <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-xl px-4 py-2">
@@ -101,7 +101,7 @@ const Portfolio: React.FC = () => {
                     {project.slug && (
                       <Link
                         href={`/portfolio/${project.slug}`}
-                        className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gold-400 transition-colors group/link pt-2 dark:text-gray-400 dark:hover:text-gold-400 light:text-gray-600 light:hover:text-gold-600"
+                        className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gold-400 transition-colors group/link pt-2"
                       >
                         <span>Voir l'étude de cas</span>
                         <svg className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ const Portfolio: React.FC = () => {
           <div className="text-center mt-20 motion-safe:animate-fade-in">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group dark:hover:text-gold-300 light:hover:text-gold-600"
+              className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
             >
               <span className="text-lg font-medium">Voir tous les projets</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

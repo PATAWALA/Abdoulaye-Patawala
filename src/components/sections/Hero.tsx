@@ -54,10 +54,10 @@ const Hero: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
           </span>
-          <span className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-700">Disponible pour collaborations</span>
+          <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
 
-        <div className="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-dark-600 dark:border-dark-600 light:border-gray-300 shadow-2xl">
+        <div className="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-dark-600 shadow-2xl">
           <Image
             src="/images/portrait.png"
             alt="Abdoulaye - Développeur Web"
@@ -66,10 +66,10 @@ const Hero: React.FC = () => {
             sizes="(max-width: 640px) 100vw, 384px"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent dark:from-dark-900/60 light:from-gray-100/40" />
-          <div className="absolute bottom-4 left-4 bg-dark-800/90 backdrop-blur-sm border border-dark-600 rounded-xl px-4 py-2.5 dark:bg-dark-800/90 dark:border-dark-600 light:bg-white/90 light:border-gray-300 light:backdrop-blur-xl">
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent" />
+          <div className="absolute bottom-4 left-4 bg-dark-800/90 backdrop-blur-sm border border-dark-600 rounded-xl px-4 py-2.5">
             <p className="text-gold-400 text-xl font-bold">4+</p>
-            <p className="text-gray-400 text-xs dark:text-gray-400 light:text-gray-600">ans d'expertise</p>
+            <p className="text-gray-400 text-xs">ans d'expertise</p>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
           </span>
-          <span className="text-sm text-gray-300 dark:text-gray-300 light:text-gray-700">Disponible pour collaborations</span>
+          <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
       </div>
 
@@ -96,19 +96,19 @@ const Hero: React.FC = () => {
             </h1>
           </div>
 
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed dark:text-gray-300 light:text-gray-700">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             Rentabilisez votre activité avec un partenaire technique qui comprend votre business.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
             <div className="flex -space-x-3">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-dark-900 dark:border-dark-900 light:border-white">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-dark-900">
                 <Image src="/images/client-1.webp" alt="Client" fill className="object-cover" sizes="40px" />
               </div>
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-dark-900 dark:border-dark-900 light:border-white">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-dark-900">
                 <Image src="/images/client-2.webp" alt="Client" fill className="object-cover" sizes="40px" />
               </div>
-              <div className="w-10 h-10 rounded-full bg-dark-700 border-2 border-dark-900 flex items-center justify-center text-xs text-gold-400 font-semibold dark:bg-dark-700 dark:border-dark-900 light:bg-gray-200 light:border-white light:text-gold-600">
+              <div className="w-10 h-10 rounded-full bg-dark-700 border-2 border-dark-900 flex items-center justify-center text-xs text-gold-400 font-semibold">
                 +27
               </div>
             </div>
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
                   </svg>
                 ))}
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-500 light:text-gray-600">+50 clients accompagnés</p>
+              <p className="text-sm text-gray-500">+50 clients accompagnés</p>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
                   Voir mes réalisations
                 </Button>
               </div>
-              <p className="text-sm text-gray-600 text-center w-full dark:text-gray-600 light:text-gray-500">
+              <p className="text-sm text-gray-600 text-center w-full">
                 Réponse sous 24h · Devis gratuit · Sans engagement
               </p>
             </div>
@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
 
         {/* Photo desktop */}
         <div className="hidden lg:flex justify-center motion-safe:animate-fade-in">
-          <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-dark-600 shadow-2xl shadow-gold-500/5 dark:border-dark-600 light:border-gray-300 light:shadow-lg light:shadow-gold-500/10">
+          <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-dark-600 shadow-2xl shadow-gold-500/5">
             <Image
               src="/images/portrait.png"
               alt="Abdoulaye - Développeur Web"
@@ -153,10 +153,10 @@ const Hero: React.FC = () => {
               sizes="448px"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/40 via-transparent to-transparent dark:from-dark-900/40 light:from-gray-100/20" />
-            <div className="absolute bottom-5 left-5 bg-dark-800/90 backdrop-blur-sm border border-dark-600 rounded-xl px-5 py-3 dark:bg-dark-800/90 dark:border-dark-600 light:bg-white/90 light:border-gray-300 light:backdrop-blur-xl">
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/40 via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 bg-dark-800/90 backdrop-blur-sm border border-dark-600 rounded-xl px-5 py-3">
               <p className="text-gold-400 text-2xl font-bold">4+</p>
-              <p className="text-gray-400 text-xs dark:text-gray-400 light:text-gray-600">ans d'expertise</p>
+              <p className="text-gray-400 text-xs">ans d'expertise</p>
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
 
       {/* Flèche de scroll */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-        <svg className="w-6 h-6 text-gold-400/30 dark:text-gold-400/30 light:text-gold-600/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gold-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
@@ -175,36 +175,36 @@ const Hero: React.FC = () => {
 export default Hero;
 
 export const HeroSkeleton: React.FC = () => (
-  <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative bg-dark-900 dark:bg-dark-900 light:bg-white">
+  <section className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
     <div className="flex flex-col items-center gap-4 mb-10 lg:hidden">
-      <div className="h-8 w-56 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded-full animate-pulse" />
-      <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
+      <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
+      <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 animate-pulse" />
     </div>
     <div className="hidden lg:flex justify-center mb-12">
-      <div className="h-8 w-56 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded-full animate-pulse" />
+      <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
     </div>
     <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center w-full">
       <div className="space-y-8">
-        <div className="h-16 w-3/4 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto lg:mx-0" />
-        <div className="h-6 w-2/3 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto lg:mx-0" />
+        <div className="h-16 w-3/4 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
+        <div className="h-6 w-2/3 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
           <div className="flex -space-x-3">
-            <div className="w-10 h-10 rounded-full bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
-            <div className="w-10 h-10 rounded-full bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
-            <div className="w-10 h-10 rounded-full bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
+            <div className="w-10 h-10 rounded-full bg-dark-600 animate-pulse" />
+            <div className="w-10 h-10 rounded-full bg-dark-600 animate-pulse" />
+            <div className="w-10 h-10 rounded-full bg-dark-600 animate-pulse" />
           </div>
-          <div className="h-4 w-40 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
+          <div className="h-4 w-40 bg-dark-600 rounded animate-pulse" />
         </div>
         <div className="flex flex-col items-center lg:items-start gap-3">
           <div className="flex gap-4">
-            <div className="h-12 w-56 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded-lg animate-pulse" />
-            <div className="h-12 w-48 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded-lg animate-pulse" />
+            <div className="h-12 w-56 bg-dark-600 rounded-lg animate-pulse" />
+            <div className="h-12 w-48 bg-dark-600 rounded-lg animate-pulse" />
           </div>
-          <div className="h-4 w-64 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
+          <div className="h-4 w-64 bg-dark-600 rounded animate-pulse" />
         </div>
       </div>
       <div className="hidden lg:flex justify-center">
-        <div className="w-full max-w-md aspect-square rounded-3xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
+        <div className="w-full max-w-md aspect-square rounded-3xl bg-dark-600 animate-pulse" />
       </div>
     </div>
   </section>

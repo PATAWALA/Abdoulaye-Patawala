@@ -122,6 +122,7 @@ const Stack: React.FC = () => {
   const [activeToolIndex, setActiveToolIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Mettre à jour l'index actif lors du défilement manuel
   useEffect(() => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
@@ -157,15 +158,15 @@ const Stack: React.FC = () => {
   };
 
   return (
-    <section className="bg-dark-800 dark:bg-dark-800 light:bg-white overflow-hidden">
+    <section className="bg-dark-800 overflow-hidden">
       <div className="py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         {/* En-tête */}
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Stack technique</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white dark:text-white light:text-dark-900 mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Des outils modernes,<br />des résultats durables
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed dark:text-gray-400 light:text-gray-600">
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
             Je choisis les meilleures technologies pour chaque projet. Rien de superflu, que de l'efficacité.
           </p>
         </div>
@@ -175,13 +176,13 @@ const Stack: React.FC = () => {
           {tools.map((tool, i) => (
             <div
               key={tool.name}
-              className="group relative bg-dark-700 border border-dark-600 rounded-2xl p-6 flex flex-col items-center gap-4 motion-safe:animate-fade-in hover:border-gold-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/5 transition-all duration-500 dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200 light:hover:border-gold-500/30 light:hover:shadow-md"
+              className="group relative bg-dark-700 border border-dark-600 rounded-2xl p-6 flex flex-col items-center gap-4 motion-safe:animate-fade-in hover:border-gold-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/5 transition-all duration-500"
               style={{ animationDelay: `${i * 0.06}s` }}
             >
-              <div className="w-16 h-16 rounded-2xl bg-dark-900/50 flex items-center justify-center group-hover:bg-dark-900 group-hover:scale-110 transition-all duration-500 dark:bg-dark-900/50 light:bg-gray-200/80 light:group-hover:bg-gray-100">
+              <div className="w-16 h-16 rounded-2xl bg-dark-900/50 flex items-center justify-center group-hover:bg-dark-900 group-hover:scale-110 transition-all duration-500">
                 {tool.logo}
               </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors duration-500 dark:text-gray-400 dark:group-hover:text-white light:text-gray-600 light:group-hover:text-dark-900">
+              <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors duration-500">
                 {tool.name}
               </span>
             </div>
@@ -197,13 +198,13 @@ const Stack: React.FC = () => {
             {tools.map((tool, i) => (
               <div
                 key={tool.name}
-                className="snap-start flex-shrink-0 w-36 bg-dark-700 border border-dark-600 rounded-2xl p-5 flex flex-col items-center gap-3 motion-safe:animate-fade-in dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200"
+                className="snap-start flex-shrink-0 w-36 bg-dark-700 border border-dark-600 rounded-2xl p-5 flex flex-col items-center gap-3 motion-safe:animate-fade-in"
                 style={{ animationDelay: `${i * 0.06}s` }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-dark-900/50 flex items-center justify-center dark:bg-dark-900/50 light:bg-gray-200/80">
+                <div className="w-14 h-14 rounded-2xl bg-dark-900/50 flex items-center justify-center">
                   {tool.logo}
                 </div>
-                <span className="text-xs font-medium text-gray-400 text-center dark:text-gray-400 light:text-gray-600">
+                <span className="text-xs font-medium text-gray-400 text-center">
                   {tool.name}
                 </span>
               </div>
@@ -219,7 +220,7 @@ const Stack: React.FC = () => {
                 className={`rounded-full transition-all duration-500 ${
                   i === activeToolIndex
                     ? 'w-6 h-1.5 bg-gold-400'
-                    : 'w-1.5 h-1.5 bg-dark-600 hover:bg-dark-500 dark:bg-dark-600 dark:hover:bg-dark-500 light:bg-gray-300 light:hover:bg-gray-400'
+                    : 'w-1.5 h-1.5 bg-dark-600 hover:bg-dark-500'
                 }`}
                 aria-label={`Outil ${i + 1}`}
               />
@@ -229,12 +230,12 @@ const Stack: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center mt-16 lg:mt-20 motion-safe:animate-fade-in">
-          <p className="text-gray-500 text-sm mb-6 dark:text-gray-500 light:text-gray-600">
+          <p className="text-gray-500 text-sm mb-6">
             Une stack complète, maîtrisée de bout en bout.
           </p>
           <button
             onClick={scrollToContact}
-            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group dark:hover:text-gold-300 light:hover:text-gold-600"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
           >
             <span className="text-base font-medium">Construisons votre projet ensemble</span>
             <svg
@@ -255,32 +256,32 @@ const Stack: React.FC = () => {
 export default Stack;
 
 export const StackSkeleton: React.FC = () => (
-  <section className="bg-dark-800 dark:bg-dark-800 light:bg-white overflow-hidden">
+  <section className="bg-dark-800 overflow-hidden">
     <div className="py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16 lg:mb-20">
-        <div className="h-4 w-32 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-4" />
-        <div className="h-10 w-3/4 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-6" />
-        <div className="h-6 w-1/2 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto" />
+        <div className="h-4 w-32 bg-dark-600 rounded animate-pulse mx-auto mb-4" />
+        <div className="h-10 w-3/4 bg-dark-600 rounded animate-pulse mx-auto mb-6" />
+        <div className="h-6 w-1/2 bg-dark-600 rounded animate-pulse mx-auto" />
       </div>
       <div className="hidden lg:grid grid-cols-5 gap-5">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-          <div key={i} className="bg-dark-700 border border-dark-600 rounded-2xl p-6 flex flex-col items-center gap-4 dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200">
-            <div className="w-16 h-16 rounded-2xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
-            <div className="h-4 w-16 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
+          <div key={i} className="bg-dark-700 border border-dark-600 rounded-2xl p-6 flex flex-col items-center gap-4">
+            <div className="w-16 h-16 rounded-2xl bg-dark-600 animate-pulse" />
+            <div className="h-4 w-16 bg-dark-600 rounded animate-pulse" />
           </div>
         ))}
       </div>
       <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 -mx-4 px-4">
         {[1, 2, 3, 4, 5].map((i) => (
-          <div key={i} className="flex-shrink-0 w-36 bg-dark-700 border border-dark-600 rounded-2xl p-5 flex flex-col items-center gap-3 dark:bg-dark-700 dark:border-dark-600 light:bg-gray-50 light:border-gray-200">
-            <div className="w-14 h-14 rounded-2xl bg-dark-600 dark:bg-dark-600 light:bg-gray-200 animate-pulse" />
-            <div className="h-3 w-14 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse" />
+          <div key={i} className="flex-shrink-0 w-36 bg-dark-700 border border-dark-600 rounded-2xl p-5 flex flex-col items-center gap-3">
+            <div className="w-14 h-14 rounded-2xl bg-dark-600 animate-pulse" />
+            <div className="h-3 w-14 bg-dark-600 rounded animate-pulse" />
           </div>
         ))}
       </div>
       <div className="text-center mt-16 lg:mt-20">
-        <div className="h-4 w-64 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto mb-6" />
-        <div className="h-5 w-48 bg-dark-600 dark:bg-dark-600 light:bg-gray-200 rounded animate-pulse mx-auto" />
+        <div className="h-4 w-64 bg-dark-600 rounded animate-pulse mx-auto mb-6" />
+        <div className="h-5 w-48 bg-dark-600 rounded animate-pulse mx-auto" />
       </div>
     </div>
   </section>

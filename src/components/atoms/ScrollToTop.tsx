@@ -13,7 +13,7 @@ const ScrollToTop: React.FC = () => {
   return visible ? (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 hover:bg-gold-500/20 transition-all duration-300 backdrop-blur-sm dark:bg-gold-500/10 dark:border-gold-500/20 dark:text-gold-400 dark:hover:bg-gold-500/20 light:bg-gold-500/10 light:border-gold-500/30 light:text-gold-600 light:hover:bg-gold-500/20"
+      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 hover:bg-gold-500/20 transition-all duration-300 backdrop-blur-sm"
       aria-label="Retour en haut"
     >
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -4,10 +4,10 @@ import React from 'react';
 import ContactForm from '@/components/molecules/ContactForm';
 
 const Contact: React.FC = () => (
-  <section id="contact" className="bg-dark-900 relative overflow-hidden dark:bg-dark-900 light:bg-gray-50">
+  <section id="contact" className="bg-dark-900 relative overflow-hidden">
     {/* Fond décoratif */}
     <div
-      className="absolute inset-0 opacity-[0.015] dark:opacity-[0.015] light:opacity-0"
+      className="absolute inset-0 opacity-[0.015]"
       style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(212,175,55,0.3) 1px, transparent 0)`,
         backgroundSize: '40px 40px',
@@ -20,10 +20,10 @@ const Contact: React.FC = () => (
         {/* Gauche : Infos */}
         <div className="motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Contact</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight dark:text-white light:text-dark-900">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
             Parlons de<br />votre projet
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-md dark:text-gray-400 light:text-gray-600">
+          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-md">
             Une idée, un défi, une ambition ? Ou simplement un retour sur mon travail ? Écrivez‑moi.
           </p>
 
@@ -35,8 +35,8 @@ const Contact: React.FC = () => (
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium text-sm dark:text-white light:text-dark-900">Email</p>
-                <a href="mailto:patawalaabdoulaye2003@gmail.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors dark:text-gray-400 light:text-gray-600 light:hover:text-gold-600">
+                <p className="text-white font-medium text-sm">Email</p>
+                <a href="mailto:patawalaabdoulaye2003@gmail.com" className="text-gray-400 text-sm hover:text-gold-400 transition-colors">
                   patawalaabdoulaye2003@gmail.com
                 </a>
               </div>
@@ -50,8 +50,8 @@ const Contact: React.FC = () => (
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium text-sm dark:text-white light:text-dark-900">Localisation</p>
-                <p className="text-gray-400 text-sm dark:text-gray-400 light:text-gray-600">Cotonou, Bénin — Disponible en remote</p>
+                <p className="text-white font-medium text-sm">Localisation</p>
+                <p className="text-gray-400 text-sm">Cotonou, Bénin — Disponible en remote</p>
               </div>
             </div>
 
@@ -63,14 +63,14 @@ const Contact: React.FC = () => (
                 </span>
               </div>
               <div>
-                <p className="text-white font-medium text-sm dark:text-white light:text-dark-900">Disponibilité</p>
-                <p className="text-gray-400 text-sm dark:text-gray-400 light:text-gray-600">Ouvert aux projets — Réponse sous 24h</p>
+                <p className="text-white font-medium text-sm">Disponibilité</p>
+                <p className="text-gray-400 text-sm">Ouvert aux projets — Réponse sous 24h</p>
               </div>
             </div>
 
             {/* Bouton WhatsApp */}
             <a
-              href="https://wa.me/22962278090"
+              href="https://wa.me/22962278090" /* Remplace par ton numéro */
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-500 transition-colors shadow-lg shadow-green-600/20"
