@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-dark-900 text-white antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-dark-900 text-white antialiased dark:bg-dark-900 dark:text-white light:bg-white light:text-dark-900`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} themes={['dark', 'light']}>
           <ClientLayout>{children}</ClientLayout>
         </ThemeProvider>
