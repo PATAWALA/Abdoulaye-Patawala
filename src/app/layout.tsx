@@ -29,7 +29,7 @@ export const metadata: Metadata = generateBaseMetadata({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className="dark scroll-smooth" suppressHydrationWarning>
+    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* FAVICON */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
