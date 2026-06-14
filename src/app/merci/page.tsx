@@ -20,15 +20,15 @@ export default function MerciPage() {
         </div>
 
         {/* Titre */}
-        <h1 className="text-3xl md:text-5xl font-display text-white mb-4">
+        <h1 className="text-3xl md:text-5xl font-display text-white dark:text-white light:text-dark-900 mb-4">
           Merci pour votre message
         </h1>
 
         {/* Message */}
-        <p className="text-gray-400 text-lg leading-relaxed mb-3">
+        <p className="text-gray-400 text-lg leading-relaxed mb-3 dark:text-gray-400 light:text-gray-600">
           J&apos;ai bien reçu votre demande et je vous réponds personnellement sous 24h.
         </p>
-        <p className="text-gray-600 text-sm mb-10">
+        <p className="text-gray-600 text-sm mb-10 dark:text-gray-600 light:text-gray-500">
           En attendant, n&apos;hésitez pas à explorer mes réalisations ou mon blog.
         </p>
 
@@ -42,13 +42,13 @@ export default function MerciPage() {
           </Link>
           <Link
             href="/blog"
-            className="px-6 py-3 border border-gold-500 text-gold-500 rounded-xl font-semibold hover:bg-gold-500 hover:text-dark-900 transition-all"
+            className="px-6 py-3 border border-gold-500 text-gold-500 rounded-xl font-semibold hover:bg-gold-500 hover:text-dark-900 transition-all dark:border-gold-500 dark:text-gold-500 light:border-gold-600 light:text-gold-600"
           >
             Lire le blog
           </Link>
           <Link
             href="/"
-            className="px-6 py-3 text-gray-400 hover:text-white transition-colors"
+            className="px-6 py-3 text-gray-400 hover:text-white transition-colors dark:text-gray-400 dark:hover:text-white light:text-gray-600 light:hover:text-dark-900"
           >
             Retour à l&apos;accueil
           </Link>

@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }: Props) {
               </span>
             )}
             {post.read_time && (
-              <span className="px-3 py-1 bg-dark-800 border border-dark-700 rounded-full text-xs text-gray-400">
+              <span className="px-3 py-1 bg-dark-800 border border-dark-700 rounded-full text-xs text-gray-400 dark:bg-dark-800 dark:border-dark-700 light:bg-gray-100 light:border-gray-200 light:text-gray-600">
                 {post.read_time} de lecture
               </span>
             )}
@@ -121,21 +121,21 @@ export default async function BlogPostPage({ params }: Props) {
             )}
           </div>
 
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-display text-white leading-tight mb-4">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-display text-white dark:text-white light:text-dark-900 leading-tight mb-4">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-500 light:text-gray-600">
             <div className="flex items-center gap-2">
               <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold-500/20 flex-shrink-0">
                 <Image src="/images/portrait.png" alt="Abdoulaye Patawala" fill className="object-cover" sizes="32px" />
               </div>
               <div>
-                <p className="text-white font-medium text-xs">{post.author || 'Abdoulaye Patawala'}</p>
-                <p className="text-gray-600 text-[10px]">Développeur Fullstack</p>
+                <p className="text-white font-medium text-xs dark:text-white light:text-dark-900">{post.author || 'Abdoulaye Patawala'}</p>
+                <p className="text-gray-600 text-[10px] dark:text-gray-600 light:text-gray-500">Développeur Fullstack</p>
               </div>
             </div>
-            <span className="text-gray-700">|</span>
+            <span className="text-gray-700 dark:text-gray-700 light:text-gray-400">|</span>
             <time dateTime={post.created_at}>
               {new Date(post.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
             </time>
@@ -143,7 +143,7 @@ export default async function BlogPostPage({ params }: Props) {
         </header>
 
         {/* Image de couverture */}
-        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-dark-700 shadow-2xl mb-12 motion-safe:animate-fade-in">
+        <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-dark-700 dark:border-dark-700 light:border-gray-200 shadow-2xl mb-12 motion-safe:animate-fade-in">
           <div className="aspect-[16/9] relative">
             <Image src={post.image_url} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 896px" priority />
           </div>
@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }: Props) {
         {post.excerpt && (
           <div className="relative mb-12 motion-safe:animate-fade-in">
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-gold-400 to-gold-400/0 rounded-full" />
-            <p className="pl-6 md:pl-8 text-base md:text-lg text-gray-300 leading-relaxed italic font-medium">
+            <p className="pl-6 md:pl-8 text-base md:text-lg text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed italic font-medium">
               {post.excerpt}
             </p>
           </div>
@@ -166,44 +166,44 @@ export default async function BlogPostPage({ params }: Props) {
             [&>h2]:text-xl [&>h2]:md:text-2xl [&>h2]:font-display [&>h2]:mt-12 [&>h2]:mb-4 [&>h2]:pb-3 [&>h2]:border-b [&>h2]:border-dark-700
             [&>h2]:text-gold-400
             [&>h2.text-green-400]:text-green-400
-            [&>h3]:text-lg [&>h3]:md:text-xl [&>h3]:font-display [&>h3]:text-white [&>h3]:mt-8 [&>h3]:mb-3
-            [&>p]:text-gray-300 [&>p]:leading-relaxed [&>p]:mb-5 [&>p]:text-base
+            [&>h3]:text-lg [&>h3]:md:text-xl [&>h3]:font-display [&>h3]:text-white [&>h3]:dark:text-white [&>h3]:light:text-dark-900 [&>h3]:mt-8 [&>h3]:mb-3
+            [&>p]:text-gray-300 [&>p]:dark:text-gray-300 [&>p]:light:text-gray-700 [&>p]:leading-relaxed [&>p]:mb-5 [&>p]:text-base
             [&>p>a]:text-gold-400 [&>p>a]:border-b [&>p>a]:border-gold-400/30 [&>p>a]:no-underline hover:[&>p>a]:border-gold-400
-            [&>p>strong]:text-white [&>p>strong]:font-semibold
+            [&>p>strong]:text-white [&>p>strong]:dark:text-white [&>p>strong]:light:text-dark-900 [&>p>strong]:font-semibold
             [&>ul]:space-y-2 [&>ul]:mb-6 [&>ul]:pl-5
             [&>ol]:space-y-2 [&>ol]:mb-6 [&>ol]:pl-5
-            [&>ul>li]:text-gray-300 [&>ul>li]:text-base [&>ul>li]:leading-relaxed [&>ul>li]:pl-1
-            [&>ol>li]:text-gray-300 [&>ol>li]:text-base [&>ol>li]:leading-relaxed [&>ol>li]:pl-1
+            [&>ul>li]:text-gray-300 [&>ul>li]:dark:text-gray-300 [&>ul>li]:light:text-gray-700 [&>ul>li]:text-base [&>ul>li]:leading-relaxed [&>ul>li]:pl-1
+            [&>ol>li]:text-gray-300 [&>ol>li]:dark:text-gray-300 [&>ol>li]:light:text-gray-700 [&>ol>li]:text-base [&>ol>li]:leading-relaxed [&>ol>li]:pl-1
             [&>ul>li::marker]:text-gold-400
             [&>ol>li::marker]:text-gold-400
-            [&>blockquote]:border-l-2 [&>blockquote]:border-gold-400 [&>blockquote]:bg-dark-800 [&>blockquote]:border [&>blockquote]:border-dark-700 [&>blockquote]:rounded-r-2xl [&>blockquote]:py-6 [&>blockquote]:px-6 [&>blockquote]:my-8
-            [&>blockquote>p]:text-gray-300 [&>blockquote>p]:text-base [&>blockquote>p]:leading-relaxed [&>blockquote>p]:italic
-            [&>pre]:bg-dark-800 [&>pre]:border [&>pre]:border-dark-700 [&>pre]:rounded-2xl [&>pre]:my-6 [&>pre]:p-4
+            [&>blockquote]:border-l-2 [&>blockquote]:border-gold-400 [&>blockquote]:bg-dark-800 [&>blockquote]:dark:bg-dark-800 [&>blockquote]:light:bg-gray-100 [&>blockquote]:border [&>blockquote]:border-dark-700 [&>blockquote]:dark:border-dark-700 [&>blockquote]:light:border-gray-200 [&>blockquote]:rounded-r-2xl [&>blockquote]:py-6 [&>blockquote]:px-6 [&>blockquote]:my-8
+            [&>blockquote>p]:text-gray-300 [&>blockquote>p]:dark:text-gray-300 [&>blockquote>p]:light:text-gray-700 [&>blockquote>p]:text-base [&>blockquote>p]:leading-relaxed [&>blockquote>p]:italic
+            [&>pre]:bg-dark-800 [&>pre]:dark:bg-dark-800 [&>pre]:light:bg-gray-100 [&>pre]:border [&>pre]:border-dark-700 [&>pre]:dark:border-dark-700 [&>pre]:light:border-gray-200 [&>pre]:rounded-2xl [&>pre]:my-6 [&>pre]:p-4
             [&>pre>code]:text-gold-400 [&>pre>code]:text-sm
-            [&>p>code]:text-gold-400 [&>p>code]:bg-dark-800 [&>p>code]:px-1.5 [&>p>code]:py-0.5 [&>p>code]:rounded-lg [&>p>code]:text-xs [&>p>code]:border [&>p>code]:border-dark-700
-            [&>img]:rounded-2xl [&>img]:my-8 [&>img]:border [&>img]:border-dark-700 [&>img]:w-full
-            [&>hr]:border-dark-700 [&>hr]:my-10
+            [&>p>code]:text-gold-400 [&>p>code]:bg-dark-800 [&>p>code]:dark:bg-dark-800 [&>p>code]:light:bg-gray-100 [&>p>code]:px-1.5 [&>p>code]:py-0.5 [&>p>code]:rounded-lg [&>p>code]:text-xs [&>p>code]:border [&>p>code]:border-dark-700 [&>p>code]:dark:border-dark-700 [&>p>code]:light:border-gray-200
+            [&>img]:rounded-2xl [&>img]:my-8 [&>img]:border [&>img]:border-dark-700 [&>img]:dark:border-dark-700 [&>img]:light:border-gray-200 [&>img]:w-full
+            [&>hr]:border-dark-700 [&>hr]:dark:border-dark-700 [&>hr]:light:border-gray-300 [&>hr]:my-10
           "
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         {/* Séparateur */}
         <div className="flex items-center gap-3 my-12 motion-safe:animate-fade-in">
-          <div className="flex-1 h-px bg-dark-700" />
-          <span className="text-gray-700 text-xs uppercase tracking-widest">Fin de l&apos;article</span>
-          <div className="flex-1 h-px bg-dark-700" />
+          <div className="flex-1 h-px bg-dark-700 dark:bg-dark-700 light:bg-gray-300" />
+          <span className="text-gray-700 dark:text-gray-700 light:text-gray-500 text-xs uppercase tracking-widest">Fin de l&apos;article</span>
+          <div className="flex-1 h-px bg-dark-700 dark:bg-dark-700 light:bg-gray-300" />
         </div>
 
         {/* Auteur */}
-        <div className="bg-dark-800 border border-dark-700 rounded-2xl p-6 mb-10 motion-safe:animate-fade-in">
+        <div className="bg-dark-800 border border-dark-700 rounded-2xl p-6 mb-10 motion-safe:animate-fade-in dark:bg-dark-800 dark:border-dark-700 light:bg-gray-100 light:border-gray-200">
           <div className="flex items-start gap-4">
             <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-gold-500/20 flex-shrink-0">
               <Image src="/images/portrait.png" alt="Abdoulaye Patawala" fill className="object-cover" sizes="48px" />
             </div>
             <div>
-              <p className="text-white font-semibold text-base mb-1">{post.author || 'Abdoulaye Patawala'}</p>
-              <p className="text-gray-500 text-xs mb-2">Développeur Fullstack & Architecte Digital</p>
-              <p className="text-gray-600 text-xs leading-relaxed">
+              <p className="text-white font-semibold text-base mb-1 dark:text-white light:text-dark-900">{post.author || 'Abdoulaye Patawala'}</p>
+              <p className="text-gray-500 text-xs mb-2 dark:text-gray-500 light:text-gray-600">Développeur Fullstack & Architecte Digital</p>
+              <p className="text-gray-600 text-xs leading-relaxed dark:text-gray-600 light:text-gray-500">
                 J&apos;aide les entreprises à créer des expériences digitales premium qui convertissent.
                 Besoin d&apos;un site, d&apos;une automatisation ou d&apos;un tunnel de vente ? Parlons-en.
               </p>
@@ -212,21 +212,21 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="relative bg-dark-800 border border-dark-700 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center motion-safe:animate-fade-in overflow-hidden">
+        <div className="relative bg-dark-800 border border-dark-700 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center motion-safe:animate-fade-in overflow-hidden dark:bg-dark-800 dark:border-dark-700 light:bg-gray-100 light:border-gray-200">
           <div className="absolute inset-0 bg-gradient-to-b from-gold-500/5 to-transparent" />
           <div className="relative z-10">
             <p className="text-gold-400 text-xs tracking-[0.3em] uppercase mb-3">Passer à l&apos;action</p>
-            <h2 className="text-xl md:text-3xl font-display text-white mb-3">Prêt à donner vie à votre projet ?</h2>
-            <p className="text-gray-400 text-sm md:text-base mb-8 max-w-sm mx-auto">Discutons de vos objectifs. Réponse sous 24h.</p>
+            <h2 className="text-xl md:text-3xl font-display text-white dark:text-white light:text-dark-900 mb-3">Prêt à donner vie à votre projet ?</h2>
+            <p className="text-gray-400 text-sm md:text-base mb-8 max-w-sm mx-auto dark:text-gray-400 light:text-gray-600">Discutons de vos objectifs. Réponse sous 24h.</p>
             <a
-  href="/#contact"
-  className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
->
-  <span>Démarrer un projet</span>
-  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</a>
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
+            >
+              <span>Démarrer un projet</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
 

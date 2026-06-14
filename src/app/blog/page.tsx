@@ -39,10 +39,10 @@ export default async function BlogPage() {
       <section className="pt-28 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Blog & Ressources</p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-display text-white dark:text-white light:text-dark-900 mb-6">
             Conseils & expertise
           </h1>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed dark:text-gray-400 light:text-gray-600">
             Retours d&apos;expérience, tutoriels et bonnes pratiques pour faire grandir votre business digital.
           </p>
         </div>

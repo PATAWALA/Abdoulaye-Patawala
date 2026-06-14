@@ -81,12 +81,12 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
 
         {/* Titre */}
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-display text-white mb-8 motion-safe:animate-fade-in leading-tight">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-display text-white dark:text-white light:text-dark-900 mb-8 motion-safe:animate-fade-in leading-tight">
           {project.title}
         </h1>
 
         {/* Image hero */}
-        <div className="aspect-video relative rounded-2xl md:rounded-3xl overflow-hidden border border-dark-700 shadow-2xl mb-12 motion-safe:animate-fade-in">
+        <div className="aspect-video relative rounded-2xl md:rounded-3xl overflow-hidden border border-dark-700 dark:border-dark-700 light:border-gray-200 shadow-2xl mb-12 motion-safe:animate-fade-in">
           <Image
             src={project.image_url}
             alt={project.title}
@@ -101,11 +101,11 @@ export default async function CaseStudyPage({ params }: Props) {
         {/* Résultat — badge vert */}
         {project.result && (
           <div className="mb-12 motion-safe:animate-fade-in">
-            <div className="inline-flex items-center gap-3 bg-green-500/5 border border-green-500/20 rounded-xl px-5 py-3">
-              <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center gap-3 bg-green-500/5 border border-green-500/20 rounded-xl px-5 py-3 dark:bg-green-500/5 dark:border-green-500/20 light:bg-green-50 light:border-green-200">
+              <svg className="w-5 h-5 text-green-400 dark:text-green-400 light:text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-green-400 text-base font-semibold">{project.result}</p>
+              <p className="text-green-400 dark:text-green-400 light:text-green-700 text-base font-semibold">{project.result}</p>
             </div>
           </div>
         )}
@@ -114,7 +114,7 @@ export default async function CaseStudyPage({ params }: Props) {
         {project.description && (
           <div className="relative mb-12 motion-safe:animate-fade-in">
             <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-gold-400 to-gold-400/0 rounded-full" />
-            <p className="pl-6 text-base md:text-lg text-gray-300 leading-relaxed">
+            <p className="pl-6 text-base md:text-lg text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
               {project.description}
             </p>
           </div>
@@ -128,7 +128,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 return (
                   <div
                     key={i}
-                    className="text-gray-300 leading-relaxed space-y-3"
+                    className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed space-y-3"
                     dangerouslySetInnerHTML={{ __html: section }}
                   />
                 );
@@ -179,7 +179,7 @@ export default async function CaseStudyPage({ params }: Props) {
               };
 
               const config = sectionConfig[cleanTitle] || {
-                color: 'text-white',
+                color: 'text-white dark:text-white light:text-dark-900',
                 bar: 'bg-gold-500/40',
                 icon: (
                   <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,13 +201,13 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                   <div className="pl-12 space-y-3">
                     <div
-                      className="text-gray-300 leading-relaxed
+                      className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed
                         [&>p]:mb-4 [&>p]:leading-relaxed
-                        [&>strong]:text-white [&>strong]:font-semibold
+                        [&>strong]:text-white [&>strong]:dark:text-white [&>strong]:light:text-dark-900 [&>strong]:font-semibold
                         [&>ul]:space-y-2 [&>ul]:mb-4 [&>ul]:pl-4
                         [&>ol]:space-y-2 [&>ol]:mb-4 [&>ol]:pl-4
                         [&>li]:mb-1 [&>li]:leading-relaxed [&>li]:pl-1
-                        [&>blockquote]:border-l-2 [&>blockquote]:border-gold-400 [&>blockquote]:bg-dark-800 [&>blockquote]:border [&>blockquote]:border-dark-700 [&>blockquote]:rounded-r-xl [&>blockquote]:py-5 [&>blockquote]:px-5 [&>blockquote]:my-4 [&>blockquote]:text-gray-300 [&>blockquote]:italic"
+                        [&>blockquote]:border-l-2 [&>blockquote]:border-gold-400 [&>blockquote]:bg-dark-800 [&>blockquote]:dark:bg-dark-800 [&>blockquote]:light:bg-gray-100 [&>blockquote]:border [&>blockquote]:border-dark-700 [&>blockquote]:dark:border-dark-700 [&>blockquote]:light:border-gray-300 [&>blockquote]:rounded-r-xl [&>blockquote]:py-5 [&>blockquote]:px-5 [&>blockquote]:my-4 [&>blockquote]:text-gray-300 [&>blockquote]:dark:text-gray-300 [&>blockquote]:light:text-gray-700 [&>blockquote]:italic"
                       dangerouslySetInnerHTML={{ __html: body }}
                     />
                   </div>
@@ -216,14 +216,14 @@ export default async function CaseStudyPage({ params }: Props) {
             })}
           </div>
         ) : (
-          <p className="text-gray-600 italic text-sm">Étude de cas détaillée à venir.</p>
+          <p className="text-gray-600 dark:text-gray-600 light:text-gray-500 italic text-sm">Étude de cas détaillée à venir.</p>
         )}
 
         {/* Séparateur */}
         <div className="flex items-center gap-4 my-14 motion-safe:animate-fade-in">
-          <div className="flex-1 h-px bg-dark-700" />
-          <span className="text-gray-700 text-xs uppercase tracking-widest">Fin de l&apos;étude</span>
-          <div className="flex-1 h-px bg-dark-700" />
+          <div className="flex-1 h-px bg-dark-700 dark:bg-dark-700 light:bg-gray-300" />
+          <span className="text-gray-700 dark:text-gray-700 light:text-gray-500 text-xs uppercase tracking-widest">Fin de l&apos;étude</span>
+          <div className="flex-1 h-px bg-dark-700 dark:bg-dark-700 light:bg-gray-300" />
         </div>
 
         {/* Lien vers le site */}
@@ -244,22 +244,22 @@ export default async function CaseStudyPage({ params }: Props) {
         )}
 
         {/* CTA contact */}
-        <div className="bg-dark-800 border border-dark-700 rounded-2xl p-8 md:p-12 text-center motion-safe:animate-fade-in">
-          <h2 className="text-xl md:text-2xl font-display text-white mb-3">
+        <div className="bg-dark-800 border border-dark-700 rounded-2xl p-8 md:p-12 text-center motion-safe:animate-fade-in dark:bg-dark-800 dark:border-dark-700 light:bg-gray-100 light:border-gray-200">
+          <h2 className="text-xl md:text-2xl font-display text-white dark:text-white light:text-dark-900 mb-3">
             Un projet similaire en tête ?
           </h2>
-          <p className="text-gray-400 text-sm md:text-base mb-8 max-w-md mx-auto">
+          <p className="text-gray-400 text-sm md:text-base mb-8 max-w-md mx-auto dark:text-gray-400 light:text-gray-600">
             Chaque projet commence par une conversation. Parlons du vôtre.
           </p>
           <a
-  href="/#contact"
-  className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group text-base font-medium"
->
-  <span>Discutons de votre projet</span>
-  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</a>
+            href="/#contact"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group text-base font-medium dark:hover:text-gold-300 light:hover:text-gold-600"
+          >
+            <span>Discutons de votre projet</span>
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
 
       </article>
