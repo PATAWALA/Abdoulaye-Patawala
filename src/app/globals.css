@@ -2,6 +2,7 @@
 
 /* Définition du thème sombre seulement (class-based) */
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));  /* ← Ajoute ceci */
 
 @theme {
   --color-gold-400: #d4af37;
