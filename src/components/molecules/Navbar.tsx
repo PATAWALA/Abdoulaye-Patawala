@@ -90,7 +90,6 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
-        
         {/* Logo */}
         <Link href="/" className="relative group flex-shrink-0" onClick={closeMenu}>
           <span className="text-gold-400 font-display text-2xl lg:text-3xl tracking-tight">Abdoulaye</span>
@@ -100,7 +99,7 @@ const Navbar: React.FC = () => {
 
         {/* Desktop : Liens centrés */}
         <div className="hidden lg:flex items-center justify-center flex-1 px-8">
-          <div className="flex items-center gap-0 bg-dark-800/40 backdrop-blur-sm border border-dark-700/40 rounded-full px-1.5 py-1.5 dark:bg-dark-800/40 dark:border-dark-700/40 light:bg-gray-200/40 light:border-gray-300/40">
+          <div className="flex items-center gap-0 bg-dark-800/40 backdrop-blur-sm border border-dark-700/40 rounded-full px-1.5 py-1.5 dark:bg-dark-800/40 dark:border-dark-700/40 light:bg-gray-100/80 light:border-gray-300/50 light:backdrop-blur-xl">
             {links.map((link) => {
               const isActive = link.isPage
                 ? isBlogActive || (link.href === '/portfolio' && isPortfolioPage)
@@ -108,8 +107,8 @@ const Navbar: React.FC = () => {
 
               const baseClass = `relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                 isActive
-                  ? 'bg-gold-500/15 text-gold-400 dark:bg-gold-500/15 dark:text-gold-400 light:bg-gold-500/15 light:text-gold-600'
-                  : 'text-gray-400 hover:text-white hover:bg-dark-700/50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-dark-700/50 light:text-gray-600 light:hover:text-dark-900 light:hover:bg-gray-300/50'
+                  ? 'bg-gold-500/15 text-gold-400 dark:bg-gold-500/15 dark:text-gold-400 light:bg-gold-500/20 light:text-gold-700'
+                  : 'text-gray-400 hover:text-white hover:bg-dark-700/50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-dark-700/50 light:text-gray-600 light:hover:text-dark-900 light:hover:bg-gray-200/70'
               }`;
 
               if (link.isPage) {
@@ -170,13 +169,19 @@ const Navbar: React.FC = () => {
           >
             <div className="flex flex-col gap-[5px]">
               <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-                mobileOpen ? 'bg-dark-900 rotate-45 translate-y-[7px]' : 'bg-white dark:bg-white light:bg-dark-900'
+                mobileOpen
+                  ? 'bg-dark-900 rotate-45 translate-y-[7px]'
+                  : 'bg-white dark:bg-white light:bg-dark-900'
               }`} />
               <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-                mobileOpen ? 'bg-dark-900 opacity-0 scale-x-0' : 'bg-white dark:bg-white light:bg-dark-900'
+                mobileOpen
+                  ? 'bg-dark-900 opacity-0 scale-x-0'
+                  : 'bg-white dark:bg-white light:bg-dark-900'
               }`} />
               <span className={`block w-5 h-[2px] rounded-full transition-all duration-300 ${
-                mobileOpen ? 'bg-dark-900 -rotate-45 -translate-y-[7px]' : 'bg-white dark:bg-white light:bg-dark-900'
+                mobileOpen
+                  ? 'bg-dark-900 -rotate-45 -translate-y-[7px]'
+                  : 'bg-white dark:bg-white light:bg-dark-900'
               }`} />
             </div>
           </button>
