@@ -8,12 +8,12 @@ interface BreadcrumbItem {
 export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Fil d'Ariane" className="mb-8">
-      <ol className="flex items-center space-x-2 text-sm text-gray-400">
+      <ol className="flex items-center space-x-2 text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
         {items.map((item, index) => (
           <li key={item.href} className="flex items-center">
             {index > 0 && (
               <svg
-                className="mx-2 h-4 w-4 text-gray-600"
+                className="mx-2 h-4 w-4 text-gray-600 dark:text-gray-600 light:text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -28,7 +28,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
             ) : (
               <Link
                 href={item.href}
-                className="hover:text-gold-400 transition-colors duration-200"
+                className="hover:text-gold-400 dark:hover:text-gold-400 light:hover:text-gold-600 transition-colors duration-200"
               >
                 {item.label}
               </Link>
