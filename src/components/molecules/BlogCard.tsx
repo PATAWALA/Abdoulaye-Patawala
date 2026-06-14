@@ -14,7 +14,7 @@ interface BlogCardProps {
   featured?: boolean;
 }
 
-const FALLBACK_IMAGE = '/images/placeholder-blog.jpg'; // Crée une image par défaut dans public/images/
+const FALLBACK_IMAGE = '/images/placeholder-blog.jpg';
 
 const BlogCard: React.FC<BlogCardProps> = ({
   slug,
@@ -31,8 +31,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
   const safeImageUrl = imgError || !imageUrl ? FALLBACK_IMAGE : imageUrl;
 
   return (
-    <article className="group relative bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden hover:border-gold-500/20 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-500 h-full flex flex-col">
-      <Link href={`/blog/${slug}`} className="block aspect-video relative overflow-hidden bg-dark-700">
+    <article className="group relative bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden hover:border-gold-500/20 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-500 h-full flex flex-col dark:bg-dark-800 dark:border-dark-700 light:bg-white light:border-gray-200 light:hover:border-gold-500/30 light:hover:shadow-lg light:hover:shadow-gold-500/10">
+      <Link href={`/blog/${slug}`} className="block aspect-video relative overflow-hidden bg-dark-700 dark:bg-dark-700 light:bg-gray-100">
         <Image
           src={safeImageUrl}
           alt={title}
@@ -42,9 +42,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
           loading="lazy"
           onError={() => setImgError(true)}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 to-transparent dark:from-dark-900/60 light:from-gray-900/20" />
         {category && (
-          <span className="absolute top-3 left-3 px-3 py-1 bg-dark-900/80 backdrop-blur-sm border border-dark-600 rounded-full text-xs text-gold-400">
+          <span className="absolute top-3 left-3 px-3 py-1 bg-dark-900/80 backdrop-blur-sm border border-dark-600 rounded-full text-xs text-gold-400 dark:bg-dark-900/80 dark:border-dark-600 light:bg-white/90 light:border-gray-300 light:text-gold-600">
             {category}
           </span>
         )}
@@ -56,7 +56,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
       </Link>
 
       <div className="p-5 flex flex-col flex-1">
-        <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+        <div className="flex items-center gap-3 text-xs text-gray-500 mb-3 dark:text-gray-500 light:text-gray-500">
           <time dateTime={date}>
             {new Date(date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
           </time>
@@ -69,18 +69,18 @@ const BlogCard: React.FC<BlogCardProps> = ({
         </div>
 
         <Link href={`/blog/${slug}`} className="block mb-2">
-          <h3 className="text-lg font-display text-white group-hover:text-gold-400 transition-colors leading-tight">
+          <h3 className="text-lg font-display text-white group-hover:text-gold-400 transition-colors leading-tight dark:text-white light:text-dark-900 light:group-hover:text-gold-600">
             {title}
           </h3>
         </Link>
 
-        <p className="text-gray-400 text-sm leading-relaxed line-clamp-2 flex-1">
+        <p className="text-gray-400 text-sm leading-relaxed line-clamp-2 flex-1 dark:text-gray-400 light:text-gray-600">
           {excerpt}
         </p>
 
         <Link
           href={`/blog/${slug}`}
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gold-400 transition-colors group/link mt-4 pt-4 border-t border-dark-700"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gold-400 transition-colors group/link mt-4 pt-4 border-t border-dark-700 dark:border-dark-700 light:border-gray-200 dark:text-gray-500 light:text-gray-500 dark:hover:text-gold-400 light:hover:text-gold-600"
         >
           <span>Lire l&apos;article</span>
           <svg className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
