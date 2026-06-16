@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { generatePageMetadata, siteConfig } from '@/lib/metadata';
 import { JsonLd, generateBreadcrumbSchema, generateProjectSchema } from '@/lib/structured-data';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -43,6 +42,7 @@ export default async function CaseStudyPage({ params }: Props) {
     ? project.content.split('<h2>').filter(Boolean)
     : [];
 
+  // Breadcrumb schema JSON‑LD (inclut le titre pour Google)
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Accueil', url: siteConfig.url },
     { name: 'Portfolio', url: `${siteConfig.url}/portfolio` },
@@ -64,14 +64,29 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <article className="pt-24 pb-16 px-4 md:px-8 max-w-4xl mx-auto">
 
-        {/* Fil d'Ariane */}
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Portfolio', href: '/portfolio' },
-            { label: project.title, href: `/portfolio/${project.slug}` }
-          ]}
-        />
+        {/* Fil d'Ariane – Accueil et Portfolio cliquables */}
+        <nav aria-label="Fil d'Ariane" className="mb-8">
+          <ol className="flex items-center space-x-2 text-sm text-gray-400">
+            <li className="flex items-center">
+              <Link href="/" className="hover:text-gold-400 transition-colors duration-200">
+                Accueil
+              </Link>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="mx-2 h-4 w-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <Link href="/portfolio" className="hover:text-gold-400 transition-colors duration-200">
+                Portfolio
+              </Link>
+            </li>
+          </ol>
+        </nav>
 
         {/* Badge catégorie */}
         <div className="mb-6 motion-safe:animate-fade-in">
@@ -252,14 +267,14 @@ export default async function CaseStudyPage({ params }: Props) {
             Chaque projet commence par une conversation. Parlons du vôtre.
           </p>
           <a
-  href="/#contact"
-  className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group text-base font-medium"
->
-  <span>Discutons de votre projet</span>
-  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</a>
+            href="/#contact"
+            className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group text-base font-medium"
+          >
+            <span>Discutons de votre projet</span>
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
 
       </article>
