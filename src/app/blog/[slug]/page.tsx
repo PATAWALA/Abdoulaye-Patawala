@@ -96,7 +96,6 @@ export default async function BlogPostPage({ params }: Props) {
           items={[
             { label: 'Accueil', href: '/' },
             { label: 'Blog', href: '/blog' },
-            { label: post.title, href: `/blog/${post.slug}` }
           ]}
         />
 
