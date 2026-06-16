@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { generatePageMetadata, siteConfig } from '@/lib/metadata';
 import { JsonLd, generateBreadcrumbSchema, generateArticleSchema } from '@/lib/structured-data';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -91,13 +90,29 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article className="pt-24 pb-16 px-4 md:px-8 max-w-4xl mx-auto">
 
-        {/* Fil d'Ariane */}
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Blog', href: '/blog' },
-          ]}
-        />
+        {/* Fil d'Ariane – Accueil et Blog cliquables */}
+        <nav aria-label="Fil d'Ariane" className="mb-8">
+          <ol className="flex items-center space-x-2 text-sm text-gray-400">
+            <li className="flex items-center">
+              <Link href="/" className="hover:text-gold-400 transition-colors duration-200">
+                Accueil
+              </Link>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="mx-2 h-4 w-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <Link href="/blog" className="hover:text-gold-400 transition-colors duration-200">
+                Blog
+              </Link>
+            </li>
+          </ol>
+        </nav>
 
         {/* En-tête */}
         <header className="mb-10 motion-safe:animate-fade-in">
@@ -218,14 +233,14 @@ export default async function BlogPostPage({ params }: Props) {
             <h2 className="text-xl md:text-3xl font-display text-white mb-3">Prêt à donner vie à votre projet ?</h2>
             <p className="text-gray-400 text-sm md:text-base mb-8 max-w-sm mx-auto">Discutons de vos objectifs. Réponse sous 24h.</p>
             <a
-  href="/#contact"
-  className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
->
-  <span>Démarrer un projet</span>
-  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-</a>
+              href="/#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 text-sm md:text-base"
+            >
+              <span>Démarrer un projet</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
 
