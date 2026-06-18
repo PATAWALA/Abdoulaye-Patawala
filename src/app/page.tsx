@@ -32,14 +32,25 @@ export default function Home() {
       
       <Hero />
 
-      {/* Bannière accompagnement — version épurée */}
-<div className="bg-dark-800">
-  <div className="max-w-7xl mx-auto px-4 py-5 text-center">
-    <p className="text-sm text-gray-400">
-      <span className="text-green-400 font-medium">✓</span> 3 mois d&apos;accompagnement inclus sur chaque projet
-    </p>
-  </div>
-</div>
+      {/* Bannière accompagnement + diagnostic gratuit */}
+      <div className="bg-dark-800">
+        <div className="max-w-7xl mx-auto px-4 py-5 text-center space-y-2">
+          <p className="text-sm text-gray-400">
+            <span className="text-green-400 font-medium">✓</span> 3 mois d&apos;accompagnement inclus sur chaque projet
+          </p>
+          <a
+            href="https://patawalaabdoulaye2003.systeme.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-300 transition-colors group"
+          >
+            <span>Réserver un diagnostic gratuit</span>
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
 
       <Suspense fallback={<ServicesSkeleton />}>
         <Services />
