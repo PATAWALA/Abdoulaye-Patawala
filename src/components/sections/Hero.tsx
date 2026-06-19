@@ -46,6 +46,15 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative">
+      {/* Texture de fond : points dorés ultra‑légers */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #d4af37 1px, transparent 0)`,
+          backgroundSize: '48px 48px',
+        }}
+      />
+
       {/* Mobile : Badge + Photo collés */}
       <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
@@ -55,7 +64,8 @@ const Hero: React.FC = () => {
           </span>
           <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
-
+        {/* Filet doré sous le badge (mobile) */}
+        <div className="w-12 h-px bg-gold-400/20" />
         <div className="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-dark-600 shadow-2xl">
           <Image
             src="/images/portrait.png"
@@ -73,8 +83,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Desktop : Badge centré */}
-      <div className="hidden lg:flex justify-center mb-12 motion-safe:animate-fade-in">
+      {/* Desktop : Badge centré + filet */}
+      <div className="hidden lg:flex flex-col items-center mb-12 motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -82,6 +92,8 @@ const Hero: React.FC = () => {
           </span>
           <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
+        {/* Filet doré sous le badge (desktop) */}
+        <div className="w-12 h-px bg-gold-400/20 mt-3" />
       </div>
 
       {/* Grille desktop */}
@@ -177,10 +189,12 @@ export const HeroSkeleton: React.FC = () => (
   <section className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
     <div className="flex flex-col items-center gap-4 mb-10 lg:hidden">
       <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
+      <div className="w-12 h-px bg-dark-600 animate-pulse" />
       <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 animate-pulse" />
     </div>
-    <div className="hidden lg:flex justify-center mb-12">
+    <div className="hidden lg:flex flex-col items-center mb-12">
       <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
+      <div className="w-12 h-px bg-dark-600 animate-pulse mt-3" />
     </div>
     <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center w-full">
       <div className="space-y-8">
