@@ -45,18 +45,9 @@ const Hero: React.FC = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center pt-20 pb-8 px-4 md:px-16 max-w-7xl mx-auto relative">
-      {/* Texture de fond : points dorés ultra‑légers */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #d4af37 1px, transparent 0)`,
-          backgroundSize: '48px 48px',
-        }}
-      />
-
+    <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative">
       {/* Mobile : Badge + Photo collés */}
-      <div className="flex flex-col items-center gap-4 mb-6 lg:hidden motion-safe:animate-fade-in">
+      <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -64,8 +55,7 @@ const Hero: React.FC = () => {
           </span>
           <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
-        {/* Filet doré sous le badge (mobile) */}
-        <div className="w-12 h-px bg-gold-400/20" />
+
         <div className="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border border-dark-600 shadow-2xl">
           <Image
             src="/images/portrait.png"
@@ -83,8 +73,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Desktop : Badge centré + filet */}
-      <div className="hidden lg:flex flex-col items-center mb-8 motion-safe:animate-fade-in">
+      {/* Desktop : Badge centré */}
+      <div className="hidden lg:flex justify-center mb-12 motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -92,15 +82,13 @@ const Hero: React.FC = () => {
           </span>
           <span className="text-sm text-gray-300">Disponible pour collaborations</span>
         </div>
-        {/* Filet doré sous le badge (desktop) */}
-        <div className="w-12 h-px bg-gold-400/20 mt-2" />
       </div>
 
       {/* Grille desktop */}
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center w-full">
         {/* Texte */}
-        <div className="space-y-6 text-center lg:text-left motion-safe:animate-fade-in">
-          <div className="min-h-[4rem] md:min-h-[5rem] flex items-center justify-center lg:justify-start">
+        <div className="space-y-8 text-center lg:text-left motion-safe:animate-fade-in">
+          <div className="min-h-[5rem] md:min-h-[6rem] flex items-center justify-center lg:justify-start">
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-display text-gold-400 leading-tight">
               {displayedText}
               <span className="inline-block w-0.5 h-8 md:h-12 bg-gold-400 ml-1 animate-pulse align-middle rounded-full" />
@@ -186,19 +174,17 @@ const Hero: React.FC = () => {
 export default Hero;
 
 export const HeroSkeleton: React.FC = () => (
-  <section className="min-h-screen flex flex-col justify-center pt-20 pb-8 px-4 md:px-16 max-w-7xl mx-auto">
-    <div className="flex flex-col items-center gap-4 mb-6 lg:hidden">
+  <section className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
+    <div className="flex flex-col items-center gap-4 mb-10 lg:hidden">
       <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
-      <div className="w-12 h-px bg-dark-600 animate-pulse" />
       <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 animate-pulse" />
     </div>
-    <div className="hidden lg:flex flex-col items-center mb-8">
+    <div className="hidden lg:flex justify-center mb-12">
       <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
-      <div className="w-12 h-px bg-dark-600 animate-pulse mt-2" />
     </div>
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
-      <div className="space-y-6">
-        <div className="h-12 w-3/4 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
+    <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center w-full">
+      <div className="space-y-8">
+        <div className="h-16 w-3/4 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
         <div className="h-6 w-2/3 bg-dark-600 rounded animate-pulse mx-auto lg:mx-0" />
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
           <div className="flex -space-x-3">
