@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Button from '@/components/atoms/Button';
-import PremiumParticles from '@/components/atoms/PremiumParticles';
 
 const words = [
   'Conseil stratégique',
@@ -47,7 +46,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative">
-     <PremiumParticles />
       {/* Mobile : Badge + Photo collés */}
       <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
