@@ -85,8 +85,16 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         isHome && !scrolled
           ? 'bg-transparent'
-          : 'bg-dark-900/85 backdrop-blur-2xl border-b border-dark-700/40 shadow-2xl shadow-black/20'
+          : 'bg-dark-900/85 backdrop-blur-2xl'
       }`}
+      style={
+        isHome && !scrolled
+          ? {}
+          : {
+              borderBottom: '1px solid rgba(212,175,55,0.15)',
+              boxShadow: '0 8px 32px rgba(212,175,55,0.08), 0 2px 8px rgba(212,175,55,0.04)',
+            }
+      }
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
         
