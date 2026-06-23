@@ -50,9 +50,9 @@ const Hero: React.FC = () => {
       className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative"
     >
       <div
-  className="absolute top-0 left-0 w-full h-40 pointer-events-none"
+  className="absolute top-0 left-0 w-full h-48 pointer-events-none"
   style={{
-    background: 'linear-gradient(to bottom, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 50%, rgba(10,10,10,0) 100%)',
+    background: 'linear-gradient(to bottom, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.04) 50%, rgba(10,10,10,0) 100%)',
   }}
 />
       {/* Mobile : Badge + Photo collés */}
