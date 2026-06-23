@@ -49,9 +49,12 @@ const Hero: React.FC = () => {
       id="hero"
       className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative"
     >
-      {/* Dégradé en haut : du noir vers transparent */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-900 to-transparent pointer-events-none" />
-
+      <div
+  className="absolute top-0 left-0 w-full h-40 pointer-events-none"
+  style={{
+    background: 'linear-gradient(to bottom, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 50%, rgba(10,10,10,0) 100%)',
+  }}
+/>
       {/* Mobile : Badge + Photo collés */}
       <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
