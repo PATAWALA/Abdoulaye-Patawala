@@ -45,7 +45,13 @@ const Hero: React.FC = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative">
+    <section
+      id="hero"
+      className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto relative"
+    >
+      {/* Dégradé en haut : du noir vers transparent */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-900 to-transparent pointer-events-none" />
+
       {/* Mobile : Badge + Photo collés */}
       <div className="flex flex-col items-center gap-4 mb-10 lg:hidden motion-safe:animate-fade-in">
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-500/20 bg-gold-500/5">
@@ -175,6 +181,8 @@ export default Hero;
 
 export const HeroSkeleton: React.FC = () => (
   <section className="min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:px-16 max-w-7xl mx-auto">
+    {/* Dégradé (simulé par une barre grise) */}
+    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-900 to-transparent pointer-events-none" />
     <div className="flex flex-col items-center gap-4 mb-10 lg:hidden">
       <div className="h-8 w-56 bg-dark-600 rounded-full animate-pulse" />
       <div className="w-full max-w-sm aspect-square rounded-3xl bg-dark-600 animate-pulse" />
