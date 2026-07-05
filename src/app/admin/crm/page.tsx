@@ -28,7 +28,8 @@ export default function AdminCRMPage() {
   const supabase = createClientComponent();
 
   const fetchProspects = async () => {
-    const { data } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { data } = await (supabase as any)
       .from('prospects')
       .select('*')
       .order('created_at', { ascending: false });
@@ -40,7 +41,8 @@ export default function AdminCRMPage() {
 
   const handleValidate = async (prospect: Prospect) => {
     if (!confirm(`Marquer ${prospect.name} comme relancé ?`)) return;
-    await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await (supabase as any)
       .from('prospects')
       .update({ status: 'Relancé', updated_at: new Date().toISOString() })
       .eq('id', prospect.id);
