@@ -17,7 +17,7 @@ async function searchProspects(query: string) {
     process.env.GOOGLE_SEARCH_ENGINE_ID_2,
     process.env.GOOGLE_SEARCH_ENGINE_ID_3,
     process.env.GOOGLE_SEARCH_ENGINE_ID_4,
-  ].filter(Boolean); // Garde seulement ceux qui sont définis
+  ].filter(Boolean);
 
   let allResults: any[] = [];
 
