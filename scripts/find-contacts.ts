@@ -12,24 +12,30 @@ const supabase = createClient(
 
 // --- Recherche Google Custom Search ---
 async function searchProspects(query: string) {
-  const apiKey = process.env.GOOGLE_API_KEY;
-  const searchEngineId = process.env.GOOGLE_SEARCH_ENGINE_ID;
-  
-  if (!apiKey || !searchEngineId) {
-    console.error("❌ Clés Google manquantes dans .env.local");
-    return [];
+  const engineIds = [
+    process.env.GOOGLE_SEARCH_ENGINE_ID!,
+    process.env.GOOGLE_SEARCH_ENGINE_ID_2,
+    process.env.GOOGLE_SEARCH_ENGINE_ID_3,
+    process.env.GOOGLE_SEARCH_ENGINE_ID_4,
+  ].filter(Boolean); // Garde seulement ceux qui sont définis
+
+  let allResults: any[] = [];
+
+  for (const cx of engineIds) {
+    const url = `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${cx}&q=${encodeURIComponent(query)}&lr=lang_fr&num=5`;
+    
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.items) allResults = [...allResults, ...data.items];
+      // Pause entre chaque moteur
+      await new Promise(r => setTimeout(r, 1500));
+    } catch (error) {
+      console.error(`Erreur moteur ${cx}:`, error);
+    }
   }
 
-  const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(query)}&lr=lang_fr&num=5`;
-  
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data.items || [];
-  } catch (error) {
-    console.error("Erreur recherche Google:", error);
-    return [];
-  }
+  return allResults;
 }
 
 // --- Extraire des informations d'un résultat Google ---
