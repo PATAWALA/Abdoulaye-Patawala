@@ -14,9 +14,6 @@ const supabase = createClient(
 async function searchProspects(query: string) {
   const engineIds = [
     process.env.GOOGLE_SEARCH_ENGINE_ID!,
-    process.env.GOOGLE_SEARCH_ENGINE_ID_2,
-    process.env.GOOGLE_SEARCH_ENGINE_ID_3,
-    process.env.GOOGLE_SEARCH_ENGINE_ID_4,
   ].filter(Boolean);
 
   let allResults: any[] = [];
