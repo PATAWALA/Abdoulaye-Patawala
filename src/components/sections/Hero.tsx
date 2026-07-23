@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button';
 
 const words = [
-  'Conseil stratégique',
-  'Sites & plateformes sur-mesure',
-  'Automatisation sur-mesure',
+  'Cabinets & Experts',
+  'Coachs & Infopreneurs',
   'Tunnels de vente',
+  'Automatisation rentable',
 ];
 
 const Hero: React.FC = () => {
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
           </div>
 
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            Rentabilisez votre activité avec un partenaire technique qui comprend votre business.
+            Je construis des systèmes de vente qui transforment votre expertise en revenus prévisibles.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">

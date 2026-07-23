@@ -19,11 +19,24 @@ async function searchProspects(query: string) {
   const apiKey = process.env.GOOGLE_API_KEY;
   const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
 
-  const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(query)}&lr=lang_fr&num=${MAX_RESULTS_PER_SEARCH}`;
+  const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(query)}&lr=lang_fr&num=3`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
+    
+    // Afficher la réponse complète pour debug
+    console.log(`🔍 Réponse pour "${query}":`, JSON.stringify(data).substring(0, 200));
+    
+    if (data.error) {
+      console.error(`❌ Erreur API: ${data.error.message}`);
+      return [];
+    }
+    
+    if (!data.items || data.items.length === 0) {
+      console.log(`⚠️ Aucun résultat pour "${query}"`);
+    }
+    
     return data.items || [];
   } catch (error) {
     console.error("Erreur recherche:", error);
