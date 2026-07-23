@@ -7,46 +7,49 @@ const services = [
     number: '01',
     icon: (
       <svg className="w-7 h-7 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
       </svg>
     ),
-    title: 'Conseil & Stratégie',
-    description: "Je définis avec vous la meilleure approche pour atteindre vos objectifs et maximiser votre retour sur investissement.",
+    title: 'Stratégie & Positionnement',
+    description: "Je vous aide à clarifier votre offre, définir votre client idéal et structurer un message qui vend.",
     benefits: [
-      'Analyse de votre marché et vos besoins',
-      'Plan d\'action clair et priorisé',
-      'Suivi personnalisé offert pendant 3 mois',
+      'Votre offre devient irrésistible',
+      'Vous attirez les clients que vous voulez',
+      'Plan d’action clair sur 3 mois',
     ],
+    audience: 'Coachs · Infopreneurs · Cabinets',
   },
   {
     number: '02',
     icon: (
       <svg className="w-7 h-7 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: 'Sites & plateformes sur-mesure',
-    description: "Je crée des sites et des applications web rapides, sécurisés et conçus pour transformer chaque visiteur en client.",
+    title: 'Système de vente automatisé',
+    description: "Je construis des tunnels de vente et des pages de capture qui transforment vos visiteurs en clients 24h/24.",
     benefits: [
-      'Expérience utilisateur fluide et élégante',
-      'Optimisé pour Google et tous les écrans',
-      'Accompagnement inclus après la mise en ligne',
+      'Pages de capture sur Systeme.io',
+      'Workflows automatiques (Make, n8n)',
+      'Des clients même quand vous dormez',
     ],
+    audience: 'Infopreneurs · Formateurs · Consultants',
   },
   {
     number: '03',
     icon: (
       <svg className="w-7 h-7 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
       </svg>
     ),
-    title: 'Tunnels de vente & Automatisation',
-    description: "Je construis des systèmes qui captent, qualifient et convertissent vos prospects automatiquement.",
+    title: 'Site web & Crédibilité',
+    description: "Un site web premium qui assoit votre autorité, optimisé pour Google et conçu pour convertir.",
     benefits: [
-      'Pages de capture et tunnels sur Systeme.io',
-      'Workflows automatisés (Make, n8n)',
-      'Optimisation continue pendant 3 mois',
+      'Design qui inspire confiance',
+      'Référencement optimisé (SEO)',
+      'Expérience utilisateur irréprochable',
     ],
+    audience: 'Cabinets · Experts · TPE/PME',
   },
 ];
 
@@ -59,12 +62,14 @@ const Services: React.FC = () => {
       <div className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
         {/* En-tête */}
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
-          <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Ce que je fais</p>
+          <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">
+            Ce que j’apporte aux coachs, infopreneurs & cabinets
+          </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             Des résultats, pas du blabla
           </h2>
           <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Chaque projet est pensé pour répondre à un seul objectif : <span className="text-white">faire grandir votre business</span>.
+            Un système complet pour attirer, convertir et fidéliser vos clients – sans y passer vos journées.
           </p>
         </div>
 
@@ -85,9 +90,15 @@ const Services: React.FC = () => {
               <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-gray-400 mb-4 leading-relaxed">
                 {service.description}
               </p>
+              {/* Public cible */}
+              <div className="mb-6">
+                <span className="text-xs text-gold-400/70 bg-gold-500/5 border border-gold-500/10 rounded-full px-3 py-1">
+                  {service.audience}
+                </span>
+              </div>
               <div className="w-8 h-px bg-gold-500/30 mb-6 group-hover:w-16 transition-all duration-500" />
               <ul className="space-y-3">
                 {service.benefits.map((benefit, j) => (
@@ -144,7 +155,7 @@ export const ServicesSkeleton: React.FC = () => (
             <div className="w-12 h-12 rounded-xl bg-dark-600 animate-pulse" />
             <div className="h-7 w-3/4 bg-dark-600 rounded animate-pulse" />
             <div className="h-4 w-full bg-dark-600 rounded animate-pulse" />
-            <div className="h-4 w-5/6 bg-dark-600 rounded animate-pulse" />
+            <div className="h-4 w-20 bg-dark-600 rounded-full animate-pulse" />
             <div className="w-8 h-px bg-dark-600 animate-pulse" />
             <div className="space-y-3">
               <div className="h-3 w-2/3 bg-dark-600 rounded animate-pulse" />
