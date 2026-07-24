@@ -132,24 +132,28 @@ const Services: React.FC = () => {
             Un système complet pour attirer, convertir et fidéliser vos clients – sans y passer vos journées.
           </p>
         </div>
-
         {/* Sélecteur de persona */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16 motion-safe:animate-fade-in">
-          {personas.map((persona) => (
-            <button
-              key={persona.id}
-              onClick={() => setActivePersona(persona.id)}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                activePersona === persona.id
-                  ? 'bg-gold-500 text-dark-900 shadow-lg shadow-gold-500/20 scale-105'
-                  : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-600'
-              }`}
-            >
-              {persona.icon}
-              {persona.label}
-            </button>
-          ))}
-        </div>
+<div className="text-center mb-12 motion-safe:animate-fade-in">
+  <p className="text-gray-400 text-lg mb-6">
+    Vous êtes…
+  </p>
+  <div className="flex flex-wrap justify-center gap-4">
+    {personas.map((persona) => (
+      <button
+        key={persona.id}
+        onClick={() => setActivePersona(persona.id)}
+        className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+          activePersona === persona.id
+            ? 'bg-gold-500 text-dark-900 shadow-lg shadow-gold-500/20 scale-105'
+            : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-600'
+        }`}
+      >
+        {persona.icon}
+        {persona.label}
+      </button>
+    ))}
+  </div>
+</div>
 
         {/* Contenu dynamique premium */}
         <div className="bg-dark-700 border border-dark-600 rounded-2xl p-8 md:p-12 motion-safe:animate-fade-in hover:border-gold-500/20 transition-all duration-500">
