@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* PERF */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#c5a028" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
