@@ -1,131 +1,162 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, Calendar } from "lucide-react";
 
-const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+const Logo = () => (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="shrink-0"
+  >
+    <circle
+      cx="20"
+      cy="20"
+      r="19"
+      stroke="#C5A880"
+      strokeWidth="1.5"
+      fill="none"
+    />
+    <text
+      x="20"
+      y="26"
+      textAnchor="middle"
+      fill="#C5A880"
+      fontFamily="serif"
+      fontSize="18"
+      fontWeight="bold"
+      letterSpacing="0.05em"
+    >
+      JD
+    </text>
+  </svg>
+);
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
-  const isHome = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navigateToSection = (href: string) => {
-    setMenuOpen(false);
-    if (isHome) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      router.push('/' + href);
-    }
-  };
-
-  const closeMenu = () => setMenuOpen(false);
+  const navLinks = [
+    { name: "Accueil", href: "/" },
+    { name: "Conférences", href: "/conferences" },
+    { name: "Formations", href: "/formations" },
+    { name: "Boutique", href: "/boutique" },
+    { name: "AUPROHADA", href: "/engagements" },
+  ];
 
   return (
-    <>
-      <nav
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-dark-900/90 backdrop-blur-2xl border-b border-gold-500/10 shadow-[0_8px_32px_rgba(212,175,55,0.08)]'
-            : 'bg-transparent'
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-[#05070F]/90 backdrop-blur-xl border-b border-[#C5A880]/10 py-3 shadow-[0_1px_20px_rgba(0,0,0,0.5)]"
+          : "bg-[#05070F]/60 backdrop-blur-lg border-b border-transparent py-5"
+      }`}
+    >
+      {/* Ligne supérieure dorée */}
+      <div
+        className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent transition-opacity duration-500 ${
+          isScrolled ? "opacity-0" : "opacity-100"
         }`}
-      >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="relative group flex-shrink-0" onClick={closeMenu}>
-            <span className="text-gold-400 font-display text-3xl lg:text-4xl tracking-tight">Abdoulaye</span>
-            <span className="text-white font-display text-3xl lg:text-4xl tracking-tight">Patawala</span>
-            <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent group-hover:via-gold-400 transition-all duration-500" />
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          {/* Logo + Nom avec marge à droite */}
+          <Link href="/" className="flex items-center gap-3 mr-6 md:mr-0">
+            <Logo />
+            <div className="flex flex-col">
+              <span className="text-sm font-black uppercase tracking-[0.3em] text-white">
+                Jacques DIBI
+              </span>
+              <span className="text-[9px] font-medium tracking-[0.4em] uppercase text-[#C5A880] mt-0.5">
+                Cabinet & Conseil
+              </span>
+            </div>
           </Link>
 
-          {/* Actions (bouton contact desktop + hamburger) */}
-          <div className="flex items-center gap-4 sm:gap-6">
-            {/* Bouton contact – visible uniquement sur desktop (sm et plus) */}
-            {!menuOpen && (
-              <button
-                onClick={() => navigateToSection('#contact')}
-                className="hidden sm:inline-flex relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 items-center gap-2"
-              >
-                <svg
-                  className="relative z-10 w-5 h-5 flex-shrink-0 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          {/* Desktop */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-300 group ${
+                    isActive ? "text-[#C5A880]" : "text-gray-300 hover:text-[#C5A880]"
+                  }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-                <span className="relative z-10">Diagnostic offert</span>
-                <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-xl" />
-              </button>
-            )}
+                  {link.name}
+                  <span
+                    className={`absolute left-0 -bottom-1 h-[1px] bg-[#C5A880] transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
 
-            {/* Hamburger – visible sur tous les écrans */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-50 flex flex-col gap-[6px] items-end group p-2"
-              aria-label="Menu"
+            <div className="w-[1px] h-5 bg-[#C5A880]/30" />
+
+            <Link
+              href="/conferences"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#C5A880] text-black font-bold text-xs uppercase tracking-widest rounded-none transition-all duration-300 hover:bg-black hover:text-[#C5A880] border border-[#C5A880]"
             >
-              <span
-                className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 rotate-45 translate-y-[9px]' : 'w-7'
-                }`}
-              />
-              <span
-                className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 -rotate-45 -translate-y-[9px]' : 'w-5 group-hover:w-7'
-                }`}
-              />
+              <Calendar size={14} />
+              Réserver ma place
+            </Link>
+          </div>
+
+          {/* Burger mobile avec marge à gauche */}
+          <div className="lg:hidden flex items-center ml-4">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white focus:outline-none p-2 -mr-2"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
-      </nav>
-
-      {/* Sidebar plein écran (mobile) / panneau droit (desktop) */}
-      <div
-        className={`fixed inset-0 z-40 transition-all duration-500 ${
-          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="absolute inset-0 bg-dark-900/80 backdrop-blur-sm" onClick={closeMenu} />
-        <div
-          className={`absolute right-0 top-0 h-full w-full sm:w-96 bg-dark-800 border-l border-dark-700 shadow-2xl transform transition-transform duration-500 ${
-            menuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="p-10 pt-24 space-y-6">
-            <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Accueil
-</Link>
-<Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Portfolio
-</Link>
-<Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Blog
-</Link>
-<Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  À propos
-</Link>
-            <div className="pt-8">
-              <button
-                onClick={() => navigateToSection('#contact')}
-                className="w-full py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold text-lg hover:bg-gold-400 transition-colors"
-              >
-                Diagnostic offert
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
-    </>
+
+      {/* Menu mobile */}
+      {isOpen && (
+        <div className="lg:hidden bg-[#05070F] border-t border-[#C5A880]/10 mt-3 py-4 px-4 space-y-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="block text-xs font-bold uppercase tracking-widest text-gray-300 py-2 hover:text-[#C5A880]"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link
+            href="/conferences"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center justify-center gap-2 w-full py-3 bg-[#C5A880] text-black font-bold text-xs uppercase tracking-widest rounded-none hover:bg-black hover:text-[#C5A880] border border-[#C5A880]"
+          >
+            <Calendar size={14} />
+            Réserver ma place
+          </Link>
+        </div>
+      )}
+    </nav>
   );
 };
 
