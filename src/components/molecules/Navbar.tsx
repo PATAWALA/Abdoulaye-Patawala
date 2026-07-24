@@ -29,10 +29,6 @@ const Navbar: React.FC = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const openCapturePage = () => {
-    window.open('https://patawalaabdoulaye2003.systeme.io/', '_blank');
-  };
-
   return (
     <>
       <nav
@@ -55,7 +51,7 @@ const Navbar: React.FC = () => {
             {/* Bouton Diagnostic offert – visible uniquement sur desktop (sm et plus) */}
             {!menuOpen && (
               <button
-                onClick={openCapturePage}
+                onClick={() => navigateToSection('#contact')}
                 className="hidden sm:inline-flex relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 items-center gap-2"
               >
                 <svg
@@ -120,7 +116,7 @@ const Navbar: React.FC = () => {
             </Link>
             <div className="pt-8">
               <button
-                onClick={openCapturePage}
+                onClick={() => navigateToSection('#contact')}
                 className="w-full py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold text-lg hover:bg-gold-400 transition-colors"
               >
                 Diagnostic offert
