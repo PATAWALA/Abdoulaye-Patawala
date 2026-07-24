@@ -29,6 +29,10 @@ const Navbar: React.FC = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const openCapturePage = () => {
+    window.open('https://patawalaabdoulaye2003.systeme.io/', '_blank');
+  };
+
   return (
     <>
       <nav
@@ -48,10 +52,10 @@ const Navbar: React.FC = () => {
 
           {/* Actions (bouton contact desktop + hamburger) */}
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* Bouton contact – visible uniquement sur desktop (sm et plus) */}
+            {/* Bouton Diagnostic offert – visible uniquement sur desktop (sm et plus) */}
             {!menuOpen && (
               <button
-                onClick={() => navigateToSection('#contact')}
+                onClick={openCapturePage}
                 className="hidden sm:inline-flex relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 items-center gap-2"
               >
                 <svg
@@ -67,20 +71,20 @@ const Navbar: React.FC = () => {
               </button>
             )}
 
-            {/* Hamburger – visible sur tous les écrans */}
+            {/* Hamburger – visible sur tous les écrans, plus gros sur mobile */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-50 flex flex-col gap-[6px] items-end group p-2"
+              className="relative z-50 flex flex-col gap-[7px] items-end group p-2"
               aria-label="Menu"
             >
               <span
                 className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 rotate-45 translate-y-[9px]' : 'w-7'
+                  menuOpen ? 'w-8 rotate-45 translate-y-[10px]' : 'w-8'
                 }`}
               />
               <span
                 className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 -rotate-45 -translate-y-[9px]' : 'w-5 group-hover:w-7'
+                  menuOpen ? 'w-8 -rotate-45 -translate-y-[10px]' : 'w-6 group-hover:w-8'
                 }`}
               />
             </button>
@@ -103,20 +107,20 @@ const Navbar: React.FC = () => {
         >
           <div className="p-10 pt-24 space-y-6">
             <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Accueil
-</Link>
-<Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Portfolio
-</Link>
-<Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  Blog
-</Link>
-<Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-  À propos
-</Link>
+              Accueil
+            </Link>
+            <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+              Portfolio
+            </Link>
+            <Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+              Blog
+            </Link>
+            <Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+              À propos
+            </Link>
             <div className="pt-8">
               <button
-                onClick={() => navigateToSection('#contact')}
+                onClick={openCapturePage}
                 className="w-full py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold text-lg hover:bg-gold-400 transition-colors"
               >
                 Diagnostic offert
