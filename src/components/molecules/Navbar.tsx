@@ -43,14 +43,14 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo – taille ajustée */}
           <Link href="/" className="relative group flex-shrink-0" onClick={closeMenu}>
-            <span className="text-gold-400 font-display text-3xl lg:text-4xl tracking-tight">Abdoulaye</span>
-            <span className="text-white font-display text-3xl lg:text-4xl tracking-tight">Patawala</span>
+            <span className="text-gold-400 font-display text-2xl lg:text-3xl tracking-tight">Abdoulaye</span>
+            <span className="text-white font-display text-2xl lg:text-3xl tracking-tight">Patawala</span>
             <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent group-hover:via-gold-400 transition-all duration-500" />
           </Link>
 
-          {/* Actions (bouton contact desktop + hamburger) */}
+          {/* Actions (bouton desktop + hamburger) */}
           <div className="flex items-center gap-4 sm:gap-6">
             {/* Bouton Diagnostic offert – visible uniquement sur desktop (sm et plus) */}
             {!menuOpen && (
@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
               </button>
             )}
 
-            {/* Hamburger – visible sur tous les écrans, plus gros sur mobile */}
+            {/* Hamburger – visible sur tous les écrans, plus distinct */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="relative z-50 flex flex-col gap-[7px] items-end group p-2"
