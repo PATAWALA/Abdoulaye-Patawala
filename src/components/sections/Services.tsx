@@ -217,21 +217,19 @@ const Services: React.FC = () => {
 
           {/* CTA */}
           <div className="mt-12 pt-8 border-t border-dark-600 text-center">
-            <a
-              href="https://patawalaabdoulaye2003.systeme.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20"
-            >
-              <span>Prendre un diagnostic offert</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
-            </a>
-            <p className="text-gray-600 text-sm mt-3">
-              Sans engagement · Réponse sous 24h
-            </p>
-          </div>
+  <button
+    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+    className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20"
+  >
+    <span>Prendre un diagnostic offert</span>
+    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+    </svg>
+  </button>
+  <p className="text-gray-600 text-sm mt-3">
+    Sans engagement · Réponse sous 24h
+  </p>
+</div>
         </div>
       </div>
     </section>
