@@ -103,14 +103,17 @@ const Navbar: React.FC = () => {
         >
           <div className="p-10 pt-24 space-y-6">
             <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Accueil
-            </Link>
-            <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Portfolio
-            </Link>
-            <Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Blog
-            </Link>
+  Accueil
+</Link>
+<Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+  Portfolio
+</Link>
+<Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+  Blog
+</Link>
+<Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+  À propos
+</Link>
             <div className="pt-8">
               <button
                 onClick={() => navigateToSection('#contact')}
