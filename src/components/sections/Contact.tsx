@@ -21,10 +21,11 @@ const Contact: React.FC = () => (
         <div className="motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">Contact</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6 leading-tight">
-            Parlons de<br />votre projet
+            Discutons de<br />votre croissance
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-md">
-            Une idée, un défi, une ambition ? Ou simplement un retour sur mon travail ? Écrivez‑moi.
+            Vous êtes coach, infopreneur ou dirigeant de cabinet ? Décrivez-moi votre situation. 
+            Je vous réponds personnellement pour poser les bases d&apos;une collaboration sur-mesure.
           </p>
 
           <div className="space-y-6">
@@ -70,7 +71,7 @@ const Contact: React.FC = () => (
 
             {/* Bouton WhatsApp */}
             <a
-              href="https://wa.me/22962278090" /* Remplace par ton numéro */
+              href="https://wa.me/22962278090"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-500 transition-colors shadow-lg shadow-green-600/20"
@@ -80,6 +81,14 @@ const Contact: React.FC = () => (
               </svg>
               Discuter sur WhatsApp
             </a>
+          </div>
+
+          {/* Rappel du diagnostic offert */}
+          <div className="mt-8 p-6 bg-dark-800 border border-dark-700 rounded-2xl">
+            <p className="text-white font-medium text-sm mb-2">🎯 Vous préférez un diagnostic offert ?</p>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Remplissez ce formulaire et je vous recontacte pour un rendez-vous gratuit.
+            </p>
           </div>
         </div>
 
