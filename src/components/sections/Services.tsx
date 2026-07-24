@@ -1,5 +1,5 @@
 'use client';
-
+export { default as ServicesSkeleton } from './ServicesSkeleton';
 import React, { useState } from 'react';
 
 const personas = [
