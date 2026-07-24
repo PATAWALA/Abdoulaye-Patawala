@@ -48,29 +48,27 @@ const Navbar: React.FC = () => {
 
           {/* Actions (bouton contact + hamburger) */}
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* Bouton contact (toujours visible, même sur mobile) */}
-            <button
-              onClick={() => navigateToSection('#contact')}
-              className="relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 inline-flex items-center gap-2"
-            >
-              <span className="relative z-10">Me contacter</span>
-              <svg
-                className="relative z-10 w-5 h-5 group-hover/cta:translate-x-1 transition-transform duration-300 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {/* Bouton contact – masqué sur desktop quand le menu est ouvert */}
+            {!menuOpen && (
+              <button
+                onClick={() => navigateToSection('#contact')}
+                className="relative px-4 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 inline-flex items-center gap-2"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
-              <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-xl" />
-            </button>
+                {/* Icône seule sur mobile */}
+                <svg
+                  className="relative z-10 w-5 h-5 flex-shrink-0 group-hover/cta:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+                <span className="relative z-10 hidden sm:inline">Diagnostic offert</span>
+                <div className="absolute inset-0 bg-white translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300 rounded-xl" />
+              </button>
+            )}
 
-            {/* Hamburger */}
+            {/* Hamburger – plus gros sur mobile */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="relative z-50 flex flex-col gap-[6px] items-end group p-2"
@@ -78,12 +76,12 @@ const Navbar: React.FC = () => {
             >
               <span
                 className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 rotate-45 translate-y-[9px]' : 'w-7'
+                  menuOpen ? 'w-7 rotate-45 translate-y-[9px]' : 'w-7 sm:w-7'
                 }`}
               />
               <span
                 className={`block h-[3px] rounded-full bg-white transition-all duration-300 ${
-                  menuOpen ? 'w-7 -rotate-45 -translate-y-[9px]' : 'w-5 group-hover:w-7'
+                  menuOpen ? 'w-7 -rotate-45 -translate-y-[9px]' : 'w-5 group-hover:w-7 sm:w-5'
                 }`}
               />
             </button>
@@ -91,13 +89,15 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Menu plein écran (mobile/desktop) */}
+      {/* Sidebar plein écran (mobile) / panneau droit (desktop) */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-500 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="absolute inset-0 bg-dark-900/70 backdrop-blur-md" onClick={closeMenu} />
+        {/* Overlay sombre, clic pour fermer */}
+        <div className="absolute inset-0 bg-dark-900/80 backdrop-blur-sm" onClick={closeMenu} />
+        {/* Panneau */}
         <div
           className={`absolute right-0 top-0 h-full w-full sm:w-96 bg-dark-800 border-l border-dark-700 shadow-2xl transform transition-transform duration-500 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
                 onClick={() => navigateToSection('#contact')}
                 className="w-full py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold text-lg hover:bg-gold-400 transition-colors"
               >
-                Me contacter
+                Diagnostic offert
               </button>
             </div>
           </div>
