@@ -2,8 +2,9 @@ import { Metadata } from 'next'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { JsonLd, generateWebSiteSchema, generatePersonSchema, generateBreadcrumbSchema } from '@/lib/structured-data'
 import Hero from '@/components/sections/Hero'
-import Offers from '@/components/sections/Offers' // <-- Nouvel import
-import Services, { ServicesSkeleton } from '@/components/sections/Services'
+import Offers from '@/components/sections/Offers'
+import Services from '@/components/sections/Services'
+import ServicesSkeleton from '@/components/sections/ServicesSkeleton' // <-- Import séparé
 import Portfolio from '@/components/sections/Portfolio'
 import PortfolioSkeleton from '@/components/sections/PortfolioSkeleton'
 import Testimonials from '@/components/sections/Testimonials'
@@ -33,7 +34,6 @@ export default function Home() {
       
       <Hero />
       
-      {/* NOUVELLE SECTION OFFRES */}
       <Offers />
       
       <Suspense fallback={<ServicesSkeleton />}>
