@@ -23,11 +23,9 @@ const Offers: React.FC = () => {
 
   return (
     <section id="offres" className="py-16 md:py-24 px-4 md:px-16 relative bg-dark-900 overflow-hidden">
-      {/* Halo doré décoratif */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
-        {/* En-tête */}
         <div className="text-center mb-12 md:mb-16 space-y-4">
           <span className="inline-block px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs md:text-sm font-medium tracking-wide uppercase">
             {section.badge}
@@ -40,10 +38,9 @@ const Offers: React.FC = () => {
           </p>
         </div>
 
-        {/* Grille des offres */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-stretch">
           
-          {/* CARTE STARTER */}
+          {/* CARTE DÉMARRAGE */}
           <div className="relative flex flex-col p-6 md:p-8 rounded-3xl bg-dark-800 border border-dark-600 hover:border-gold-500/30 transition-colors duration-300">
             <div className="mb-6">
               <span className="inline-block px-3 py-1 rounded-full bg-dark-700 text-gray-300 text-xs font-medium mb-4">
@@ -88,9 +85,8 @@ const Offers: React.FC = () => {
             </a>
           </div>
 
-          {/* CARTE SUR-MESURE */}
+          {/* CARTE SIGNATURE */}
           <div className="relative flex flex-col p-6 md:p-8 rounded-3xl bg-dark-800 border-2 border-gold-500 shadow-[0_0_40px_-10px_rgba(212,175,55,0.3)] lg:-translate-y-4">
-            {/* Badge Recommandé */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max">
               <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gold-500 text-dark-900 text-xs font-bold uppercase tracking-wider shadow-lg">
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
