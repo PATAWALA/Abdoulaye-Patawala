@@ -11,8 +11,9 @@ export const offersContent = {
     badge: 'Pour démarrer',
     title: 'Pack Démarrage',
     subtitle: 'Votre présence en ligne, simplement et rapidement.',
-    price: '8 000',
-    priceUnit: 'FCFA / an',
+    price: '12',
+    priceUnit: '€ / an',
+    priceFcfa: '≈ 8 000 FCFA / an',
     priceNote: 'Frais de réservation de votre nom de domaine (.com) uniquement.',
     features: [
       "Maquette de site prête à l'emploi",
@@ -32,8 +33,9 @@ export const offersContent = {
     title: 'Pack Signature',
     subtitle: 'Votre plateforme complète, automatisée et sécurisée.',
     pricePrefix: 'À partir de',
-    price: '150 000',
-    priceUnit: 'FCFA',
+    price: '230',
+    priceUnit: '€',
+    priceFcfa: '≈ 150 000 FCFA',
     priceNote: 'Devis personnalisé selon la complexité de votre projet.',
     features: [
       'Design 100% personnalisé (vos photos, vos couleurs)',
