@@ -142,19 +142,17 @@ const Hero: React.FC = () => {
 
             {/* CTAs + Texte rassurant */}
             <div className="flex flex-col items-center lg:items-start gap-3">
-              <div className="flex flex-col items-center justify-center lg:justify-start gap-3 w-full max-w-[480px]">
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
-                  <Button variant="primary" onClick={scrollToContact}>
-                    Réserver ma maquette offerte
-                  </Button>
-                  <Button variant="secondary" onClick={scrollToPortfolio}>
-                    Découvrir mon travail
-                  </Button>
-                </div>
-                <p className="text-sm text-gray-600 text-center w-full">
-                  Étude de votre besoin · Réponse sous 24h
-                </p>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
+                <Button variant="primary" onClick={scrollToContact}>
+                  Réserver ma maquette offerte
+                </Button>
+                <Button variant="secondary" onClick={scrollToPortfolio}>
+                  Découvrir mon travail
+                </Button>
               </div>
+              <p className="text-sm text-gray-600 text-center lg:text-left w-full">
+                Étude de votre besoin · Réponse sous 24h
+              </p>
             </div>
           </div>
 
