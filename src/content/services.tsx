@@ -1,8 +1,43 @@
-// src/content/services.ts
+// src/content/services.tsx
 
 import React from 'react';
 
-export const servicesContent = {
+// --- Typage strict pour éviter les erreurs TS ---
+export interface ServiceStat {
+  value: string;
+  label: string;
+}
+
+export interface ServiceTestimonial {
+  quote: string;
+  author: string;
+}
+
+export interface ServicePersona {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+  problems: string[];
+  solution: string;
+  testimonial: ServiceTestimonial;
+  stats: ServiceStat[];
+}
+
+export interface ServicesContent {
+  header: {
+    badge: string;
+    title: string;
+    subtitle: string;
+  };
+  cta: {
+    label: string;
+    note: string;
+  };
+  personas: ServicePersona[];
+}
+
+// --- Contenu ---
+export const servicesContent: ServicesContent = {
   header: {
     badge: "Mon approche par profil",
     title: "Une expertise technique au service de votre activité.",
