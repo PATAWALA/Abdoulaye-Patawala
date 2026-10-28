@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-// --- Typage strict pour éviter les erreurs TS ---
 export interface ServiceStat {
   value: string;
   label: string;
@@ -32,11 +31,11 @@ export interface ServicesContent {
   cta: {
     label: string;
     note: string;
+    whatsappUrl: string;
   };
   personas: ServicePersona[];
 }
 
-// --- Contenu ---
 export const servicesContent: ServicesContent = {
   header: {
     badge: "Mon approche par profil",
@@ -46,6 +45,7 @@ export const servicesContent: ServicesContent = {
   cta: {
     label: "Prendre un diagnostic offert",
     note: "Sans engagement · Réponse sous 24h",
+    whatsappUrl: "https://wa.me/22962278090?text=Bonjour%20Abdoulaye%2C%20je%20souhaite%20un%20diagnostic%20offert%20pour%20mon%20projet.%20Pouvons-nous%20en%20discuter%20%3F",
   },
   personas: [
     {

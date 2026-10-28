@@ -14,6 +14,7 @@ const Services: React.FC = () => {
     <section id="services" className="bg-dark-800">
       <div className="py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         
+        {/* En-tête */}
         <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">
             {header.badge}
@@ -26,8 +27,11 @@ const Services: React.FC = () => {
           </p>
         </div>
 
+        {/* Sélecteur de persona */}
         <div className="text-center mb-12 motion-safe:animate-fade-in">
-          <p className="text-gray-400 text-lg mb-6">Vous êtes…</p>
+          <p className="text-gray-400 text-lg mb-6">
+            Vous êtes…
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
             {personas.map((persona) => (
               <button
@@ -46,9 +50,11 @@ const Services: React.FC = () => {
           </div>
         </div>
 
+        {/* Contenu dynamique premium */}
         <div className="bg-dark-700 border border-dark-600 rounded-2xl p-8 md:p-12 motion-safe:animate-fade-in hover:border-gold-500/20 transition-all duration-500">
           <div className="grid md:grid-cols-5 gap-10">
             
+            {/* Problèmes – 3 colonnes */}
             <div className="md:col-span-3">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center">
@@ -72,6 +78,7 @@ const Services: React.FC = () => {
               </ul>
             </div>
 
+            {/* Solution + témoignage – 2 colonnes */}
             <div className="md:col-span-2 space-y-8">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -84,6 +91,7 @@ const Services: React.FC = () => {
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">{current.solution}</p>
                 
+                {/* Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {current.stats.map((stat, i) => (
                     <div key={i} className="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
@@ -103,17 +111,22 @@ const Services: React.FC = () => {
             </div>
           </div>
 
+          {/* CTA */}
           <div className="mt-12 pt-8 border-t border-dark-600 text-center">
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href={cta.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20"
             >
               <span>{cta.label}</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
-            </button>
-            <p className="text-gray-600 text-sm mt-3">{cta.note}</p>
+            </a>
+            <p className="text-gray-600 text-sm mt-3">
+              {cta.note}
+            </p>
           </div>
         </div>
       </div>
