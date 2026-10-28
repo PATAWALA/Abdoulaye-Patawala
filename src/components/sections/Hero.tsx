@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button';
 
 const words = [
-  'Cabinets & Experts',
-  'Coachs & Infopreneurs',
-  'Tunnels de vente',
-  'Automatisation rentable',
+  'Entreprises & PME',
+  'Cabinets & Institutions',
+  'Professions Libérales',
+  'Automatisation & Sur-mesure',
 ];
 
 const Hero: React.FC = () => {
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
             <span className="text-sm text-gray-300">
-              Ouvert aux projets · Coachs, Infopreneurs & Cabinets
+              Disponible pour missions · À distance & Cotonou
             </span>
           </div>
         </div>
@@ -113,8 +113,7 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Je construis des systèmes de vente qui transforment votre expertise en revenus
-              prévisibles.
+              Votre activité mérite un outil web à sa hauteur. Je conçois des sites sur-mesure et des systèmes automatisés pour développer votre image et fluidifier votre gestion.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
@@ -137,7 +136,7 @@ const Hero: React.FC = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-sm text-gray-500">+50 clients accompagnés</p>
+                <p className="text-sm text-gray-500">+30 projets livrés</p>
               </div>
             </div>
 
@@ -146,14 +145,14 @@ const Hero: React.FC = () => {
               <div className="flex flex-col items-center justify-center lg:justify-start gap-3 w-full max-w-[480px]">
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
                   <Button variant="primary" onClick={scrollToContact}>
-                    Discutons de votre projet
+                    Réserver ma maquette offerte
                   </Button>
                   <Button variant="secondary" onClick={scrollToPortfolio}>
-                    Voir mes réalisations
+                    Découvrir mon travail
                   </Button>
                 </div>
                 <p className="text-sm text-gray-600 text-center w-full">
-                  Réponse sous 24h · Devis gratuit · Sans engagement
+                  Étude de votre besoin · Réponse sous 24h
                 </p>
               </div>
             </div>
