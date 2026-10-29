@@ -21,8 +21,8 @@ const PillarCard: React.FC<{
   return (
     <div className="relative bg-dark-800 border border-dark-600 rounded-3xl p-6 md:p-8 mt-6 md:mt-0 transition-colors duration-300 hover:border-gold-500/40">
       
-      {/* Numéro - Badge flottant sur mobile uniquement */}
-      <div className={`md:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-dark-900 ring-2 flex items-center justify-center font-display font-bold text-xl select-none ${numberStyles}`}>
+      {/* Numéro - Badge flottant sur mobile (arrondi cohérent avec la Navbar) */}
+      <div className={`md:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-xl bg-dark-900 ring-2 flex items-center justify-center font-display font-bold text-lg select-none ${numberStyles}`}>
         {numberLabel}
       </div>
 
@@ -128,7 +128,6 @@ const Stack: React.FC = () => {
             />
 
             {/* Accolade gauche (double épaisseur pour réalisme) */}
-            {/* Trait épais (base) */}
             <path
               d="M 600 30 C 600 60, 560 60, 480 60 L 280 60 C 220 60, 200 75, 200 100"
               stroke="url(#brace-gradient)"
@@ -137,7 +136,6 @@ const Stack: React.FC = () => {
               fill="none"
               opacity="0.3"
             />
-            {/* Trait fin (dessus, plus net) */}
             <path
               d="M 600 30 C 600 60, 560 60, 480 60 L 280 60 C 220 60, 200 75, 200 100"
               stroke="url(#brace-gradient)"
@@ -169,11 +167,9 @@ const Stack: React.FC = () => {
             <circle cx="600" cy="30" r="3" fill="#f5d76e" filter="url(#brace-glow)" />
 
             {/* === GROSSES BOULES LUMINEUSES AUX EXTRÉMITÉS === */}
-            {/* Boule gauche (carte 1) */}
             <circle cx="200" cy="100" r="14" fill="url(#orb-gradient)" filter="url(#brace-glow)" />
             <circle cx="200" cy="100" r="6" fill="#f5d76e" />
             
-            {/* Boule droite (carte 3) */}
             <circle cx="1000" cy="100" r="14" fill="url(#orb-gradient)" filter="url(#brace-glow)" />
             <circle cx="1000" cy="100" r="6" fill="#f5d76e" />
           </svg>

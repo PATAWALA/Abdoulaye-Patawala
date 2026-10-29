@@ -140,7 +140,7 @@ export const servicesContent: ServicesContent = {
       ],
       solution: "Je suis votre architecte technique. J'analyse vos besoins, conçois la solution sur-mesure (web, API, agent IA, automatisation) et la déploie avec un accompagnement de 3 mois pour garantir son adoption.",
       testimonial: {
-        quote: "« Abdoulaye a conçu une API sur-mesure connectée à un agent IA pour gérer nos stocks. On a divisé nos erreurs de saisie par dix. Un vrai partenaire stratégique. »",
+        quote: "«Abdoulaye a conçu une API sur-mesure et l'a connectée à un agent IA via un serveur MCP pour gérer nos stocks. »",
         author: 'Elite Import Export',
       },
       stats: [
