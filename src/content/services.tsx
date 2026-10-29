@@ -145,7 +145,7 @@ export const servicesContent: ServicesContent = {
       },
       stats: [
         { value: '100%', label: 'sur-mesure' },
-        { value: '3 mois', label: "d'accompagnement" },
+        { value: '3 mois', label: "d'suivi inclus" },
       ],
     },
   ],
