@@ -22,7 +22,7 @@ const Services: React.FC = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display text-white mb-6">
             {header.title}
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             {header.subtitle}
           </p>
         </div>
@@ -37,7 +37,7 @@ const Services: React.FC = () => {
               <button
                 key={persona.id}
                 onClick={() => setActivePersona(persona.id)}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   activePersona === persona.id
                     ? 'bg-gold-500 text-dark-900 shadow-lg shadow-gold-500/20 scale-105'
                     : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-600'
@@ -48,6 +48,9 @@ const Services: React.FC = () => {
               </button>
             ))}
           </div>
+          <p className="text-gray-500 text-sm mt-6 italic">
+            Chaque projet est unique. Je commence toujours par une étude approfondie de votre situation.
+          </p>
         </div>
 
         {/* Contenu dynamique premium */}
