@@ -32,22 +32,41 @@ const Services: React.FC = () => {
           <p className="text-gray-400 text-lg mb-6">
             Vous êtes…
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {personas.map((persona) => (
-              <button
-                key={persona.id}
-                onClick={() => setActivePersona(persona.id)}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                  activePersona === persona.id
-                    ? 'bg-gold-500 text-dark-900 shadow-lg shadow-gold-500/20 scale-105'
-                    : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-600'
-                }`}
-              >
-                {persona.icon}
-                {persona.label}
-              </button>
-            ))}
+          
+          {/* 
+            MOBILE : scroll horizontal fluide avec snap
+            DESKTOP (sm:) : wrap centré classique
+          */}
+          <div className="relative">
+            {/* Effet de fade sur le bord droit pour indiquer le scroll (mobile uniquement) */}
+            <div className="sm:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-dark-800 to-transparent pointer-events-none z-10" />
+            
+            <div className="
+              flex flex-nowrap overflow-x-auto scrollbar-hide gap-3 px-4 pb-2
+              snap-x snap-mandatory
+              sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:pb-0
+            ">
+              {personas.map((persona) => (
+                <button
+                  key={persona.id}
+                  onClick={() => setActivePersona(persona.id)}
+                  className={`
+                    inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold 
+                    transition-all duration-300 shrink-0 snap-center
+                    ${
+                      activePersona === persona.id
+                        ? 'bg-gold-500 text-dark-900 shadow-lg shadow-gold-500/20 scale-105'
+                        : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-600'
+                    }
+                  `}
+                >
+                  {persona.icon}
+                  {persona.label}
+                </button>
+              ))}
+            </div>
           </div>
+
           <p className="text-gray-500 text-sm mt-6 italic">
             Chaque projet est unique. Je commence toujours par une étude approfondie de votre situation.
           </p>
