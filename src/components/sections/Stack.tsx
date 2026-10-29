@@ -13,21 +13,21 @@ const PillarCard: React.FC<{
 
   // Gradation de luminosité : 1 = le plus lumineux, 3 = le moins lumineux
   const numberStyles = [
-    'text-gold-400 drop-shadow-[0_0_10px_rgba(212,175,55,0.6)]', // 1
-    'text-gold-500/60', // 2
-    'text-gold-500/40', // 3
+    'text-gold-400 ring-gold-500/60 shadow-[0_0_15px_rgba(212,175,55,0.5)]',
+    'text-gold-500/80 ring-gold-500/40',
+    'text-gold-500/60 ring-gold-500/30',
   ][index];
 
   return (
-    <div className="relative bg-dark-800 border border-dark-600 rounded-3xl p-6 md:p-8 transition-colors duration-300 hover:border-gold-500/40">
+    <div className="relative bg-dark-800 border border-dark-600 rounded-3xl p-6 md:p-8 mt-6 md:mt-0 transition-colors duration-300 hover:border-gold-500/40">
       
-      {/* Numéro - visible sur mobile uniquement */}
-      <div className={`md:hidden absolute top-5 left-6 text-5xl font-display font-bold select-none leading-none ${numberStyles}`}>
+      {/* Numéro - Badge flottant sur mobile uniquement */}
+      <div className={`md:hidden absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-dark-900 ring-2 flex items-center justify-center font-display font-bold text-xl select-none ${numberStyles}`}>
         {numberLabel}
       </div>
 
-      {/* Icône - décalée sur mobile pour laisser la place au numéro */}
-      <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 mt-8 md:mt-0">
+      {/* Icône */}
+      <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6">
         {pillar.icon}
       </div>
 
@@ -62,11 +62,15 @@ const Stack: React.FC = () => {
   return (
     <section className="bg-dark-900 overflow-hidden relative">
       
-      {/* Halo doré principal (plus lumineux) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gold-500/8 rounded-full blur-3xl pointer-events-none" />
-      
-      {/* Second halo diffus pour créer de la profondeur */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gold-500/4 rounded-full blur-[120px] pointer-events-none" />
+      {/* === HALOS DORÉS (uniquement sur desktop) === */}
+      <div className="hidden md:block pointer-events-none">
+        {/* Halo principal plus lumineux */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gold-500/10 rounded-full blur-3xl" />
+        {/* Second halo diffus pour la profondeur */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gold-500/5 rounded-full blur-[120px]" />
+        {/* Troisième halo très large pour l'ambiance globale */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1600px] h-[600px] bg-gold-500/3 rounded-full blur-[100px]" />
+      </div>
 
       <div className="relative py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         
@@ -83,26 +87,95 @@ const Stack: React.FC = () => {
           </p>
         </div>
 
-        {/* --- ACCOLADE DESKTOP (cachée sur mobile) --- */}
+        {/* === ACCOLADE DESKTOP (cachée sur mobile) === */}
         <div className="hidden md:block w-full mb-2">
           <svg
             viewBox="0 0 1200 100"
             preserveAspectRatio="none"
-            className="w-full h-[100px] text-gold-500 drop-shadow-[0_0_18px_rgba(212,175,55,0.8)]"
+            className="w-full h-[100px]"
             aria-hidden="true"
           >
-            <line x1="600" y1="0" x2="600" y2="30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Dégradé pour l'accolade */}
+            <defs>
+              <linearGradient id="brace-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#d4af37" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#f5d76e" stopOpacity="1" />
+                <stop offset="100%" stopColor="#d4af37" stopOpacity="0.9" />
+              </linearGradient>
+              {/* Filtre de glow */}
+              <filter id="brace-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              {/* Dégradé pour les boules */}
+              <radialGradient id="orb-gradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#f5d76e" stopOpacity="1" />
+                <stop offset="70%" stopColor="#d4af37" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#d4af37" stopOpacity="0.2" />
+              </radialGradient>
+            </defs>
+
+            {/* Trait vertical descendant du titre */}
+            <line
+              x1="600" y1="0" x2="600" y2="30"
+              stroke="url(#brace-gradient)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              filter="url(#brace-glow)"
+            />
+
+            {/* Accolade gauche (double épaisseur pour réalisme) */}
+            {/* Trait épais (base) */}
             <path
               d="M 600 30 C 600 60, 560 60, 480 60 L 280 60 C 220 60, 200 75, 200 100"
-              stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"
+              stroke="url(#brace-gradient)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+              opacity="0.3"
+            />
+            {/* Trait fin (dessus, plus net) */}
+            <path
+              d="M 600 30 C 600 60, 560 60, 480 60 L 280 60 C 220 60, 200 75, 200 100"
+              stroke="url(#brace-gradient)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#brace-glow)"
+            />
+
+            {/* Accolade droite (double épaisseur pour réalisme) */}
+            <path
+              d="M 600 30 C 600 60, 640 60, 720 60 L 920 60 C 980 60, 1000 75, 1000 100"
+              stroke="url(#brace-gradient)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+              opacity="0.3"
             />
             <path
               d="M 600 30 C 600 60, 640 60, 720 60 L 920 60 C 980 60, 1000 75, 1000 100"
-              stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"
+              stroke="url(#brace-gradient)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#brace-glow)"
             />
-            <circle cx="200" cy="100" r="4" fill="currentColor" />
-            <circle cx="1000" cy="100" r="4" fill="currentColor" />
-            <circle cx="600" cy="30" r="4" fill="currentColor" />
+
+            {/* Point central lumineux */}
+            <circle cx="600" cy="30" r="3" fill="#f5d76e" filter="url(#brace-glow)" />
+
+            {/* === GROSSES BOULES LUMINEUSES AUX EXTRÉMITÉS === */}
+            {/* Boule gauche (carte 1) */}
+            <circle cx="200" cy="100" r="14" fill="url(#orb-gradient)" filter="url(#brace-glow)" />
+            <circle cx="200" cy="100" r="6" fill="#f5d76e" />
+            
+            {/* Boule droite (carte 3) */}
+            <circle cx="1000" cy="100" r="14" fill="url(#orb-gradient)" filter="url(#brace-glow)" />
+            <circle cx="1000" cy="100" r="6" fill="#f5d76e" />
           </svg>
         </div>
 
