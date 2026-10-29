@@ -12,6 +12,7 @@ interface ImageUploadProps {
 const ImageUpload: React.FC<ImageUploadProps> = ({ onUpload, currentImage }) => {
   const [uploading, setUploading] = useState(false);
   const [preview, setPreview] = useState<string | null>(currentImage || null);
+  const [error, setError] = useState<string | null>(null);
   const supabase = createClientComponent();
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,25 +20,72 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUpload, currentImage }) => 
     if (!file) return;
 
     setUploading(true);
+    setError(null);
 
-    const fileName = `${Date.now()}-${file.name}`;
-    const { data, error } = await supabase.storage
-      .from('projects')
-      .upload(fileName, file);
-
-    if (error) {
-      console.error('Upload error:', error);
+    // Vérifier la taille (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Le fichier est trop volumineux (max 5MB).');
       setUploading(false);
       return;
     }
 
+    // Vérifier le type
+    if (!file.type.startsWith('image/')) {
+      setError('Le fichier doit être une image (PNG, JPG, WEBP).');
+      setUploading(false);
+      return;
+    }
+
+    const fileName = `${Date.now()}-${file.name.replace(/\s+/g, '-')}`;
+    
+    const { data, error: uploadError } = await supabase.storage
+      .from('projects')
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: false,
+      });
+
+    if (uploadError) {
+      console.error('Upload error:', uploadError);
+      setError(`Erreur d'upload : ${uploadError.message}`);
+      setUploading(false);
+      return;
+    }
+
+    // Essayer d'abord l'URL publique
     const { data: urlData } = supabase.storage
       .from('projects')
       .getPublicUrl(data.path);
 
     const publicUrl = urlData.publicUrl;
-    setPreview(publicUrl);
-    onUpload(publicUrl);
+    
+    // Vérifier que l'URL est accessible
+    try {
+      const response = await fetch(publicUrl, { method: 'HEAD' });
+      if (!response.ok) {
+        // Si l'URL publique ne fonctionne pas, essayer une signed URL
+        const { data: signedData, error: signedError } = await supabase.storage
+          .from('projects')
+          .createSignedUrl(data.path, 60 * 60 * 24 * 365); // 1 an
+        
+        if (signedError || !signedData) {
+          setError('Le fichier est uploadé mais l\'URL n\'est pas accessible. Vérifiez que le bucket est public.');
+          setUploading(false);
+          return;
+        }
+        
+        setPreview(signedData.signedUrl);
+        onUpload(signedData.signedUrl);
+      } else {
+        setPreview(publicUrl);
+        onUpload(publicUrl);
+      }
+    } catch (err) {
+      console.error('URL check error:', err);
+      setPreview(publicUrl);
+      onUpload(publicUrl);
+    }
+    
     setUploading(false);
   };
 
@@ -74,6 +122,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUpload, currentImage }) => 
           )}
         </label>
       </div>
+      
+      {error && (
+        <p className="mt-2 text-sm text-red-400">{error}</p>
+      )}
     </div>
   );
 };

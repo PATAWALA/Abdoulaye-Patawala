@@ -61,10 +61,6 @@ const Services: React.FC = () => {
               ))}
             </div>
           </div>
-
-          <p className="text-gray-500 text-sm mt-6 italic">
-            Chaque projet est unique. Je commence toujours par une étude approfondie de votre situation.
-          </p>
         </div>
 
         {/* Contenu dynamique premium */}
