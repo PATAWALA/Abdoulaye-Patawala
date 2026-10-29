@@ -2,81 +2,43 @@
 
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { stackContent } from '@/content/stack';
 
-// --- Composant carte avec effet spotlight ---
 const PillarCard: React.FC<{
   pillar: typeof stackContent.pillars[0];
   index: number;
 }> = ({ pillar, index }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   const numberLabel = String(index + 1).padStart(2, '0');
 
   return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="group relative bg-dark-800 border border-dark-600 rounded-3xl p-8 overflow-hidden transition-all duration-500 motion-safe:animate-fade-in hover:border-gold-500/40"
-      style={{
-        animationDelay: `${index * 0.15}s`,
-        boxShadow: isHovered
-          ? '0 20px 60px -15px rgba(212,175,55,0.25), 0 0 0 1px rgba(212,175,55,0.3)'
-          : '0 10px 30px -15px rgba(0,0,0,0.5)',
-        transform: isHovered ? 'perspective(1000px) rotateX(1.5deg) rotateY(-1.5deg) translateY(-4px)' : 'none',
-      }}
-    >
-      {/* Spotlight (suit la souris) */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(212,175,55,0.08), transparent 60%)`,
-        }}
-      />
-
-      {/* Liseré doré en haut */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-500/60 to-transparent opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Numéro filigrane */}
-      <div className="absolute top-4 right-5 text-5xl font-display font-bold text-dark-600/50 group-hover:text-gold-500/15 transition-colors duration-500 select-none">
+    <div className="relative bg-dark-800 border border-dark-600 rounded-3xl p-8 transition-colors duration-300 hover:border-gold-500/40">
+      {/* Numéro - visible sur mobile uniquement */}
+      <div className="md:hidden absolute top-4 right-5 text-4xl font-display font-bold text-gold-500/20 select-none">
         {numberLabel}
       </div>
 
       {/* Icône */}
-      <div className="relative z-10 w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold-500/15 transition-all duration-500">
+      <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mb-6">
         {pillar.icon}
       </div>
 
       {/* Titre */}
-      <h3 className="relative z-10 text-xl md:text-2xl font-display text-white mb-3">
+      <h3 className="text-xl md:text-2xl font-display text-white mb-3">
         {pillar.title}
       </h3>
 
       {/* Description */}
-      <p className="relative z-10 text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+      <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
         {pillar.description}
       </p>
 
       {/* Tags technos */}
-      <div className="relative z-10 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {pillar.techs.map((tech) => (
           <span
             key={tech}
-            className="inline-block px-3 py-1 text-xs font-medium text-gold-400/80 bg-gold-500/5 border border-gold-500/20 rounded-full group-hover:border-gold-500/40 transition-colors duration-300"
+            className="inline-block px-3 py-1 text-xs font-medium text-gold-400/80 bg-gold-500/5 border border-gold-500/20 rounded-full"
           >
             {tech}
           </span>
@@ -91,13 +53,13 @@ const Stack: React.FC = () => {
 
   return (
     <section className="bg-dark-900 overflow-hidden relative">
-      {/* Halo doré décoratif en arrière-plan */}
+      {/* Halo doré très subtil en arrière-plan */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold-500/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative py-20 lg:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         
         {/* En-tête */}
-        <div className="text-center mb-16 lg:mb-20 motion-safe:animate-fade-in">
+        <div className="text-center mb-4 motion-safe:animate-fade-in">
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4">
             {header.badge}
           </p>
@@ -109,6 +71,45 @@ const Stack: React.FC = () => {
           </p>
         </div>
 
+        {/* --- ACCOLADE DESKTOP (cachée sur mobile) --- */}
+        <div className="hidden md:flex justify-center mb-8">
+          <svg
+            width="640"
+            height="60"
+            viewBox="0 0 640 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-gold-500 drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]"
+            aria-hidden="true"
+          >
+            {/* Trait vertical descendant du centre */}
+            <line x1="320" y1="0" x2="320" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            {/* Accolade : courbe gauche, courbe droite */}
+            <path
+              d="M 320 20 
+                 C 320 35, 300 35, 280 35 
+                 L 120 35 
+                 C 100 35, 95 45, 95 60"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path
+              d="M 320 20 
+                 C 320 35, 340 35, 360 35 
+                 L 520 35 
+                 C 540 35, 545 45, 545 60"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Petit point lumineux au centre de la jonction */}
+            <circle cx="320" cy="20" r="3" fill="currentColor" />
+          </svg>
+        </div>
+
         {/* Les 3 piliers */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((pillar, i) => (
@@ -116,13 +117,13 @@ const Stack: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA - Bouton doré plein */}
+        {/* CTA */}
         <div className="text-center mt-16 lg:mt-20 motion-safe:animate-fade-in">
           <a
             href={cta.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-all duration-300 group shadow-lg shadow-gold-500/10 hover:shadow-gold-500/30 hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold hover:bg-gold-400 transition-colors duration-300 group shadow-lg shadow-gold-500/20"
           >
             <span>{cta.text}</span>
             <svg
