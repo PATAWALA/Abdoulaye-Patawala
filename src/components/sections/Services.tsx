@@ -33,12 +33,7 @@ const Services: React.FC = () => {
             Vous êtes…
           </p>
           
-          {/* 
-            MOBILE : scroll horizontal fluide avec snap
-            DESKTOP (sm:) : wrap centré classique
-          */}
           <div className="relative">
-            {/* Effet de fade sur le bord droit pour indiquer le scroll (mobile uniquement) */}
             <div className="sm:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-dark-800 to-transparent pointer-events-none z-10" />
             
             <div className="
@@ -113,12 +108,16 @@ const Services: React.FC = () => {
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">{current.solution}</p>
                 
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-8">
+                {/* Stats - CORRIGÉ */}
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mb-8">
                   {current.stats.map((stat, i) => (
-                    <div key={i} className="bg-dark-800 border border-dark-600 rounded-xl p-4 text-center">
-                      <p className="text-2xl font-display text-gold-400">{stat.value}</p>
-                      <p className="text-gray-500 text-xs mt-1">{stat.label}</p>
+                    <div key={i} className="bg-dark-800 border border-dark-600 rounded-xl p-3 md:p-4 text-center flex flex-col justify-center min-h-[80px]">
+                      <p className="text-xl md:text-2xl font-display text-gold-400 leading-tight">
+                        {stat.value}
+                      </p>
+                      <p className="text-gray-500 text-[10px] md:text-xs mt-1 leading-tight break-words">
+                        {stat.label}
+                      </p>
                     </div>
                   ))}
                 </div>
