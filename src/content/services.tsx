@@ -39,12 +39,12 @@ export interface ServicesContent {
 export const servicesContent: ServicesContent = {
   header: {
     badge: "Mon approche par profil",
-    title: "Une expertise technique au service de votre activité.",
-    subtitle: "Découvrez comment je résous les défis spécifiques à votre secteur, quel que soit votre métier.",
+    title: "Une expertise technique et IA au service de votre activité.",
+    subtitle: "Chaque projet est unique. J'étudie votre marché pour concevoir la solution exacte — site, automatisation ou agent IA — qui répond à vos défis spécifiques.",
   },
   cta: {
     label: "Prendre un diagnostic offert",
-    note: "Sans engagement · Réponse sous 24h",
+    note: "Sans engagement · Réponse sous 24h · Étude de votre projet incluse",
     whatsappUrl: "https://wa.me/22962278090?text=Bonjour%20Abdoulaye%2C%20je%20souhaite%20un%20diagnostic%20offert%20pour%20mon%20projet.%20Pouvons-nous%20en%20discuter%20%3F",
   },
   personas: [
@@ -57,20 +57,20 @@ export const servicesContent: ServicesContent = {
         </svg>
       ),
       problems: [
-        "Votre site actuel ne reflète plus la qualité de vos services et fait fuir les prospects exigeants.",
-        "Vos concurrents apparaissent en première page Google, mais pas vous.",
-        "Chaque demande de devis arrive par téléphone, sans qualification, submergeant votre équipe.",
-        "Votre processus de suivi client est un puzzle de fichiers Excel et de post-it.",
-        "Vous perdez des appels d'offres parce que votre présence en ligne ne reflète pas votre savoir-faire.",
+        "Votre site actuel est une simple vitrine statique qui ne reflète pas votre professionnalisme.",
+        "Vous perdez un temps précieux à qualifier manuellement chaque demande de devis entrante.",
+        "Vos données clients sont éparpillées entre Excel, emails et post-it, rendant le suivi impossible.",
+        "Vos concurrents utilisent déjà des agents IA pour répondre à leurs clients 24h/24.",
+        "Vous manquez de visibilité sur Google face à des acteurs moins qualifiés mais mieux optimisés.",
       ],
-      solution: "Je conçois des plateformes web institutionnelles, optimisées pour le référencement, avec des formulaires intelligents qui qualifient vos prospects et automatisent votre suivi.",
+      solution: "Je conçois des plateformes web robustes couplées à des agents IA. Vos prospects sont qualifiés automatiquement, vos données centralisées, et votre équipe se concentre sur l'essentiel : votre métier.",
       testimonial: {
-        quote: "« Notre nouveau site nous a permis de décrocher trois nouveaux contrats en deux mois. Le formulaire de qualification nous fait gagner un temps fou. »",
+        quote: "« Depuis la refonte, notre site filtre 80% des demandes inutiles. L'agent IA répond aux questions fréquentes la nuit. On a gagné une sérénité incroyable. »",
         author: 'AG Expert Consulting',
       },
       stats: [
-        { value: '+3', label: 'contrats décrochés' },
-        { value: '40%', label: 'de leads en plus' },
+        { value: '24/7', label: 'support client via IA' },
+        { value: '-70%', label: 'de temps de tri' },
       ],
     },
     {
@@ -82,20 +82,20 @@ export const servicesContent: ServicesContent = {
         </svg>
       ),
       problems: [
-        "Vous perdez un temps précieux à répondre aux mêmes questions par téléphone ou WhatsApp.",
-        "Votre agenda est un champ de bataille : vous perdez des clients à cause d'une prise de rendez-vous chaotique.",
-        "Vous n'avez aucun système automatique pour relancer ceux qui hésitent à prendre rendez-vous.",
-        "Vos concurrents moins qualifiés vous dépassent parce qu'ils ont une machine de prise de contact en ligne.",
-        "Vous stagnez à un plafond de revenus sans savoir comment le franchir.",
+        "Vous passez vos soirées à répondre aux mêmes questions administratives de vos clients.",
+        "Votre prise de rendez-vous se fait par téléphone, avec des allers-retours interminables.",
+        "Vous n'avez aucune mémoire de vos échanges clients, chaque dossier repart de zéro.",
+        "Vous perdez des patients ou clients potentiels à cause d'un manque de relance automatique.",
+        "Vous ne savez pas quels contenus sur votre site génèrent réellement des prises de contact.",
       ],
-      solution: "Je construis un écosystème complet : site vitrine, prise de rendez-vous automatisée et espace sécurisé. Vous redevenez l'expert, pas le secrétaire.",
+      solution: "Je déploie un assistant IA connecté à votre agenda et à votre site. Il répond aux questions de premier niveau, prend les rendez-vous et relance les clients en attente, pendant que vous vous concentrez sur vos consultations.",
       testimonial: {
-        quote: "« Avant Abdoulaye, je passais mes week-ends à répondre à des prospects qui n'achetaient jamais. Maintenant, mon système filtre et convertit pour moi. »",
-        author: 'Sophie M., Coach certifiée',
+        quote: "« J'ai récupéré mes soirées. L'assistant IA gère les demandes de rendez-vous, relance les indécis et me prépare un résumé de chaque demande. C'est un secrétariat intelligent. »",
+        author: 'Dr. Sophie M., Cabinet libéral',
       },
       stats: [
         { value: '15h', label: 'économisées / semaine' },
-        { value: 'x3', label: 'taux de conversion' },
+        { value: 'x2', label: 'de prises de RDV' },
       ],
     },
     {
@@ -107,44 +107,44 @@ export const servicesContent: ServicesContent = {
         </svg>
       ),
       problems: [
-        "Votre page de contact convertit très mal et vous perdez des demandes de devis précieuses.",
-        "Vous n'avez aucune idée de ce qui se passe entre le clic sur votre site et l'appel téléphonique.",
-        "Votre présence en ligne est inexistante ou obsolète.",
-        "Vous lancez des promotions sans page dédiée digne de ce nom.",
-        "Votre fichier client est une mine d'or… que vous n'exploitez jamais.",
+        "Vous n'avez pas de site web et vos clients ne vous trouvent que par bouche-à-oreille.",
+        "Vous recevez des dizaines de messages WhatsApp par jour pour des devis, sans pouvoir y répondre.",
+        "Vos réalisations ne sont pas mises en valeur sur internet, ce qui limite votre portée.",
+        "Vous utilisez un carnet papier pour gérer vos commandes, avec le risque d'oubli constant.",
+        "Vous n'avez pas le temps de créer du contenu pour les réseaux sociaux ou votre site.",
       ],
-      solution: "Je crée des sites vitrines efficaces, des formulaires de devis clairs et des automatisations qui transforment chaque visiteur en client.",
+      solution: "Je vous livre un site vitrine moderne avec une galerie de vos œuvres, couplé à un agent IA sur WhatsApp qui répond aux demandes de devis basiques et enregistre les commandes. Vous gagnez en visibilité et en organisation.",
       testimonial: {
-        quote: "« Mon taux de conversion est passé de 1,8 % à 5,4 % en trois semaines. J'ai remboursé mon investissement en 10 jours. »",
-        author: 'Karim D., Infopreneur',
+        quote: "« Avant, je perdais des commandes parce que je ne répondais pas assez vite. Maintenant, l'IA répond même quand je suis sur un chantier. Mon chiffre a augmenté de 30%. »",
+        author: 'Cordier Jardins',
       },
       stats: [
-        { value: 'x3', label: 'ROI' },
-        { value: '5,4%', label: 'taux de conversion' },
+        { value: '30%', label: 'de commandes en plus' },
+        { value: '0', label: 'de devis oubliés' },
       ],
     },
     {
       id: 'autre',
-      label: 'Projets Sur-Mesure',
+      label: 'Projets Sur-Mesure & IA',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
       problems: [
-        "Vous avez un projet numérique complexe mais ne savez pas par où commencer.",
-        "Votre solution actuelle est lente, peu fiable ou mal conçue.",
-        "Vous cherchez un partenaire technique fiable pour vous accompagner dans la durée.",
-        "On vous a déjà livré un site sans explications, et vous êtes bloqué.",
-        "Vous voulez digitaliser votre activité sans y perdre votre âme.",
+        "Vous avez une idée de produit ou de service digital, mais ne savez pas comment la concrétiser.",
+        "Vos processus internes sont manuels et vous coûtent une fortune en temps et en erreurs.",
+        "Vous voulez intégrer l'IA dans votre activité mais ne savez pas par où commencer.",
+        "Vous avez besoin d'un partenaire technique fiable pour développer un projet complexe.",
+        "Vous cherchez à automatiser des tâches répétitives sans alourdir votre budget.",
       ],
-      solution: "Parlons de votre projet. Je vous aide à poser les bases techniques solides et à construire une solution sur-mesure, avec un accompagnement de 3 mois inclus.",
+      solution: "Je suis votre architecte technique. J'analyse vos besoins, conçois la solution sur-mesure (web, API, agent IA, automatisation) et la déploie avec un accompagnement de 3 mois pour garantir son adoption.",
       testimonial: {
-        quote: "« Abdoulaye a pris le temps de comprendre mon activité avant de proposer quoi que ce soit. Résultat : une solution qui me ressemble. »",
+        quote: "« Abdoulaye a conçu une API sur-mesure connectée à un agent IA pour gérer nos stocks. On a divisé nos erreurs de saisie par dix. Un vrai partenaire stratégique. »",
         author: 'Elite Import Export',
       },
       stats: [
-        { value: '100%', label: 'satisfaction' },
+        { value: '100%', label: 'sur-mesure' },
         { value: '3 mois', label: "d'accompagnement" },
       ],
     },
