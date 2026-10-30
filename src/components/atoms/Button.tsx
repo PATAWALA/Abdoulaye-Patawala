@@ -19,8 +19,8 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const base = 'px-6 py-3 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold-400';
   const variants = {
-    primary: 'bg-gold-500 text-dark-900 hover:bg-gold-400 motion-safe:hover:scale-105',
-    secondary: 'border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-dark-900 motion-safe:hover:scale-105',
+    primary: 'bg-gold-500 text-dark-900 hover:bg-gold-400',
+    secondary: 'border border-gold-500 text-gold-500 hover:text-gold-300 hover:border-gold-300',
   };
 
   return (
