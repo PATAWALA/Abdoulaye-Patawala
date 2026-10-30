@@ -24,9 +24,9 @@ export const stackContent = {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: 'Performance & SEO',
-      description: 'Des sites ultra-rapides, optimisés pour Google, qui convertissent dès le premier clic.',
-      techs: ['Next.js', 'React', 'Tailwind'],
+      title: 'Performance & Visibilité IA',
+      description: 'Des sites ultra-rapides, optimisés pour Google ET pour les moteurs génératifs (GEO). Votre contenu est cité par ChatGPT, Perplexity et les AI Overviews.',
+      techs: ['Next.js 16', 'Core Web Vitals', 'GEO / Schema.org'],
     },
     {
       id: 'automation',
@@ -35,9 +35,9 @@ export const stackContent = {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      title: 'Automatisation & IA',
-      description: 'Des agents intelligents qui répondent, relancent et qualifient 24h/24, sans intervention.',
-      techs: ['n8n', 'OpenAI', 'WhatsApp API'],
+      title: 'Automatisation & Agents IA',
+      description: 'Des agents autonomes connectés à vos outils (WhatsApp, CRM, bases de données). Ils qualifient, relancent et exécutent des tâches complexes 24h/24.',
+      techs: ['MCP', 'n8n / Vercel AI SDK', 'OpenAI / Claude'],
     },
     {
       id: 'reliability',
@@ -56,3 +56,4 @@ export const stackContent = {
     whatsappUrl: 'https://wa.me/22962278090?text=Bonjour%20Abdoulaye%2C%20je%20souhaite%20discuter%20de%20la%20solution%20technique%20adapt%C3%A9e%20%C3%A0%20mon%20projet.',
   },
 };
+
