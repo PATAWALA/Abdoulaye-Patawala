@@ -150,9 +150,6 @@ const Hero: React.FC = () => {
                   Découvrir mon travail
                 </Button>
               </div>
-              <p className="text-sm text-gray-600 text-center lg:text-left w-full">
-                Étude de votre besoin · Réponse sous 24h
-              </p>
             </div>
           </div>
 
@@ -176,12 +173,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Flèche de scroll */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-          <svg className="w-6 h-6 text-gold-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
       </div>
     </section>
   );
