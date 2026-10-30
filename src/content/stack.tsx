@@ -47,8 +47,8 @@ export const stackContent = {
         </svg>
       ),
       title: 'Fiabilité & Sécurité',
-      description: 'Un code typé, testé et déployé sur une infrastructure de classe mondiale.',
-      techs: ['TypeScript', 'Vercel', 'Git'],
+      description: 'Un code typé, testé et audité. Une infrastructure monitorée, des données chiffrées, et des déploiements sans interruption.',
+      techs: ['TypeScript', 'Tests E2E', 'Observabilité'],
     },
   ] as Pillar[],
   cta: {
@@ -56,4 +56,3 @@ export const stackContent = {
     whatsappUrl: 'https://wa.me/22962278090?text=Bonjour%20Abdoulaye%2C%20je%20souhaite%20discuter%20de%20la%20solution%20technique%20adapt%C3%A9e%20%C3%A0%20mon%20projet.',
   },
 };
-
