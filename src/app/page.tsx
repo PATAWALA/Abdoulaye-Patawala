@@ -7,11 +7,7 @@ import Services from '@/components/sections/Services'
 import ServicesSkeleton from '@/components/sections/ServicesSkeleton' // <-- Import séparé
 import Portfolio from '@/components/sections/Portfolio'
 import PortfolioSkeleton from '@/components/sections/PortfolioSkeleton'
-import Testimonials from '@/components/sections/Testimonials'
-import TestimonialsSkeleton from '@/components/sections/TestimonialsSkeleton'
-import BlogPreview from '@/components/sections/BlogPreview'
 import Stack, { StackSkeleton } from '@/components/sections/Stack'
-import BlogPreviewSkeleton from '@/components/sections/BlogPreviewSkeleton'
 import Contact from '@/components/sections/Contact'
 import { Suspense } from 'react'
 
@@ -44,12 +40,6 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<PortfolioSkeleton />}>
         <Portfolio />
-      </Suspense>
-      <Suspense fallback={<TestimonialsSkeleton />}>
-        <Testimonials />
-      </Suspense>
-      <Suspense fallback={<BlogPreviewSkeleton />}>
-        <BlogPreview />
       </Suspense>
       <Contact />
     </>
