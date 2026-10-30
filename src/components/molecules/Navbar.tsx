@@ -1,3 +1,5 @@
+// src/components/molecules/Navbar.tsx
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -39,16 +41,16 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between h-16 lg:h-20">
-          {/* Logo – taille ajustée */}
+          {/* Logo */}
           <Link href="/" className="relative group flex-shrink-0" onClick={closeMenu}>
             <span className="text-gold-400 font-display text-2xl lg:text-3xl tracking-tight">Abdoulaye</span>
             <span className="text-white font-display text-2xl lg:text-3xl tracking-tight">Patawala</span>
             <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent group-hover:via-gold-400 transition-all duration-500" />
           </Link>
 
-          {/* Actions (bouton desktop + hamburger) */}
+          {/* Actions */}
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* Bouton Diagnostic offert – visible uniquement sur desktop (sm et plus) */}
+            {/* Bouton Diagnostic offert (desktop) */}
             {!menuOpen && (
               <button
                 onClick={() => navigateToSection('#contact')}
@@ -67,7 +69,7 @@ const Navbar: React.FC = () => {
               </button>
             )}
 
-            {/* Hamburger – visible sur tous les écrans, plus distinct */}
+            {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="relative z-50 flex flex-col gap-[7px] items-end group p-2"
@@ -88,7 +90,7 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Sidebar plein écran (mobile) / panneau droit (desktop) */}
+      {/* Sidebar / panneau */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-500 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -101,20 +103,23 @@ const Navbar: React.FC = () => {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="p-10 pt-24 space-y-6">
-            <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Accueil
-            </Link>
-            <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Portfolio
-            </Link>
-            <Link href="/blog" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              Blog
-            </Link>
-            <Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-              À propos
-            </Link>
-            <div className="pt-8">
+          {/* Panneau en flex column : liens en haut, bouton en bas */}
+          <div className="flex flex-col h-full p-10 pt-24">
+            {/* Liens (en haut) */}
+            <div className="flex-1 space-y-6">
+              <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+                Accueil
+              </Link>
+              <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+                Portfolio
+              </Link>
+              <Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+                À propos
+              </Link>
+            </div>
+
+            {/* Bouton en bas */}
+            <div className="pt-6">
               <button
                 onClick={() => navigateToSection('#contact')}
                 className="w-full py-4 bg-gold-500 text-dark-900 rounded-xl font-semibold text-lg hover:bg-gold-400 transition-colors"
