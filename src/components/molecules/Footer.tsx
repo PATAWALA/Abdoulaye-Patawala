@@ -58,6 +58,8 @@ const Footer: React.FC = () => {
             <p className="text-white font-semibold text-xs uppercase tracking-[0.2em] mb-5">Navigation</p>
             <Link href="/" className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">Accueil</Link>
             <Link href="/portfolio" className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">Réalisations</Link>
+            <Link href="/offres" className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">Offres</Link>
+            <Link href="/a-propos" className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">À propos</Link>
             <Link href="/blog" className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">Blog & Ressources</Link>
             <button onClick={() => scrollToSection('contact')} className="block text-gray-400 hover:text-gold-400 transition-colors text-sm">Me contacter</button>
           </div>

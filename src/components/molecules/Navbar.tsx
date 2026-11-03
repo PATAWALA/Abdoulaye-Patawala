@@ -113,6 +113,9 @@ const Navbar: React.FC = () => {
               <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
                 Portfolio
               </Link>
+              <Link href="/offres" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
+                Offres
+              </Link>
               <Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
                 À propos
               </Link>
