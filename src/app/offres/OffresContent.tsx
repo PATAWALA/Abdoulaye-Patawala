@@ -1,6 +1,5 @@
 'use client';
 
-import ScrollReveal from '@/components/atoms/ScrollReveal';
 import { offersContent } from '@/content/offers';
 
 const CheckIcon = () => (
@@ -38,178 +37,174 @@ export default function OffresContent() {
 
       <div className="relative max-w-5xl mx-auto">
         {/* En-tête */}
-        <ScrollReveal className="text-center mb-6">
+        <div className="text-center mb-6">
           <span className="inline-block px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs md:text-sm font-medium tracking-wide uppercase backdrop-blur-sm mb-6">
             {section.badge}
           </span>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-display text-white leading-tight">
             {section.title}
           </h1>
-        </ScrollReveal>
-        <ScrollReveal className="text-center mb-8" delay={100}>
+        </div>
+        <div className="text-center mb-8">
           <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
             {section.subtitle}
           </p>
-        </ScrollReveal>
+        </div>
 
         {/* Garanties */}
-        <ScrollReveal className="flex flex-wrap items-center justify-center gap-6 mb-16" delay={200}>
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
           {guarantees.map((g) => (
             <div key={g.text} className="flex items-center gap-2 text-sm text-gray-400">
               <span>{g.icon}</span>
               <span>{g.text}</span>
             </div>
           ))}
-        </ScrollReveal>
+        </div>
 
         {/* Grille des offres */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
 
           {/* PACK DÉMARRAGE */}
-          <ScrollReveal delay={100}>
-            <div className="group relative flex flex-col h-full p-7 md:p-9 rounded-3xl bg-dark-800 border border-dark-600 hover:border-gold-500/40 hover:shadow-[0_0_40px_-12px_rgba(212,175,55,0.15)] transition-all duration-500">
-              <div className="mb-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-dark-700/80 backdrop-blur-sm text-gray-300 text-xs font-medium border border-dark-600">
-                    {starter.badge}
-                  </span>
-                </div>
-                <h2 className="text-xl md:text-2xl font-display text-white mb-2">
-                  {starter.title}
-                </h2>
-                <p className="text-gray-400 text-sm">{starter.subtitle}</p>
-              </div>
-
-              {/* Prix */}
-              <div className="mb-8">
-                <div className="flex items-baseline gap-2 flex-wrap">
-                  <span className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-                    {starter.price}
-                  </span>
-                  <span className="text-lg md:text-xl text-gray-400 font-medium">
-                    {starter.priceUnit}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-500 mt-2 font-medium">{starter.priceFcfa}</p>
-                <p className="text-xs text-gray-600 mt-2">{starter.priceNote}</p>
-              </div>
-
-              {/* Idéal pour */}
-              <div className="mb-6 p-3 rounded-xl bg-dark-900/50 border border-dark-700">
-                <p className="text-xs text-gray-400 font-medium mb-1">Idéal pour :</p>
-                <p className="text-xs text-gray-500">Les professionnels qui veulent tester leur présence en ligne rapidement, sans investissement lourd.</p>
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-4 mb-8 flex-grow">
-                {starter.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-                    <CheckIcon />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Avertissement */}
-              <div className="mb-6">
-                <p className="text-xs text-gray-500 italic bg-dark-900/50 p-3 rounded-lg border border-dark-700">
-                  {starter.disclaimer}
-                </p>
-              </div>
-
-              {/* CTA */}
-              <a
-                href={starter.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto block w-full text-center px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 border border-gold-500 text-gold-500 hover:text-gold-300 hover:border-gold-300 hover:bg-gold-500/10 focus:outline-none focus:ring-2 focus:ring-gold-400"
-              >
-                {starter.ctaLabel}
-              </a>
-            </div>
-          </ScrollReveal>
-
-          {/* PACK SIGNATURE (mise en avant) */}
-          <ScrollReveal delay={250}>
-            <div className="relative flex flex-col h-full p-7 md:p-9 rounded-3xl bg-gradient-to-b from-dark-800 to-dark-900 border-2 border-gold-500 shadow-[0_0_50px_-15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_60px_-10px_rgba(212,175,55,0.6)] transition-all duration-500 lg:-translate-y-4">
-
-              {/* Badge Recommandé flottant */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max z-10">
-                <span className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 text-dark-900 text-xs font-bold uppercase tracking-wider shadow-lg ring-2 ring-dark-900">
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  {custom.recommendedBadge}
+          <div className="group relative flex flex-col h-full p-7 md:p-9 rounded-3xl bg-dark-800 border border-dark-600 hover:border-gold-500/40 hover:shadow-[0_0_40px_-12px_rgba(212,175,55,0.15)] transition-all duration-500">
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-dark-700/80 backdrop-blur-sm text-gray-300 text-xs font-medium border border-dark-600">
+                  {starter.badge}
                 </span>
               </div>
-
-              <div className="mb-6 mt-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-medium border border-gold-500/20 backdrop-blur-sm">
-                    {custom.badge}
-                  </span>
-                  <span className="inline-block px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold border border-gold-500/30">
-                    PRO
-                  </span>
-                </div>
-                <h2 className="text-xl md:text-2xl font-display text-white mb-2">
-                  {custom.title}
-                </h2>
-                <p className="text-gray-400 text-sm">{custom.subtitle}</p>
-              </div>
-
-              {/* Prix */}
-              <div className="mb-8">
-                <div className="flex items-baseline gap-2 flex-wrap">
-                  <span className="text-sm text-gray-400 font-medium">{custom.pricePrefix}</span>
-                  <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent tracking-tight">
-                    {custom.price}
-                  </span>
-                  <span className="text-lg md:text-xl text-gold-400 font-medium">
-                    {custom.priceUnit}
-                  </span>
-                </div>
-                <p className="text-sm text-gold-500/80 mt-2 font-medium">{custom.priceFcfa}</p>
-                <p className="text-xs text-gray-600 mt-2">{custom.priceNote}</p>
-              </div>
-
-              {/* Idéal pour */}
-              <div className="mb-6 p-3 rounded-xl bg-gold-500/5 border border-gold-500/10">
-                <p className="text-xs text-gold-400 font-medium mb-1">Idéal pour :</p>
-                <p className="text-xs text-gray-400">Les entreprises, cabinets et institutions qui veulent une plateforme complète, performante et automatisée.</p>
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-4 mb-8 flex-grow">
-                {custom.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
-                    <CheckIcon />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Trust signal */}
-              <div className="flex items-center gap-2 text-xs text-gray-500 mb-6">
-                <ShieldIcon />
-                <span>Devis transparent · Aucun frais caché · Accompagnement 3 mois inclus</span>
-              </div>
-
-              {/* CTA */}
-              <a
-                href={custom.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto block w-full text-center px-6 py-4 rounded-xl font-semibold transition-all duration-300 bg-gold-500 text-dark-900 hover:bg-gold-400 shadow-lg shadow-gold-500/20 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold-400 text-base"
-              >
-                {custom.ctaLabel}
-              </a>
+              <h2 className="text-xl md:text-2xl font-display text-white mb-2">
+                {starter.title}
+              </h2>
+              <p className="text-gray-400 text-sm">{starter.subtitle}</p>
             </div>
-          </ScrollReveal>
+
+            {/* Prix */}
+            <div className="mb-8">
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="text-5xl md:text-6xl font-bold text-white tracking-tight">
+                  {starter.price}
+                </span>
+                <span className="text-lg md:text-xl text-gray-400 font-medium">
+                  {starter.priceUnit}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 mt-2 font-medium">{starter.priceFcfa}</p>
+              <p className="text-xs text-gray-600 mt-2">{starter.priceNote}</p>
+            </div>
+
+            {/* Idéal pour */}
+            <div className="mb-6 p-3 rounded-xl bg-dark-900/50 border border-dark-700">
+              <p className="text-xs text-gray-400 font-medium mb-1">Idéal pour :</p>
+              <p className="text-xs text-gray-500">Les professionnels qui veulent tester leur présence en ligne rapidement, sans investissement lourd.</p>
+            </div>
+
+            {/* Features */}
+            <ul className="space-y-4 mb-8 flex-grow">
+              {starter.features.map((feature, i) => (
+                <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
+                  <CheckIcon />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* Avertissement */}
+            <div className="mb-6">
+              <p className="text-xs text-gray-500 italic bg-dark-900/50 p-3 rounded-lg border border-dark-700">
+                {starter.disclaimer}
+              </p>
+            </div>
+
+            {/* CTA */}
+            <a
+              href={starter.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto block w-full text-center px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 border border-gold-500 text-gold-500 hover:text-gold-300 hover:border-gold-300 hover:bg-gold-500/10 focus:outline-none focus:ring-2 focus:ring-gold-400"
+            >
+              {starter.ctaLabel}
+            </a>
+          </div>
+
+          {/* PACK SIGNATURE (mise en avant) */}
+          <div className="relative flex flex-col h-full p-7 md:p-9 rounded-3xl bg-gradient-to-b from-dark-800 to-dark-900 border-2 border-gold-500 shadow-[0_0_50px_-15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_60px_-10px_rgba(212,175,55,0.6)] transition-all duration-500 lg:-translate-y-4">
+
+            {/* Badge Recommandé flottant */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max z-10">
+              <span className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 text-dark-900 text-xs font-bold uppercase tracking-wider shadow-lg ring-2 ring-dark-900">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                {custom.recommendedBadge}
+              </span>
+            </div>
+
+            <div className="mb-6 mt-4">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-medium border border-gold-500/20 backdrop-blur-sm">
+                  {custom.badge}
+                </span>
+                <span className="inline-block px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold border border-gold-500/30">
+                  PRO
+                </span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-display text-white mb-2">
+                {custom.title}
+              </h2>
+              <p className="text-gray-400 text-sm">{custom.subtitle}</p>
+            </div>
+
+            {/* Prix — FCFA en principal */}
+            <div className="mb-8">
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="text-sm text-gray-400 font-medium">{custom.pricePrefix}</span>
+                <span className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent tracking-tight">
+                  {custom.price}
+                </span>
+                <span className="text-lg md:text-xl text-gold-400 font-medium">
+                  {custom.priceUnit}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 mt-2 font-medium">{custom.priceEur}</p>
+              <p className="text-xs text-gray-600 mt-2">{custom.priceNote}</p>
+            </div>
+
+            {/* Idéal pour */}
+            <div className="mb-6 p-3 rounded-xl bg-gold-500/5 border border-gold-500/10">
+              <p className="text-xs text-gold-400 font-medium mb-1">Idéal pour :</p>
+              <p className="text-xs text-gray-400">Les entreprises, cabinets et institutions qui veulent une plateforme complète, performante et automatisée.</p>
+            </div>
+
+            {/* Features */}
+            <ul className="space-y-4 mb-8 flex-grow">
+              {custom.features.map((feature, i) => (
+                <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
+                  <CheckIcon />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            {/* Trust signal */}
+            <div className="flex items-center gap-2 text-xs text-gray-500 mb-6">
+              <ShieldIcon />
+              <span>Devis transparent · Aucun frais caché · Accompagnement 3 mois inclus</span>
+            </div>
+
+            {/* CTA */}
+            <a
+              href={custom.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto block w-full text-center px-6 py-4 rounded-xl font-semibold transition-all duration-300 bg-gold-500 text-dark-900 hover:bg-gold-400 shadow-lg shadow-gold-500/20 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold-400 text-base"
+            >
+              {custom.ctaLabel}
+            </a>
+          </div>
         </div>
 
         {/* Comparaison rapide */}
-        <ScrollReveal className="mt-16">
+        <div className="mt-16">
           <div className="max-w-3xl mx-auto">
             <h3 className="text-center text-xs text-gold-400 tracking-[0.3em] uppercase mb-8 font-medium">
               Ce qui distingue le Pack Signature
@@ -228,10 +223,10 @@ export default function OffresContent() {
               ))}
             </div>
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* CTA final */}
-        <ScrollReveal className="mt-20">
+        <div className="mt-20">
           <div className="max-w-2xl mx-auto text-center p-10 md:p-14 rounded-3xl bg-gradient-to-b from-dark-800 to-dark-900 border border-dark-600 hover:border-gold-500/30 transition-all duration-500 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-gold-500/5 via-transparent to-transparent pointer-events-none" />
             <div className="relative">
@@ -258,7 +253,7 @@ export default function OffresContent() {
               <p className="text-gray-600 text-xs mt-6">Réponse sous 24h · Sans engagement</p>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

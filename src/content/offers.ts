@@ -33,9 +33,9 @@ export const offersContent = {
     title: 'Pack Signature',
     subtitle: 'Votre plateforme complète, automatisée et sécurisée.',
     pricePrefix: 'À partir de',
-    price: '230',
-    priceUnit: '€',
-    priceFcfa: '≈ 150 000 FCFA',
+    price: '230 000',
+    priceUnit: 'FCFA',
+    priceEur: '≈ 350 €',
     priceNote: 'Devis personnalisé selon la complexité de votre projet.',
     features: [
       'Design 100% personnalisé (vos photos, vos couleurs)',

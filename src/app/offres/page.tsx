@@ -5,7 +5,7 @@ import OffresContent from './OffresContent';
 
 export const metadata: Metadata = generatePageMetadata(
   'Mes Offres — Abdoulaye Patawala',
-  'Pack Démarrage dès 12 €/an ou Pack Signature sur-mesure à partir de 230 €. Création de site web professionnel, automatisation et accompagnement technique à Cotonou.',
+  'Pack Démarrage dès 12 €/an ou Pack Signature sur-mesure à partir de 230 000 FCFA. Création de site web professionnel, automatisation et accompagnement technique à Cotonou.',
   '/offres'
 );
 
@@ -55,8 +55,8 @@ const offersSchema = {
         areaServed: { '@type': 'Country', name: 'BJ' },
         offers: {
           '@type': 'Offer',
-          price: '230',
-          priceCurrency: 'EUR',
+          price: '230000',
+          priceCurrency: 'XOF',
           priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
         },
