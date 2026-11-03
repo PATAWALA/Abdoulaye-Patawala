@@ -154,36 +154,56 @@ export default function OffresContent() {
               <p className="text-gray-400 text-sm">{custom.subtitle}</p>
             </div>
 
-            {/* Prix — FCFA en principal */}
+            {/* Prix */}
             <div className="mb-8">
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="text-sm text-gray-400 font-medium">{custom.pricePrefix}</span>
-                <span className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent tracking-tight">
+                <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent tracking-tight">
                   {custom.price}
                 </span>
                 <span className="text-lg md:text-xl text-gold-400 font-medium">
                   {custom.priceUnit}
                 </span>
               </div>
-              <p className="text-sm text-gray-500 mt-2 font-medium">{custom.priceEur}</p>
-              <p className="text-xs text-gray-600 mt-2">{custom.priceNote}</p>
+              <p className="text-sm text-gray-500 mt-2 font-medium">{custom.priceFcfa}</p>
+              <p className="text-xs text-gray-500 mt-3 leading-relaxed bg-dark-900/50 p-3 rounded-lg border border-dark-700">
+                {custom.priceNote}
+              </p>
             </div>
 
             {/* Idéal pour */}
             <div className="mb-6 p-3 rounded-xl bg-gold-500/5 border border-gold-500/10">
               <p className="text-xs text-gold-400 font-medium mb-1">Idéal pour :</p>
-              <p className="text-xs text-gray-400">Les entreprises, cabinets et institutions qui veulent une plateforme complète, performante et automatisée.</p>
+              <p className="text-xs text-gray-400">Les entreprises, cabinets et institutions qui veulent un site professionnel conçu sur-mesure.</p>
             </div>
 
-            {/* Features */}
-            <ul className="space-y-4 mb-8 flex-grow">
-              {custom.features.map((feature, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
-                  <CheckIcon />
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            {/* Features incluses dès 230 € */}
+            <div className="mb-6">
+              <p className="text-xs text-gold-400 tracking-wide uppercase font-medium mb-3">Inclus dès 230 €</p>
+              <ul className="space-y-3">
+                {custom.baseFeatures.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
+                    <CheckIcon />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Features avancées (sur devis) */}
+            <div className="mb-8 flex-grow">
+              <p className="text-xs text-gray-500 tracking-wide uppercase font-medium mb-3">Disponibles sur devis</p>
+              <ul className="space-y-3">
+                {custom.advancedFeatures.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-400 text-sm">
+                    <svg className="w-5 h-5 text-gray-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* Trust signal */}
             <div className="flex items-center gap-2 text-xs text-gray-500 mb-6">

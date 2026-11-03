@@ -115,17 +115,19 @@ const Offers: React.FC = () => {
             <div className="mb-8">
               <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="text-sm text-gray-400 font-medium">{custom.pricePrefix}</span>
-                <span className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 bg-clip-text text-transparent tracking-tight">
+                <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 bg-clip-text text-transparent tracking-tight">
                   {custom.price}
                 </span>
                 <span className="text-lg md:text-xl text-gold-400 font-medium">{custom.priceUnit}</span>
               </div>
-              <p className="text-sm text-gray-500 mt-2 font-medium">{custom.priceEur}</p>
-              <p className="text-xs text-gray-600 mt-2">{custom.priceNote}</p>
+              <p className="text-sm text-gray-500 mt-2 font-medium">{custom.priceFcfa}</p>
+              <p className="text-xs text-gray-500 mt-3 leading-relaxed bg-dark-900/50 p-2.5 rounded-lg border border-dark-700">
+                {custom.priceNote}
+              </p>
             </div>
 
             <ul className="space-y-3 md:space-y-4 mb-8 flex-grow">
-              {custom.features.map((feature, i) => (
+              {custom.baseFeatures.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-200 text-sm">
                   <CheckIcon />
                   {feature}
