@@ -1,10 +1,14 @@
-// src/components/molecules/Navbar.tsx
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+
+const navLinks = [
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/offres', label: 'Offres' },
+  { href: '/a-propos', label: 'À propos' },
+];
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +44,7 @@ const Navbar: React.FC = () => {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="relative group flex-shrink-0" onClick={closeMenu}>
             <span className="text-gold-400 font-display text-2xl lg:text-3xl tracking-tight">Abdoulaye</span>
@@ -48,16 +52,36 @@ const Navbar: React.FC = () => {
             <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent group-hover:via-gold-400 transition-all duration-500" />
           </Link>
 
+          {/* Liens desktop */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm font-medium transition-colors duration-300 ${
+                  pathname === link.href
+                    ? 'text-gold-400'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {link.label}
+                {pathname === link.href && (
+                  <span className="absolute -bottom-1 left-0 w-full h-px bg-gold-400" />
+                )}
+              </Link>
+            ))}
+          </div>
+
           {/* Actions */}
-          <div className="flex items-center gap-4 sm:gap-6">
-            {/* Bouton Diagnostic offert (desktop) */}
+          <div className="flex items-center gap-4 sm:gap-5">
+            {/* Bouton CTA (desktop) */}
             {!menuOpen && (
               <button
                 onClick={() => navigateToSection('#contact')}
-                className="hidden sm:inline-flex relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gold-500 text-dark-900 text-sm sm:text-base font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 items-center gap-2"
+                className="hidden sm:inline-flex relative px-5 py-2.5 bg-gold-500 text-dark-900 text-sm font-semibold rounded-xl overflow-hidden group/cta transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 items-center gap-2"
               >
                 <svg
-                  className="relative z-10 w-5 h-5 flex-shrink-0 group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1 transition-transform duration-300"
+                  className="relative z-10 w-4 h-4 flex-shrink-0 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -69,10 +93,10 @@ const Navbar: React.FC = () => {
               </button>
             )}
 
-            {/* Hamburger */}
+            {/* Hamburger (toujours visible en mobile, aussi en desktop pour le panneau complet) */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-50 flex flex-col gap-[7px] items-end group p-2"
+              className="lg:hidden relative z-50 flex flex-col gap-[7px] items-end group p-2"
               aria-label="Menu"
             >
               <span
@@ -90,9 +114,9 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Sidebar / panneau */}
+      {/* Sidebar mobile */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-500 ${
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -103,25 +127,24 @@ const Navbar: React.FC = () => {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Panneau en flex column : liens en haut, bouton en bas */}
           <div className="flex flex-col h-full p-10 pt-24">
-            {/* Liens (en haut) */}
             <div className="flex-1 space-y-6">
               <Link href="/" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
                 Accueil
               </Link>
-              <Link href="/portfolio" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-                Portfolio
-              </Link>
-              <Link href="/offres" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-                Offres
-              </Link>
-              <Link href="/a-propos" onClick={closeMenu} className="block text-3xl font-display text-white hover:text-gold-400 transition-colors">
-                À propos
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className={`block text-3xl font-display transition-colors ${
+                    pathname === link.href ? 'text-gold-400' : 'text-white hover:text-gold-400'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
-
-            {/* Bouton en bas */}
             <div className="pt-6">
               <button
                 onClick={() => navigateToSection('#contact')}

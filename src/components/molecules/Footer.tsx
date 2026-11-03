@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
               <span className="absolute -bottom-0.5 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent group-hover:via-gold-400 transition-all duration-500" />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Développeur fullstack & architecte digital. Je crée des expériences web premium qui transforment votre vision en résultats concrets.
+              Architecte web & automatisation. Je conçois des plateformes sur-mesure et des systèmes automatisés pour les entreprises et institutions.
             </p>
             <div className="pt-2">
               <p className="text-gray-600 text-xs mb-3">Me suivre</p>

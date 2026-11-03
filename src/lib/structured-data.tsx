@@ -6,17 +6,26 @@ export function generatePersonSchema() {
     '@type': 'Person',
     name: siteConfig.author,
     url: siteConfig.url,
-    jobTitle: 'Développeur Fullstack & Architecte Digital',
+    jobTitle: 'Architecte Web & Automatisation',
+    description: 'Conception de plateformes sur-mesure et de systèmes automatisés pour entreprises, cabinets et institutions.',
+    knowsAbout: ['Next.js', 'TypeScript', 'React', 'n8n', 'Supabase', 'Automatisation IA', 'Web Development'],
     worksFor: {
       '@type': 'Organization',
-      name: 'Freelance'
+      name: 'Indépendant'
     },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Cotonou',
+      addressRegion: 'Littoral',
       addressCountry: 'BJ'
     },
-    sameAs: []
+    sameAs: [
+      'https://web.facebook.com/Patawala',
+      'https://www.instagram.com/patawalaabdoulaye1900/',
+      'https://x.com/AbdoulayeP79682',
+      'https://www.linkedin.com/in/abdoulaye-patawala-84b138381/',
+      'https://github.com/PATAWALA'
+    ]
   }
 }
 

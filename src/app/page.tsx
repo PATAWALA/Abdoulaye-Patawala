@@ -12,8 +12,8 @@ import Contact from '@/components/sections/Contact'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = generatePageMetadata(
-  'Abdoulaye Patawala | Architecte Web & Automatisation',
-  'Expert technique basé à Cotonou. Je conçois des sites sur-mesure et des systèmes automatisés pour les entreprises, cabinets et professions libérales.',
+  'Abdoulaye Patawala — Architecte Web & Automatisation à Cotonou',
+  'Architecte web basé à Cotonou. Conception de sites sur-mesure, plateformes sécurisées et systèmes automatisés (n8n, IA) pour entreprises, cabinets et institutions au Bénin et en Afrique de l\'Ouest.',
   '/'
 );
 
